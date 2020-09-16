@@ -27,7 +27,7 @@ const Header = () => {
       <nav className="navbar">
         <div className="navbar-container">
           <NavLink to="/" className="navbar-logo">
-            movieReelz <i class="fas fa-theater-masks"></i>
+            movieReelz <i className="fas fa-theater-masks"></i>
           </NavLink>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />

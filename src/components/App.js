@@ -1,5 +1,7 @@
 import React from "react";
 import Header from "./Header";
+import Banner from "./Banner";
+import MovieList from "./MovieList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
@@ -14,7 +16,8 @@ function App() {
           </Switch>
         </Router>
       </header>
-
+      <Banner></Banner>
+      <MovieList></MovieList>
       <footer></footer>
     </div>
   );

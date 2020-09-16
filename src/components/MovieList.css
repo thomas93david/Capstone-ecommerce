@@ -1,0 +1,12 @@
+.movie-container {
+  text-align: center;
+  background-color: turquoise;
+}
+
+.movie-flex {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  margin: auto;
+  background-color: violet;
+}
