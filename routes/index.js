@@ -43,7 +43,7 @@ apiRouter.use((req, res, next) => {
     next();
 });
 
-apiRouter.use('/customers', customersRouter);
+apiRouter.use('/customer', customersRouter);
 // apiRouter.use('/movies', moviesRouter);
 // apiRouter.use('/cart', cartRouter);
 apiRouter.use((error, req, res, next) => {

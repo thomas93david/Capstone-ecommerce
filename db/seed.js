@@ -4,10 +4,11 @@ const { createCustomer, createMovies } = require('../db');
 async function dropTables() {
     try {
         await client.query(`
-            DROP TABLE IF EXISTS wishlist;
-            DROP TABLE IF EXISTS cart;
-            DROP TABLE IF EXISTS movies;
-            DROP TABLE IF EXISTS customers;
+        DROP TABLE IF EXISTS users_cart;
+        DROP TABLE IF EXISTS wishlist;
+        DROP TABLE IF EXISTS cart;
+        DROP TABLE IF EXISTS movies;
+        DROP TABLE IF EXISTS customers;
     `);
     } catch (error) {
         throw error;
@@ -20,16 +21,14 @@ async function createTables() {
     console.log("Starting to build tables...");
     try {
         await client.query(`
-            CREATE TABLE customers(
+               CREATE TABLE customers(
                 id SERIAL PRIMARY KEY,
-                username VARCHAR(50) NOT NULL UNIQUE,
-                password VARCHAR(255) NOT NULL,
-                "isAdmin" boolean DEFAULT false,
-                "isGuest" boolean DEFAULT false
-            );
-            CREATE TABLE movies(
+                username VARCHAR(255) UNIQUE NOT NULL,
+                password VARCHAR (255),
+                "isAdmin" BOOLEAN default false
+               );
+        CREATE TABLE movies(
                 id SERIAL PRIMARY KEY,
-                "customerId" INTEGER REFERENCES customers(id),
                 title VARCHAR (255) UNIQUE NOT NULL,
                 genre VARCHAR (255) NOT NULL,
                 price INTEGER NOT NULL,
@@ -37,16 +36,19 @@ async function createTables() {
             );
             CREATE TABLE cart (
                 id SERIAL PRIMARY KEY,
-                "customerId" INTEGER REFERENCES movies(id),
-                "movieId" INTEGER REFERENCES movies(title),
-                UNIQUE("customerId", "movieId")
+                "movieTitle" VARCHAR (255) REFERENCES movies(title),
+                UNIQUE( "movieTitle")
             );
             CREATE TABLE wishlist (
-                id SERIAL PRIMARY KEY,
-                "customerId" INTEGER REFERENCES customers(id),
-                "movieId" VARCHAR(255) REFERENCES movies(id),
-                UNIQUE("customerId", "movieId")
-            );`);
+                "wishlistId" INTEGER REFERENCES cart(id),
+                UNIQUE ("wishlistId")
+            );
+            CREATE TABLE users_cart (
+                "cartId" INTEGER REFERENCES cart(id),
+                "movieId" INTEGER REFERENCES movies(id),
+                UNIQUE ("cartId", "movieId")
+            );
+            `);
     } catch (error) {
         throw error;
     }
