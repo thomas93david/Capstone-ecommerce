@@ -1,15 +1,13 @@
 const client = require('./client');
-const { createCustomer } = require('./customers');
+const { createCustomer, createMovies } = require('../db');
 
 async function dropTables() {
     try {
         await client.query(`
-            DROP TABLE IF EXISTS users_cart;
             DROP TABLE IF EXISTS wishlist;
             DROP TABLE IF EXISTS cart;
             DROP TABLE IF EXISTS movies;
             DROP TABLE IF EXISTS customers;
-
     `);
     } catch (error) {
         throw error;
@@ -35,25 +33,20 @@ async function createTables() {
                 title VARCHAR (255) UNIQUE NOT NULL,
                 genre VARCHAR (255) NOT NULL,
                 price INTEGER NOT NULL,
-                UNIQUE("customerId")
+                rated VARCHAR(6)
             );
             CREATE TABLE cart (
                 id SERIAL PRIMARY KEY,
                 "customerId" INTEGER REFERENCES movies(id),
-                "movieTitle" VARCHAR (255) REFERENCES movies(title),
-                UNIQUE("customerId", "movieTitle")
+                "movieId" INTEGER REFERENCES movies(title),
+                UNIQUE("customerId", "movieId")
             );
             CREATE TABLE wishlist (
-                "wishlistId" INTEGER REFERENCES cart(id),
-                UNIQUE ("wishlistId")
-
-            );
-            CREATE TABLE users_cart (
-                "cartId" INTEGER REFERENCES cart(id),
-                "movieId" INTEGER REFERENCES movies(id),
-                UNIQUE ("cartId", "movieId")
-
-            ); `);
+                id SERIAL PRIMARY KEY,
+                "customerId" INTEGER REFERENCES customers(id),
+                "movieId" VARCHAR(255) REFERENCES movies(id),
+                UNIQUE("customerId", "movieId")
+            );`);
     } catch (error) {
         throw error;
     }
