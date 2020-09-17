@@ -13,7 +13,6 @@ const { JWT_SECRET } = process.env;
 apiRouter.use(async (req, res, next) => {
     const prefix = 'Bearer ';
     const auth = req.header('Authorization');
-
     if (!auth) { // nothing to see here
         next();
     } else if (auth.startsWith(prefix)) {
@@ -44,7 +43,7 @@ apiRouter.use((req, res, next) => {
     next();
 });
 
-apiRouter.use('/customers', customersRouter);
+apiRouter.use('/customer', customersRouter);
 // apiRouter.use('/movies', moviesRouter);
 // apiRouter.use('/cart', cartRouter);
 apiRouter.use((error, req, res, next) => {

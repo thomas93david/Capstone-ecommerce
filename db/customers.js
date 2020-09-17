@@ -1,4 +1,5 @@
 const client = require('./client');
+const bcrypt = require('bcrypt')
 
 
 async function createCustomer({ username, password }) {
@@ -48,11 +49,29 @@ async function getCustomerByUsername(username) {
         throw error
     }
 }
+async function getCustomer({ username, password }) {
+    try {
+        const customer = await getCustomerByUsername(username);
+
+        if (!customer) {
+            return;
+        }
+        const matchingPassword = bcrypt.compareSync(password, customer.password);
+
+        if (!matchingPassword) {
+            return;
+        }
+        return customer;
+    } catch (error) {
+        throw error;
+    }
+}
 
 
 
 module.exports = {
     createCustomer,
     getCustomerById,
-    getCustomerByUsername
+    getCustomerByUsername,
+    getCustomer
 }
