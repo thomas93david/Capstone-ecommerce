@@ -1,6 +1,12 @@
 const client = require('./client');
-const { createCustomer, createMovies } = require('../db');
-
+const { createCustomer,
+    createMovies,
+    getMovieByTitle,
+    createCart,
+    getCartById } = require('../db');
+const { addMovieToCart } = require('../db/movie_cart')
+const cartRouter = require('../routes/cartRoute');
+const { getMovieById } = require('./movies');
 async function dropTables() {
     try {
         await client.query(`
@@ -32,11 +38,13 @@ async function createTables() {
                 title VARCHAR (255) UNIQUE NOT NULL,
                 genre VARCHAR (255) NOT NULL,
                 price INTEGER NOT NULL,
-                rated VARCHAR(6)
+                rated VARCHAR(10)
             );
             CREATE TABLE cart (
                 id SERIAL PRIMARY KEY,
                 "movieTitle" VARCHAR (255) REFERENCES movies(title),
+                "totalPrice" INTEGER NOT NULL,
+                quantity INTEGER NOT NULL,
                 UNIQUE( "movieTitle")
             );
             CREATE TABLE wishlist (
@@ -95,9 +103,80 @@ async function createInitialCustomers() {
     }
 }
 
+async function createIntitialMovies() {
+    console.log('making initial movies...')
+    try {
+        const movie1 = await createMovies({
+            title: "2012",
+            genre: "action",
+            price: 500.00,
+            rated: "5 star"
+        });
+        console.log("first movie...", movie1);
+        const movie2 = await createMovies({
+            title: "Good Will hunting",
+            genre: "Drama",
+            price: 1100.00,
+            rated: "E"
+        })
+        console.log("second movie...", movie2)
+        console.log("finsihed making movies..")
+    } catch (error) {
+
+    }
+}
+async function gettingMovieTitle() {
+    try {
+        console.log("getting movie title...")
+        const title = await getMovieByTitle(1);
+        console.log("title..", title)
+        console.log("finished getting movie...")
+    } catch (error) {
+        throw error
+    }
+}
+
+async function createInitialCart() {
+    console.log("creating cart...");
+    try {
+        const cart = await createCart({
+            movieTitle: "2012",
+            totalPrice: 500.00,
+            quantity: 1
+        })
+        console.log("this is the cart...", cart);
+        console.log("finished creating cart...")
+
+    } catch (error) {
+        throw error
+    }
+}
+async function addMovieInCart() {
+    console.log("adding movie...")
+    try {
+        const movieId = await getMovieById(2)
+        const addMovie = await addMovieToCart(1, movieId)
+
+        const getCart = await getCartById(1, addMovie)
+
+        console.log("trying to add movie id...", movieId)
+        console.log('added movie', addMovie);
+        console.log("getting new cart", getCart)
+        console.log("finsihed adding")
+    } catch (error) {
+        throw error
+    }
+}
+
+
+
 async function populateInitialData() {
     try {
         await createInitialCustomers();
+        await createIntitialMovies();
+        await gettingMovieTitle();
+        await createInitialCart();
+        await addMovieInCart();
 
         // const movies = require('movies.json')
 
@@ -106,19 +185,6 @@ async function populateInitialData() {
 
         //     }
         // }).forEach(insertIntoMoviesTable)
-
-        // await getInitialUser();
-        // await createInitialLinks();
-        // // await createInitialTags();
-        // // await createJointTagLink();
-        // // await deleteLinksTagsPair();
-        // // await deleteTag();
-        // await getInitialLinks();
-        // await getLinksFromTags();
-        // // await addTagsToLinkObjectTest();
-        // await updateInitialLinks();
-        // await clickClick();
-        // await getTags();
     } catch (error) {
         throw error;
     }
