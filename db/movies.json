@@ -1,0 +1,108 @@
+{
+  "movie_results": [
+    {
+      "title": "Mulan",
+      "year": "2020",
+      "imdb_id": "tt4566758"
+    },
+    {
+      "title": "Train to Busan Presents: Peninsula",
+      "year": "2020",
+      "imdb_id": "tt8850222"
+    },
+    {
+      "title": "After We Collided",
+      "year": "2020",
+      "imdb_id": "tt10362466"
+    },
+    {
+      "title": "Phineas and Ferb The Movie: Candace Against the Universe",
+      "year": "2020",
+      "imdb_id": "tt1817232"
+    },
+    {
+      "title": "One Night in Bangkok",
+      "year": "2020",
+      "imdb_id": "tt12192190"
+    },
+    {
+      "title": "The Crimes That Bind",
+      "year": "2020",
+      "imdb_id": "tt10915060"
+    },
+    {
+      "title": "Bad Boys for Life",
+      "year": "2020",
+      "imdb_id": "tt1502397"
+    },
+    {
+      "title": "We Bare Bears: The Movie",
+      "year": "2020",
+      "imdb_id": "tt10474606"
+    },
+    {
+      "title": "Centigrade",
+      "year": "2020",
+      "imdb_id": "tt8945942"
+    },
+    {
+      "title": "Scoob!",
+      "year": "2020",
+      "imdb_id": "tt3152592"
+    },
+    {
+      "title": "The Old Guard",
+      "year": "2020",
+      "imdb_id": "tt7556122"
+    },
+    {
+      "title": "Birds of Prey (and the Fantabulous Emancipation of One Harley Quinn)",
+      "year": "2020",
+      "imdb_id": "tt7713068"
+    },
+    {
+      "title": "Sonic the Hedgehog",
+      "year": "2020",
+      "imdb_id": "tt3794354"
+    },
+    {
+      "title": "The One and Only Ivan",
+      "year": "2020",
+      "imdb_id": "tt3661394"
+    },
+    {
+      "title": "Invasion",
+      "year": "2020",
+      "imdb_id": "tt8060328"
+    },
+    {
+      "title": "Tenet",
+      "year": "2020",
+      "imdb_id": "tt6723592"
+    },
+    {
+      "title": "Animal Crackers",
+      "year": "2020",
+      "imdb_id": "tt4155534"
+    },
+    {
+      "title": "Greyhound",
+      "year": "2020",
+      "imdb_id": "tt6048922"
+    },
+    {
+      "title": "#Alive",
+      "year": "2020",
+      "imdb_id": "tt10620868"
+    },
+    {
+      "title": "Host",
+      "year": "2020",
+      "imdb_id": "tt12749596"
+    }
+  ],
+  "results": 20,
+  "Total_results": "2115",
+  "status": "OK",
+  "status_message": "Query was successful"
+}

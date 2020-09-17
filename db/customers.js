@@ -16,6 +16,43 @@ async function createCustomer({ username, password }) {
         throw error
     }
 }
+async function getCustomerById(customerId) {
+    try {
+        // grabs the user by the "customerId"
+        // that is made inside our seed.js/50
+        const { rows: [customer] } = await client.query(`
+      SELECT *
+      FROM customers
+      WHERE id=${customerId}
+    `);
+        // if there is no user there will not be a userid so return null
+        if (!customer) {
+            return null
+        }
+        // sets the userobject to the posts and the call the getpost by the user while passing in userid?
+        return customer;
+    } catch (error) {
+        throw error;
+    }
+}
+async function getCustomerByUsername(username) {
+    try {
+        const { rows: [customer] } = await client.query(`
+    SELECT * from customers WHERE username=$1;
+    `, [username]);
+        if (!customer || customer.length === 0) {
+            return null
+        }
+        return customer
+    } catch (error) {
+        throw error
+    }
+}
+
+
+
 module.exports = {
-    createCustomer
+    createCustomer,
+    getCustomerById,
+    getCustomerByUsername
 }
