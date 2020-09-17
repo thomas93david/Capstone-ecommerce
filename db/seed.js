@@ -103,6 +103,15 @@ async function createInitialCustomers() {
 async function populateInitialData() {
     try {
         await createInitialCustomers();
+
+        // const movies = require('movies.json')
+
+        // movies.map((m) => {
+        //     return {
+
+        //     }
+        // }).forEach(insertIntoMoviesTable)
+
         // await getInitialUser();
         // await createInitialLinks();
         // // await createInitialTags();

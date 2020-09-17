@@ -16,7 +16,7 @@ server.use(express.static(path.join(__dirname, 'build')));
 
 // set up api, default route and db/client connection
 
-// server.use('/api', require('./routes'));
+server.use('/api', require('./routes'));
 server.use((req, res, next) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
