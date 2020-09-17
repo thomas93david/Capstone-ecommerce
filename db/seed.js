@@ -1,5 +1,5 @@
 const client = require('./client');
-const { createCustomer } = require('./customers');
+const { createCustomer, createMovies } = require('../db');
 
 async function dropTables() {
     try {
@@ -34,7 +34,6 @@ async function createTables() {
                 genre VARCHAR (255) NOT NULL,
                 price INTEGER NOT NULL,
                 rated VARCHAR(6)
-                UNIQUE("customerId")
             );
             CREATE TABLE cart (
                 id SERIAL PRIMARY KEY,

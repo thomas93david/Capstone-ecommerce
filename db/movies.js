@@ -5,7 +5,7 @@ async function createMovies({title, genre, price, rated}){
         const {rows: [movie]} = await client.query(`
         INSERT INTO movies(title, genre, price, rated)
         VALUES ($1, $2, $3, $4);
-        `);
+        `,[title, genre, price, rated]);
     } catch (error) {
         console.error(error);
     }
