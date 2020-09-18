@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Form } from "react-bootstrap";
 
-import Button from "./Button";
+import Button from "./Areas/Button";
 import "./Header.css";
 
 const Header = () => {
