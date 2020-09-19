@@ -15,7 +15,7 @@ const Button = ({ children, type, onClick, buttonStyle, buttonSize }) => {
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
   return (
-    <NavLink to="/login" className="">
+    <NavLink to="/register" className="">
       <button
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
         onClick={onClick}

@@ -1,10 +1,12 @@
 import React from "react";
 import Header from "./Header";
+
 import Footer from "./Footer";
 import Banner from "./Areas/Banner";
 import MovieList from "./Areas/MovieList";
 import Login from "./Areas/Login";
 import Register from "./Areas/Register";
+import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
