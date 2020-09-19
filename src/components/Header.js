@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Form } from "react-bootstrap";
 
-import Button from "./Button";
+import Button from "./Areas/Button";
 import "./Header.css";
 
 const Header = () => {
@@ -75,8 +75,15 @@ const Header = () => {
               placeholder="search movies"
             />
           </Form.Group>
-          {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
+          {button && (
+            <Button buttonStyle="btn--outline" to="/register">
+              SIGN UP
+            </Button>
+          )}
         </div>
+        <Button buttonStyle="btn--outline" to="/login">
+          <i class="far fa-user-circle"></i>
+        </Button>
       </nav>
     </>
   );

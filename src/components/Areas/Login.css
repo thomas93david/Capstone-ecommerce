@@ -1,0 +1,19 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  height: 300px;
+  border: 1px solid green;
+  margin: 12px;
+}
+
+.login-wrap {
+  display: flex;
+  width: 500px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: thistle;
+}

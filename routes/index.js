@@ -1,8 +1,8 @@
 const express = require('express');
 const apiRouter = express.Router()
 const customersRouter = require('./customer');
-// const moviesRouter = require('../db/movies');
-// const cartRouter = require('../db/cart');
+const moviesRouter = require('./movieRoute');
+const cartRouter = require('./cartRoute');
 // // authorization
 // set `req.user` if possible
 const jwt = require('jsonwebtoken');
@@ -13,7 +13,6 @@ const { JWT_SECRET } = process.env;
 apiRouter.use(async (req, res, next) => {
     const prefix = 'Bearer ';
     const auth = req.header('Authorization');
-
     if (!auth) { // nothing to see here
         next();
     } else if (auth.startsWith(prefix)) {
@@ -44,9 +43,9 @@ apiRouter.use((req, res, next) => {
     next();
 });
 
-apiRouter.use('/customers', customersRouter);
-// apiRouter.use('/movies', moviesRouter);
-// apiRouter.use('/cart', cartRouter);
+apiRouter.use('/customer', customersRouter);
+apiRouter.use('/movies', moviesRouter);
+apiRouter.use('/cart', cartRouter);
 apiRouter.use((error, req, res, next) => {
     res.status(500).send(error);
 })

@@ -3,12 +3,12 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const customersRouter = express.Router();
-const { createCustomer, getCustomerByUsername } = require("../db");
+const { createCustomer, getCustomerByUsername, getCustomer } = require("../db");
 
-customersRouter.post("register", async (req, res, next) => {
+customersRouter.post("/register", async (req, res, next) => {
     try {
         const { username, password } = req.body;
-        let securedPassword;
+        let passwordHash;
         const SALT_COUNT = 11
         const _customer = await getCustomerByUsername({ username })
 
@@ -24,11 +24,12 @@ customersRouter.post("register", async (req, res, next) => {
                 message: "The password must be a minimum of at least 8 characters."
             })
         }
-        else bcrypt.hash(password, SALT_COUNT, async (err, hashedPassword) => {
-            securedPassword = hashedPassword
-            const customer = await createCustomer({ username, password: securedPassword })
+        else bcrypt.hash(password, SALT_COUNT, async (err, hashed) => {
+            passwordHash = hashed
+            const customer = await createCustomer({ username, password: passwordHash })
+            console.log("getting the customer in the route", customer.id)
             const token = jwt.sign({ id: customer.id, username }, process.env.JWT_SECRET, {
-                expiresin: "5w",
+                expiresIn: "5w",
             })
             delete customer.id
             delete customer.password
@@ -39,4 +40,49 @@ customersRouter.post("register", async (req, res, next) => {
         next({ name, message })
     }
 })
+
+customersRouter.post("/login", async (req, res, next) => {
+    const { username, password } = req.body;
+    // request must have both
+    if (!username || !password) {
+        next({
+            name: "MissingCredentialsError",
+            message: "Please supply both a username and password",
+        });
+    }
+    try {
+        const customer = await getCustomer({ username, password });
+        if (!customer) {
+            next({
+                name: "IncorrectCredentialsError",
+                message: "Username or password is incorrect",
+            });
+        } else {
+            const token = jwt.sign(
+                {
+                    id: customer.id,
+                    username,
+                },
+                process.env.JWT_SECRET,
+                {
+                    expiresIn: "5w",
+                }
+            );
+
+            delete customer.password;
+            customer.token = token;
+            res.send({ message: "you're logged in!", customer });
+        }
+        // console.log('my user', user)
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+})
+
+
+
+
+
+
 module.exports = customersRouter;
