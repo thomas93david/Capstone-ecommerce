@@ -29,11 +29,14 @@ async function createTables() {
             );
             CREATE TABLE movies(
                 id SERIAL PRIMARY KEY,
-                "customerId" INTEGER REFERENCES customers(id),
                 title VARCHAR (255) UNIQUE NOT NULL,
+                year VARCHAR(255),
+                length VARCHAR(255),
+                rating VARCHAR(255),
+                rating_votes VARCHAR(255),
+                poster_url VARCHAR(255),
                 genre VARCHAR (255) NOT NULL,
-                price INTEGER NOT NULL,
-                rated VARCHAR(6)
+                price INTEGER NOT NULL
             );
             CREATE TABLE cart (
                 id SERIAL PRIMARY KEY,
