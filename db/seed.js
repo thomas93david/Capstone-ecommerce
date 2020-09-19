@@ -1,9 +1,12 @@
 const client = require('./client');
-const { createCustomer,
+const faker = require('faker');
+const {
+    createCustomer,
     createMovies,
     getMovieByTitle,
     createCart,
-    getCartById } = require('../db');
+    getCartById
+} = require('../db');
 const { addMovieToCart } = require('../db/movie_cart')
 const cartRouter = require('../routes/cartRoute');
 const { getMovieById } = require('./movies');
@@ -104,21 +107,24 @@ async function createInitialCustomers() {
 }
 async function getInitialImdb(movies) {
     try {
-        const movies = require('./video.json')
-        // console.log("this is the video movie", movies)
-        const vMovie = Object.entries(movies.resource).map(function (movie) {
-            console.log("this is inside the map", movie)
-            return movie
+        const movies = require('./movies.json')
+
+        const transformedMovies = movies.movie_results.map(m => {
+            return {
+                genre: "common",
+                title: m.title,
+                price: faker.commerce.price(),
+                rated: 'R'
+            }
         })
-        console.log("this should work?", vMovie)
-        const createImdbStuff = await createMovies(vMovie)
+
+        const createImdbStuff = []
+        for (const transMovie of transformedMovies) {
+            createImdbStuff.push(await createMovies(transMovie))
+        }
+
         console.log("create Imdb stuff", createImdbStuff)
         return createImdbStuff
-
-        // movies.map((movie) => {
-        //     console.log('movie', movie)
-        //     return movie
-        // }).forEach(createMovie)
 
     } catch (error) {
         throw error
