@@ -1,5 +1,6 @@
 const client = require('./client');
-const faker = require('faker');
+const faker = require("faker");
+
 const {
     createCustomer,
     createMovies,
@@ -26,6 +27,12 @@ async function dropTables() {
 
 // create the tables
 
+//NOTE FROM CHELSEA::
+    /* I had to remove the NOT NULL constraint from several fields
+    in order to test the create movie function with the data I have acquired.
+    since there are fields missing still. once we have all of the seed data present
+    we can reestablish constraints and clean up code. */
+
 async function createTables() {
     console.log("Starting to build tables...");
     try {
@@ -38,10 +45,14 @@ async function createTables() {
                );
         CREATE TABLE movies(
                 id SERIAL PRIMARY KEY,
-                title VARCHAR (255) UNIQUE,
+                title VARCHAR (255) UNIQUE NOT NULL,
+                year VARCHAR(255),
+                length VARCHAR(255),
+                rating VARCHAR(255),
+                rating_votes VARCHAR(255),
+                poster_url VARCHAR(255),
                 genre VARCHAR (255),
-                price NUMERIC (9,2),
-                rated VARCHAR(10)
+                price VARCHAR NOT NULL
             );
             CREATE TABLE cart (
                 id SERIAL PRIMARY KEY,
@@ -105,55 +116,23 @@ async function createInitialCustomers() {
         throw error;
     }
 }
-async function getInitialImdb(movies) {
-    try {
-        const movies = require('./movies.json')
-        console.log("movies", movies);
-        const movieObj = Object.entries(movies)
-        console.log("getting shit", movieObj)
-        const transformedMovies = movieObj[1].map(m => {
-            console.log("second time around", movieObj[1])
-            return {
-                genre: "common",
-                title: m.title,
-                price: faker.commerce.price(),
-                rated: 'R'
-            }
-        })
-
-        const createImdbStuff = []
-        for (const transMovie of transformedMovies) {
-            createImdbStuff.push(await createMovies(transMovie))
-        }
-
-        console.log("create Imdb stuff", createImdbStuff)
-        return createImdbStuff
-
-    } catch (error) {
-        throw error
-    }
-}
 
 async function createIntitialMovies() {
     console.log('making initial movies...')
     try {
-        const movie1 = await createMovies({
-            title: "2012",
-            genre: "action",
-            price: 500.00,
-            rated: "5 star"
-        });
-        console.log("first movie...", movie1);
-        const movie2 = await createMovies({
-            title: "Good Will hunting",
-            genre: "Drama",
-            price: 110000,
-            rated: "E"
-        })
-        console.log("second movie...", movie2)
-        console.log("finsihed making movies..")
+       const movies = require("./movies_title_year_rating.json");
+       for (i = 0; i < movies.length; i++){
+           const movie = movies[i];
+           await createMovies({
+               title: movie.title,
+               year: movie.year,
+               rating: movie.rating,
+               price: faker.commerce.price(10, 100, 2, '$')
+           })
+       }
+       console.log("Successful Seed Init Movies!");
     } catch (error) {
-
+        console.error(error);
     }
 }
 async function gettingMovieTitle() {
@@ -205,10 +184,10 @@ async function populateInitialData() {
     try {
         await createInitialCustomers();
         await createIntitialMovies();
-        await gettingMovieTitle();
+        // await gettingMovieTitle();
         // await createInitialCart();
         // await addMovieInCart();
-        await getInitialImdb();
+        // await getInitialImdb();
 
 
     } catch (error) {
