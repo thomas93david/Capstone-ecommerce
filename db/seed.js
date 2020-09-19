@@ -35,9 +35,9 @@ async function createTables() {
                );
         CREATE TABLE movies(
                 id SERIAL PRIMARY KEY,
-                title VARCHAR (255) UNIQUE NOT NULL,
-                genre VARCHAR (255) NOT NULL,
-                price INTEGER NOT NULL,
+                title VARCHAR (255) UNIQUE,
+                genre VARCHAR (255),
+                price NUMERIC (9,2),
                 rated VARCHAR(10)
             );
             CREATE TABLE cart (
@@ -102,6 +102,28 @@ async function createInitialCustomers() {
         throw error;
     }
 }
+async function getInitialImdb(movies) {
+    try {
+        const movies = require('./video.json')
+        // console.log("this is the video movie", movies)
+        const vMovie = Object.entries(movies.resource).map(function (movie) {
+            console.log("this is inside the map", movie)
+            return movie
+        })
+        console.log("this should work?", vMovie)
+        const createImdbStuff = await createMovies(vMovie)
+        console.log("create Imdb stuff", createImdbStuff)
+        return createImdbStuff
+
+        // movies.map((movie) => {
+        //     console.log('movie', movie)
+        //     return movie
+        // }).forEach(createMovie)
+
+    } catch (error) {
+        throw error
+    }
+}
 
 async function createIntitialMovies() {
     console.log('making initial movies...')
@@ -116,7 +138,7 @@ async function createIntitialMovies() {
         const movie2 = await createMovies({
             title: "Good Will hunting",
             genre: "Drama",
-            price: 1100.00,
+            price: 110000,
             rated: "E"
         })
         console.log("second movie...", movie2)
@@ -175,16 +197,11 @@ async function populateInitialData() {
         await createInitialCustomers();
         await createIntitialMovies();
         await gettingMovieTitle();
-        await createInitialCart();
-        await addMovieInCart();
+        // await createInitialCart();
+        // await addMovieInCart();
+        await getInitialImdb();
 
-        // const movies = require('movies.json')
 
-        // movies.map((m) => {
-        //     return {
-
-        //     }
-        // }).forEach(insertIntoMoviesTable)
     } catch (error) {
         throw error;
     }
@@ -195,4 +212,4 @@ async function populateInitialData() {
 rebuildDb()
     .then(populateInitialData)
     .catch(console.error)
-    .finally(() => client.end());
+    .finally(() => client.end())
