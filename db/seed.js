@@ -108,8 +108,11 @@ async function createInitialCustomers() {
 async function getInitialImdb(movies) {
     try {
         const movies = require('./movies.json')
-
-        const transformedMovies = movies.movie_results.map(m => {
+        console.log("movies", movies);
+        const movieObj = Object.entries(movies)
+        console.log("getting shit", movieObj)
+        const transformedMovies = movieObj[1].map(m => {
+            console.log("second time around", movieObj[1])
             return {
                 genre: "common",
                 title: m.title,
