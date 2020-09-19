@@ -5,7 +5,7 @@ async function createMovies({ title, genre, price, rated }) {
         const { rows: [movie] } = await client.query(`
         INSERT INTO movies(title, genre, price, rated)
         VALUES ($1, $2, $3, $4)
-        RETURNING *     ;
+        RETURNING * ;
         `, [title, genre, price, rated]);
 
         return movie
