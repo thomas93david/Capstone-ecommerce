@@ -75,8 +75,15 @@ const Header = () => {
               placeholder="search movies"
             />
           </Form.Group>
-          {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
+          {button && (
+            <Button buttonStyle="btn--outline" to="/register">
+              SIGN UP
+            </Button>
+          )}
         </div>
+        <Button buttonStyle="btn--outline" to="/login">
+          <i class="far fa-user-circle"></i>
+        </Button>
       </nav>
     </>
   );
