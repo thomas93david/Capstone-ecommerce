@@ -1,0 +1,300 @@
+
+[
+     
+    { "id":"tt4566758","title":"Mulan","year":2020, "rating":5.4,"ratingCount":49228},
+    
+    
+    {"id":"tt1160419","title":"Dune","year":2020,"canRate":false},
+    
+    
+    { "id":"tt6723592","title":"Tenet","year":2020,"rating":7.8,"ratingCount":105425},
+    
+    
+    { "id":"tt7939766","title":"I'm Thinking of Ending Things","year":2020,"rating":6.8,"ratingCount":30770},
+    
+    
+    { "id":"tt9196192","title":"Cuties","year":2020,"rating":2.5,"ratingCount":19394},
+    
+    
+    { "id":"tt2382320","title":"No Time to Die","year":2020,"canRate":false},
+    
+    
+    { "id":"tt0087538","title":"The Karate Kid","year":1984,"rating":7.2,"ratingCount":175824},
+    
+    
+    { "id":"tt11024272","title":"The Babysitter: Killer Queen","year":2020,"rating":5.9,"ratingCount":11987},
+    
+    
+    { "id":"tt0087182","title":"Dune","year":1984,"rating":6.5,"ratingCount":123141},
+    
+    
+    { "id":"tt10362466","title":"After We Collided","year":2020,"rating":5.6,"ratingCount":3451},
+    
+    
+    { "id":"tt1086064","title":"Bill & Ted Face the Music","year":2020,"rating":6.3,"ratingCount":16176},
+    
+    
+    { "id":"tt11100856","title":"Love, Guaranteed","year":2020,"rating":5.5,"ratingCount":6893},
+    
+    
+    { "id":"tt4682266","title":"The New Mutants","year":2020,"rating":5.5,"ratingCount":10060},
+    
+    
+    { "id":"tt0120762","title":"Mulan","year":1998,"rating":7.6,"ratingCount":248158},
+    
+    
+    { "id":"tt1877830","title":"The Batman","year":2021,"canRate":false},
+    
+    
+    { "id":"tt10620868","title":"#Alive","year":2020,"rating":6.2,"ratingCount":11916},
+    
+    
+    {"id":"tt4225622","title":"The Babysitter","year":2017,"rating":6.3,"ratingCount":64294},
+    
+    
+    { "id":"tt7846844","title":"Enola Holmes","year":2020,"canRate":false},
+    
+    
+    { "id":"tt1825683","title":"Black Panther","year":2018,"rating":7.3,"ratingCount":603927},
+    
+    
+    { "id":"tt8946378","title":"Knives Out","year":2019,"rating":7.9,"ratingCount":387148},
+    
+    
+    { "id":"tt10886166","title":"365 Days","year":2020, "rating":3.3,"ratingCount":37059},
+    
+    
+    { "id":"tt10682266","title":"Hubie Halloween","year":2020,"canRate":false},
+    
+    
+    { "disambiguation":"IV","id":"tt8784956","title":"Ava","year":2020, "rating":5.3,"ratingCount":10588},
+    
+    
+    { "id":"tt2235695","title":"Rebecca","year":2020,"canRate":false},
+    
+    
+    { "id":"tt0097647","title":"The Karate Kid Part III","year":1989,"rating":5.2,"ratingCount":49081},
+    
+    
+    { "id":"tt6334354","title":"The Suicide Squad","year":2021,"canRate":false},
+    
+    
+    { "id":"tt7286456","title":"Joker","year":2019,"rating":8.5,"ratingCount":865194},
+    
+    
+    { "id":"tt0096928","title":"Bill & Ted's Excellent Adventure","year":1989,"rating":7,"ratingCount":114010},
+    
+    
+    { "id":"tt7550000","title":"Project Power","year":2020,"rating":6,"ratingCount":52112},
+    
+    
+    { "id":"tt10919380","title":"Freaky","year":2020,"canRate":false},
+    
+    
+    { "id":"tt1375666","title":"Inception","year":2010,"rating":8.8,"ratingCount":2010558},
+    
+    
+    { "id":"tt9806370","title":"The Owners","year":2020,"rating":4.6,"ratingCount":1811},
+    
+    
+    { "id":"tt0816692","title":"Interstellar","year":2014,"rating":8.6,"ratingCount":1456673},
+    
+    
+    { "id":"tt7126948","title":"Wonder Woman 1984","year":2020,"canRate":false},
+    
+    
+    { "id":"tt6751668","title":"Parasite","year":2019,"rating":8.6,"ratingCount":479144},
+    
+    
+    { "id":"tt4154796","title":"Avengers: Endgame","year":2019,"rating":8.4,"ratingCount":761228},
+    
+    
+    { "id":"tt7131622","title":"Once Upon a Time... In Hollywood","year":2019,"rating":7.6,"ratingCount":512027},
+    
+    
+    { "id":"tt8503618","title":"Hamilton","year":2020,"rating":8.7,"ratingCount":40127},
+    
+    
+    { "id":"tt0443706","title":"Zodiac","year":2007,"rating":7.7,"ratingCount":446778},
+    
+    
+    { "id":"tt2584384","title":"Jojo Rabbit","year":2019,"rating":7.9,"ratingCount":258902 },
+    
+    
+    { "id":"tt11464826","title":"The Social Dilemma","year":2020,"rating":8,"ratingCount":13914},
+    
+    
+    { "id":"tt0468569","title":"The Dark Knight","year":2008,"rating":9,"ratingCount":2248737 },   
+    
+    { "id":"tt6587640","title":"Trolls World Tour","year":2020,"rating":6.1,"ratingCount":12603},
+    
+    
+    { "id":"tt5606664","title":"Doctor Sleep","year":2019,"rating":7.4,"ratingCount":124946},
+    
+    
+    { "id":"tt4126476","title":"After","year":2019, "rating":5.4,"ratingCount":31835},
+    
+    
+    { "id":"tt7713068","title":"Harley Quinn: Birds of Prey","year":2020,"rating":6.1,"ratingCount":141174},
+    
+    
+    { "id":"tt0241527","title":"Harry Potter and the Sorcerer's Stone","year":2001,"rating":7.6,"ratingCount":627315},
+    
+    
+    { "id":"tt7556122","title":"The Old Guard","year":2020,"rating":6.7,"ratingCount":103333},
+    
+    
+    { "id":"tt7395114","title":"The Devil All the Time","year":2020,"rating":7.2,"ratingCount":15676},
+    
+    
+    { "id":"tt8850222","title":"Peninsula","year":2020,"rating":5.5,"ratingCount":10560},
+    
+    
+    { "id":"tt0091326","title":"The Karate Kid Part II","year":1986,"rating":6,"ratingCount":72372},
+    
+    
+    { "id":"tt10059518","title":"Unhinged","year":2020,"rating":6.1,"ratingCount":5971},
+    
+    
+    { "id":"tt4364194","title":"The Peanut Butter Falcon","year":2019,"rating":7.6,"ratingCount":54470},
+    
+    
+    { "id":"tt1856101","title":"Blade Runner 2049","year":2017,"rating":8,"ratingCount":442966},
+    
+    
+    { "id":"tt12875782","title":"Freaks: You're One of Us","year":2020,"rating":5.3,"ratingCount":2977},
+    
+    
+    {"id":"tt7984734","title":"The Lighthouse","year":2019,"rating":7.5,"ratingCount":123229},
+    
+    
+    { "id":"tt8367814","title":"The Gentlemen","year":2019,"rating":7.9,"ratingCount":182969},
+    
+    
+    { "id":"tt1950186","title":"Ford v Ferrari","year":2019,"rating":8.1,"ratingCount":257008},
+    
+    
+    { "id":"tt8688634","title":"21 Bridges","year":2019,"rating":6.6,"ratingCount":40075},
+    
+    
+    {"id":"tt1661199","title":"Cinderella","year":2015,"rating":6.9,"ratingCount":156506},
+    
+    
+    { "id":"tt0993846","title":"The Wolf of Wall Street","year":2013,"rating":8.2,"ratingCount":1145266},
+    
+    
+    { "id":"tt9686708","title":"The King of Staten Island","year":2020,"rating":7.1,"ratingCount":23485},
+    
+    
+    { "id":"tt3480822","title":"Black Widow","year":2020,"canRate":false},
+    
+    
+    { "id":"tt10618286","title":"Mank","year":2020,"canRate":false},
+    
+    
+    { "id":"tt0068646","title":"The Godfather","year":1972,"rating":9.2,"ratingCount":1576748}, 
+    
+    { "id":"tt0111161","title":"The Shawshank Redemption","year":1994,"rating":9.3,"ratingCount":2284367},    
+    
+    { "id":"tt0093779","title":"The Princess Bride","year":1987,"rating":8.1,"ratingCount":386122},
+    
+    
+    { "id":"tt3661394","title":"The One and Only Ivan","year":2020,"rating":6.7,"ratingCount":4799},
+    
+    
+    { "id":"tt0414387","title":"Pride & Prejudice","year":2005,"rating":7.8,"ratingCount":249184},
+    
+    
+    { "id":"tt0381061","title":"Casino Royale","year":2006,"rating":8,"ratingCount":571612},
+    
+    
+    { "id":"tt0077631","title":"Grease","year":1978,"rating":7.2,"ratingCount":233958},
+    
+    
+    { "id":"tt0088763","title":"Back to the Future","year":1985,"rating":8.5,"ratingCount":1030387},
+    
+    
+    { "id":"tt0289765","title":"Red Dragon","year":2002,"rating":7.2,"ratingCount":247598},
+    
+    
+    { "id":"tt8579674","title":"1917","year":2019,"rating":8.3,"ratingCount":368441},
+    
+    
+    { "id":"tt8772262","title":"Midsommar","year":2019,"rating":7.1,"ratingCount":178780},
+    
+    
+    { "id":"tt6048922","title":"Greyhound","year":2020,"rating":7,"ratingCount":51137},
+    
+    
+    {"id":"tt11576124","title":"Rogue","year":2020,"rating":3.7,"ratingCount":2702},
+    
+    
+    { "id":"tt1485796","title":"The Greatest Showman","year":2017,"rating":7.6,"ratingCount":227768},
+    
+    
+    {"id":"tt3170832","title":"Room","year":2015,"rating":8.1,"ratingCount":358991},
+    
+    
+    { "id":"tt0102926","title":"The Silence of the Lambs","year":1991,"rating":8.6,"ratingCount":1237557},
+    
+    
+    { "id":"tt1345836","title":"The Dark Knight Rises","year":2012,"rating":8.4,"ratingCount":1484548},
+    
+    
+    { "id":"tt5013056","title":"Dunkirk","year":2017,"rating":7.9,"ratingCount":534799},
+    
+    
+    { "id":"tt2140571","title":"The Broken Hearts Gallery","year":2020,"rating":6.6,"ratingCount":496},
+    
+    
+    { "id":"tt0101452","title":"Bill & Ted's Bogus Journey","year":1991,"rating":6.3,"ratingCount":65956},
+    
+    
+    {"id":"tt6306064","title":"Adrift","year":2018,"rating":6.6,"ratingCount":44624},
+    
+    
+    { "id":"tt0482571","title":"The Prestige","year":2006,"rating":8.5,"ratingCount":1159489},
+    
+    
+    { "id":"tt2557490","title":"A Million Ways to Die in the West","year":2014,"rating":6.1,"ratingCount":171355},
+    
+    
+    { "id":"tt8580274","title":"Eurovision Song Contest: The Story of Fire Saga","year":2020,"rating":6.5,"ratingCount":64137},
+    
+    
+    { "id":"tt6394270","title":"Bombshell","year":2019,"rating":6.8,"ratingCount":71700},
+    
+    
+    { "id":"tt9484998","title":"Palm Springs","year":2020,"rating":7.4,"ratingCount":48131},
+    
+    
+    { "disambiguation":"II","id":"tt3774694","title":"Love","year":2015,"rating":6.1,"ratingCount":46104},
+    
+    
+    {"id":"tt1099212","title":"Twilight","year":2008, "rating":5.2,"ratingCount":418457},
+    
+    
+    { "id":"tt4815122","title":"Time Trap","year":2017,"rating":6.3,"ratingCount":24460},
+    
+    
+    { "id":"tt1270797","title":"Venom","year":2018,"rating":6.7,"ratingCount":346905},
+    
+    
+    { "id":"tt0064757","title":"On Her Majesty's Secret Service","year":1969,"rating":6.7,"ratingCount":78792},
+    
+    
+    { "id":"tt6105098","title":"The Lion King","year":2019,"rating":6.9,"ratingCount":200984},
+    
+    
+    { "id":"tt3281548","title":"Little Women","year":2019,"rating":7.8,"ratingCount":124283},
+    
+    
+    { "id":"tt5843876","title":"Chemical Hearts","year":2020,"rating":6.3,"ratingCount":4550},
+    
+    
+    { "id":"tt10888708","title":"The Sleepover","year":2020,"rating":5.5,"ratingCount":5355},
+    
+    
+    { "id":"tt10199914","title":"The Boys in the Band","year":2020,"canRate":false}
+
+]
