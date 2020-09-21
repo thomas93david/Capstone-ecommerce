@@ -47,7 +47,15 @@ const Header = () => {
                 Movies
               </NavLink>
             </li>
-
+            <li className="nav-item">
+              <NavLink
+                to="/checkout"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                <i className="fas fa-cart-plus"></i>
+              </NavLink>
+            </li>
             <li className="nav-item">
               <NavLink
                 to="/login"
@@ -73,13 +81,6 @@ const Header = () => {
           )}
           <NavLink to="/login">
             <button className="login_btn">LOGIN</button>
-          </NavLink>
-          <NavLink
-            to="/checkout"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            <i className="fas fa-cart-plus"></i>
           </NavLink>
         </div>
       </nav>

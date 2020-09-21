@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { NavLink, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import {
+  NavLink,
+  Button,
+  FormGroup,
+  FormControl,
+  FormLabel,
+} from "react-bootstrap";
 import "./Login.css";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  function validateForm() {
-    return username.length > 0 && password.length > 0;
-  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -37,10 +39,10 @@ export default function Login() {
                 type="password"
               />
             </FormGroup>
-            <NavLink to="/">
-              <button disabled={!validateForm()} type="submit">
-                LOGIN
-              </button>
+            <NavLink>
+              <Button variant="primary" type="submit">
+                Login
+              </Button>
             </NavLink>
           </form>
         </div>
