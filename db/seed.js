@@ -9,8 +9,7 @@ const {
     getCartById,
     createGenres
 } = require('../db');
-const { addMovieToCart } = require('../db/movie_cart')
-const cartRouter = require('../routes/cartRoute');
+const { addMovieToCart } = require('../db/movie_cart');
 const { getMovieById } = require('./movies');
 async function dropTables() {
     try {
@@ -47,7 +46,7 @@ async function createTables() {
             );
             CREATE TABLE genres(
                 id SERIAL PRIMARY KEY,
-                name VARCHAR(255) []
+                name VARCHAR(255)
             );
             CREATE TABLE movies(
                 id SERIAL PRIMARY KEY,
@@ -57,7 +56,6 @@ async function createTables() {
                 rating VARCHAR(255),
                 rating_votes VARCHAR(255),
                 img_url VARCHAR(500),
-                genre VARCHAR (255),
                 price VARCHAR NOT NULL
             );
             CREATE TABLE cart (
@@ -124,6 +122,7 @@ async function createInitialCustomers() {
 }
 async function createInitialGenres(){
     try{
+        console.log("Starting Create Genre");
         await createGenres("Action");
         await createGenres("Adventure");
         await createGenres("Animation");
