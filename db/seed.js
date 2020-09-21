@@ -2,22 +2,24 @@
 const client = require('./client');
 const faker = require("faker");
 
-
 const {
-  createCustomer,
-  createMovies,
-  getMovieByTitle,
-  createCart,
-  getCartById,
-} = require("../db");
-const { addMovieToCart } = require("../db/movie_cart");
-const { getMovieById } = require("./movies");
+    createCustomer,
+    createMovies,
+    getMovieByTitle,
+    createCart,
+    getCartById,
+    createGenres
+} = require('../db');
+const { addMovieToCart } = require('../db/movie_cart');
+const { getMovieById } = require('./movies');
+
 async function dropTables() {
   try {
     await client.query(`
         DROP TABLE IF EXISTS users_cart;
         DROP TABLE IF EXISTS wishlist;
         DROP TABLE IF EXISTS cart;
+        DROP TABLE IF EXISTS genres;
         DROP TABLE IF EXISTS movies;
         DROP TABLE IF EXISTS customers;
     `);
@@ -43,16 +45,19 @@ async function createTables() {
                 username VARCHAR(255) UNIQUE NOT NULL,
                 password VARCHAR (255),
                 "isAdmin" BOOLEAN default false
-               );
-        CREATE TABLE movies(
+            );
+            CREATE TABLE genres(
+                id SERIAL PRIMARY KEY,
+                name VARCHAR(255)
+            );
+            CREATE TABLE movies(
                 id SERIAL PRIMARY KEY,
                 title VARCHAR (255) UNIQUE NOT NULL,
                 year VARCHAR(255),
                 length VARCHAR(255),
                 rating VARCHAR(255),
                 rating_votes VARCHAR(255),
-                poster_url VARCHAR(255),
-                genre VARCHAR (255),
+                img_url VARCHAR(500),
                 price VARCHAR NOT NULL
             );
             CREATE TABLE cart (
@@ -118,27 +123,56 @@ async function createInitialCustomers() {
     throw error;
   }
 }
+async function createInitialGenres(){
+    try{
+        console.log("Starting Create Genre");
+        await createGenres("Action");
+        await createGenres("Adventure");
+        await createGenres("Animation");
+        await createGenres("Biography");
+        await createGenres("Comedy");
+        await createGenres("Crime");
+        await createGenres("Drama");
+        await createGenres("Documentary");
+        await createGenres("Family");
+        await createGenres("Fantasy");
+        await createGenres("Horror");
+        await createGenres("Musical");
+        await createGenres("Mystery");
+        await createGenres("Romance");
+        await createGenres("Sci-Fi");
+        await createGenres("Sport");
+        await createGenres("Thriller");
+        await createGenres("War");
+        await createGenres("Western");
+
+        console.log("Made Genres!");
+    }catch (error){
+        console.error(error);
+    }
+}
 
 
 async function createIntitialMovies() {
-  console.log('making initial movies...')
-  try {
-    const movies = require("./movies_title_year_rating.json");
-    for (let i = 0; i < movies.length; i++) {
-      const movie = movies[i];
-      await createMovies({
-        title: movie.title,
-        year: movie.year,
-        rating: movie.rating,
-        price: faker.commerce.price(10, 100, 2, '$')
-      })
+    console.log('making initial movies...')
+    try {
+       const movies = require("./movies.json");
+       for (i = 0; i < movies.length; i++){
+           const movie = movies[i];
+           await createMovies({
+               title: movie.title,
+               year: movie.year,
+               rating: movie.rating || faker.commerce.price(1, 10, 1, ''),
+               rating_votes: faker.commerce.price(200, 3000, 0, ''),
+               img_url: movie.img_url,
+               price: faker.commerce.price(10, 100, 2, '$')
+           })
+       }
+       console.log("Successful Seed Init Movies!");
+    } catch (error) {
+        console.error(error);
     }
-    console.log("Successful Seed Init Movies!");
-  } catch (error) {
-    console.error(error);
-  }
-
-}
+   }
 async function gettingMovieTitle() {
   try {
     console.log("getting movie title...");
@@ -183,16 +217,14 @@ async function addMovieInCart() {
 }
 
 async function populateInitialData() {
-
-
-  try {
-    await createInitialCustomers();
-    await createIntitialMovies();
-    await gettingMovieTitle();
-    await createInitialCart();
-    await addMovieInCart();
-    // await getInitialImdb();
-
+    try {
+        await createInitialCustomers();
+        await createInitialGenres();
+        await createIntitialMovies();
+        // await gettingMovieTitle();
+        // await createInitialCart();
+        // await addMovieInCart();
+        // await getInitialImdb();
 
   } catch (error) {
     throw error;
