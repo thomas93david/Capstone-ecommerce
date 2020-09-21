@@ -1,0 +1,794 @@
+[
+    {
+        "id": "tt4566758",
+        "title": "Mulan",
+        "year": 2020,
+        "rating": 5.4,
+        "ratingCount": 49228,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BNDliY2E1MjUtNzZkOS00MzJlLTgyOGEtZDg4MTI1NzZkMTBhXkEyXkFqcGdeQXVyNjMwMzc3MjE@._V1_.jpg"
+    },
+
+    {
+        "id": "tt1160419",
+        "title": "Dune",
+        "year": 2020,
+        "canRate": false,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMGFkZGY0NTgtMGEyZC00YzhjLTkyOWItYzMzOTljMDA3ZjU2XkEyXkFqcGdeQXVyNzc4NTU3Njg@._V1_.jpg"
+    },
+    
+    {
+        "id": "tt6723592",
+        "title": "Tenet",
+        "year": 2020,
+        "rating": 7.8,
+        "ratingCount": 105425,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BYzg0NGM2NjAtNmIxOC00MDJmLTg5ZmYtYzM0MTE4NWE2NzlhXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg"
+    },
+    {
+        "id": "tt7939766",
+        "title": "I'm Thinking of Ending Things",
+        "year": 2020,
+        "rating": 6.8,
+        "ratingCount": 30770,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BNWMyZTA1MTItMzFhOS00NGY5LWJlZDMtMzczZmRjOThkMmViXkEyXkFqcGdeQXVyMjUxMTY3ODM@._V1_.jpg"
+    },
+    {
+        "id": "tt9196192",
+        "title": "Cuties",
+        "year": 2020,
+        "rating": 2.5,
+        "ratingCount": 19394,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BYzZiMTMzMDUtMzVmOS00ODZjLThiNDQtNmY2NzIxZjBmZGM4XkEyXkFqcGdeQXVyMTAwMzM3NDI3._V1_.jpg"
+    },
+    {
+        "id": "tt2382320",
+        "title": "No Time to Die",
+        "year": 2020,
+        "canRate": false,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMjI4NTI0ODMtYjQzZC00YzljLWE3YzUtM2MzMmNmZjA1Y2JiXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt0087538",
+        "title": "The Karate Kid",
+        "year": 1984,
+        "rating": 7.2,
+        "ratingCount": 175824,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BNTkzY2YzNmYtY2ViMS00MThiLWFlYTEtOWQ1OTBiOGEwMTdhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg"
+    },
+    {
+        "id": "tt11024272",
+        "title": "The Babysitter: Killer Queen",
+        "year": 2020,
+        "rating": 5.9,
+        "ratingCount": 11987,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMWEwMDU3MWUtZTdiMy00Yjg5LWFiNWYtYTRmZGExNzk5YjQ2XkEyXkFqcGdeQXVyNTUwOTkzMzY@._V1_.jpg"
+    },
+    {
+        "id": "tt0087182",
+        "title": "Dune",
+        "year": 1984,
+        "rating": 6.5,
+        "ratingCount": 123141,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BYTAzYzNlMDMtMGRjYS00M2UxLTk0MmEtYmE4YWZiYmEwOTIwL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_.jpg"
+    },
+    {
+        "id": "tt10362466",
+        "title": "After We Collided",
+        "year": 2020,
+        "rating": 5.6,
+        "ratingCount": 3451,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BN2UyNGM3MDUtMTIzZi00ZDdkLThlYTktYjk0ZDMzM2JiMjMyXkEyXkFqcGdeQXVyNzE0MjkxMzA@._V1_.jpg"
+    },
+    {
+        "id": "tt1086064",
+        "title": "Bill & Ted Face the Music",
+        "year": 2020,
+        "rating": 6.3,
+        "ratingCount": 16176,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BN2UyNGM3MDUtMTIzZi00ZDdkLThlYTktYjk0ZDMzM2JiMjMyXkEyXkFqcGdeQXVyNzE0MjkxMzA@._V1_.jpg"
+    },
+    {
+        "id": "tt11100856",
+        "title": "Love, Guaranteed",
+        "year": 2020,
+        "rating": 5.5,
+        "ratingCount": 6893,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BN2UyNGM3MDUtMTIzZi00ZDdkLThlYTktYjk0ZDMzM2JiMjMyXkEyXkFqcGdeQXVyNzE0MjkxMzA@._V1_.jpg"
+    },
+    {
+        "id": "tt4682266",
+        "title": "The New Mutants",
+        "year": 2020,
+        "rating": 5.5,
+        "ratingCount": 10060,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZDQ2NTdmNDgtMGIwMS00ODE2LTk5M2EtZGZhYzc4MWRlNTU3XkEyXkFqcGdeQXVyNTc4MjczMTM@._V1_.jpg"
+    },
+    {
+        "id": "tt0120762",
+        "title": "Mulan",
+        "year": 1998,
+        "rating": 7.6,
+        "ratingCount": 248158,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BODkxNGQ1NWYtNzg0Ny00Yjg3LThmZTItMjE2YjhmZTQ0ODY5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg"
+    },
+    {
+        "id": "tt1877830",
+        "title": "The Batman",
+        "year": 2021,
+        "canRate": false,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZTE2YTY3YTMtM2FlMS00YmI3LTgyMWUtM2FhMWIyZWRmMDk5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt10620868",
+        "title": "#Alive",
+        "year": 2020,
+        "rating": 6.2,
+        "ratingCount": 11916,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMGNiYjk1ZTItZGMwOS00MTNlLWE3NGItZWJmYWUxNTk5Njg4XkEyXkFqcGdeQXVyODA4ODIwNDM@._V1_.jpg"
+    },
+    {
+        "id": "tt4225622",
+        "title": "The Babysitter",
+        "year": 2017,
+        "rating": 6.3,
+        "ratingCount": 64294,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTY0MDUwNzg5OV5BMl5BanBnXkFtZTgwNTY4NjU3MzI@._V1_.jpg"
+    },
+    {
+        "id": "tt7846844",
+        "title": "Enola Holmes",
+        "year": 2020,
+        "canRate": false,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZjNkNzk0ZjEtM2M1ZC00MmMxLTlmOWEtNWRlZTc1ZTUyNzY4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg"
+    },
+    {
+        "id": "tt1825683",
+        "title": "Black Panther",
+        "year": 2018,
+        "rating": 7.3,
+        "ratingCount": 603927,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_.jpg"
+    },
+    {
+        "id": "tt8946378",
+        "title": "Knives Out",
+        "year": 2019,
+        "rating": 7.9,
+        "ratingCount": 387148,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMGUwZjliMTAtNzAxZi00MWNiLWE2NzgtZGUxMGQxZjhhNDRiXkEyXkFqcGdeQXVyNjU1NzU3MzE@._V1_.jpg"
+    },
+    {
+        "id": "tt10886166",
+        "title": "365 Days",
+        "year": 2020,
+        "rating": 3.3,
+        "ratingCount": 37059,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BODljZTM3ODAtMDc0YS00NmI4LTlmZTUtM2I5MDAzNTQxZmMxXkEyXkFqcGdeQXVyMTEwMTY3NDI@._V1_.jpg"
+    },
+    {
+        "id": "tt10682266",
+        "title": "Hubie Halloween",
+        "year": 2020,
+        "canRate": false,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTE0N2EyMzgtMWJhZS00ZWNmLThjZmQtMjcxYTk1NTJiMGVkXkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_.jpg"
+    },
+    {
+        "disambiguation": "IV",
+        "id": "tt8784956",
+        "title": "Ava",
+        "year": 2020,
+        "rating": 5.3,
+        "ratingCount": 10588,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BM2VjYjMxNGYtZTMyMy00NmY2LWIxMzYtMTJhNTUwNzcxYjdiXkEyXkFqcGdeQXVyMTIzNDk1MDYz._V1_.jpg"
+    },
+    {
+        "id": "tt2235695",
+        "title": "Rebecca",
+        "year": 2020,
+        "canRate": false,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BM2VjYjMxNGYtZTMyMy00NmY2LWIxMzYtMTJhNTUwNzcxYjdiXkEyXkFqcGdeQXVyMTIzNDk1MDYz._V1_.jpg"
+    },
+    {
+        "id": "tt0097647",
+        "title": "The Karate Kid Part III",
+        "year": 1989,
+        "rating": 5.2,
+        "ratingCount": 49081,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BODk0NzA4MTMtNGQ3Zi00OTdlLThiZmQtOTI0YWEyNDFiMTg2XkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_.jpg"
+    },
+    {
+        "id": "tt6334354",
+        "title": "The Suicide Squad",
+        "year": 2021,
+        "canRate": false,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMzEzNzEyM2EtODM3OC00NWM4LTk3OTEtZjg3YjEzYTM1Zjk2XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt7286456",
+        "title": "Joker",
+        "year": 2019,
+        "rating": 8.5,
+        "ratingCount": 865194,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt0096928",
+        "title": "Bill & Ted's Excellent Adventure",
+        "year": 1989,
+        "rating": 7,
+        "ratingCount": 114010,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTk3Mjk5MzI3OF5BMl5BanBnXkFtZTcwMTY4MzcyNA@@._V1_.jpg"
+    },
+    {
+        "id": "tt7550000",
+        "title": "Project Power",
+        "year": 2020,
+        "rating": 6,
+        "ratingCount": 52112,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BYzBhOWU4ODAtZDYzYi00NDU1LWIzZWUtNDZmMDgxODljZTVmXkEyXkFqcGdeQXVyMTAwMzM3NDI3._V1_.jpg"
+    },
+    {
+        "id": "tt10919380",
+        "title": "Freaky",
+        "year": 2020,
+        "canRate": false,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTRkYmJlY2ItNmFlZi00OWVhLTg1ZTctOGE0MjM5ZGMwMmY4XkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_.jpg"
+    },
+    {
+        "id": "tt1375666",
+        "title": "Inception",
+        "year": 2010,
+        "rating": 8.8,
+        "ratingCount": 2010558,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg"
+    },
+    {
+        "id": "tt9806370",
+        "title": "The Owners",
+        "year": 2020,
+        "rating": 4.6,
+        "ratingCount": 1811,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg"
+    },
+    {
+        "id": "tt0816692",
+        "title": "Interstellar",
+        "year": 2014,
+        "rating": 8.6,
+        "ratingCount": 1456673,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMDdlNDNkMzQtMjYwMi00OGFjLWE4ZGQtYjA1YWMxOWM2ZGYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt7126948",
+        "title": "Wonder Woman 1984",
+        "year": 2020,
+        "canRate": false,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZGVhZDBlZjgtMGNmNi00OTIyLWI1NzQtMzE5ZWQ0NzFmMjg0XkEyXkFqcGdeQXVyMTA2OTQ3MTUy._V1_.jpg"
+    },
+    {
+        "id": "tt6751668",
+        "title": "Parasite",
+        "year": 2019,
+        "rating": 8.6,
+        "ratingCount": 479144,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg"
+    },
+    {
+        "id": "tt4154796",
+        "title": "Avengers: Endgame",
+        "year": 2019,
+        "rating": 8.4,
+        "ratingCount": 761228,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg"
+    },
+    {
+        "id": "tt7131622",
+        "title": "Once Upon a Time... In Hollywood",
+        "year": 2019,
+        "rating": 7.6,
+        "ratingCount": 512027,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BOTg4ZTNkZmUtMzNlZi00YmFjLTk1MmUtNWQwNTM0YjcyNTNkXkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_.jpg"
+    },
+    {
+        "id": "tt8503618",
+        "title": "Hamilton",
+        "year": 2020,
+        "rating": 8.7,
+        "ratingCount": 40127,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BNjViNWRjYWEtZTI0NC00N2E3LTk0NGQtMjY4NTM3OGNkZjY0XkEyXkFqcGdeQXVyMjUxMTY3ODM@._V1_.jpg"
+    },
+    {
+        "id": "tt0443706",
+        "title": "Zodiac",
+        "year": 2007,
+        "rating": 7.7,
+        "ratingCount": 446778,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BN2UwNDc5NmEtNjVjZS00OTI5LWE5YjctMWM3ZjBiZGYwMGI2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
+    },
+    {
+        "id": "tt2584384",
+        "title": "Jojo Rabbit",
+        "year": 2019,
+        "rating": 7.9,
+        "ratingCount": 258902,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZjU0Yzk2MzEtMjAzYy00MzY0LTg2YmItM2RkNzdkY2ZhN2JkXkEyXkFqcGdeQXVyNDg4NjY5OTQ@._V1_.jpg"
+    },
+    {
+        "id": "tt11464826",
+        "title": "The Social Dilemma",
+        "year": 2020,
+        "rating": 8,
+        "ratingCount": 13914,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BNDVhMGNhYjEtMDkwZi00NmQ5LWFkODktYzhiYjY2NTZmYTNhXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt0468569",
+        "title": "The Dark Knight",
+        "year": 2008,
+        "rating": 9,
+        "ratingCount": 2248737,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg"
+    },
+    {
+        "id": "tt6587640",
+        "title": "Trolls World Tour",
+        "year": 2020,
+        "rating": 6.1,
+        "ratingCount": 12603,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTI5NmViY2YtNDk5NC00NjY2LWFlNGYtOGEwNzY1MTZmMjFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+    },
+    {
+        "id": "tt5606664",
+        "title": "Doctor Sleep",
+        "year": 2019,
+        "rating": 7.4,
+        "ratingCount": 124946,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BYmY3NGJlYTItYmQ4OS00ZTEwLWIzODItMjMzNWU2MDE0NjZhXkEyXkFqcGdeQXVyMzQzMDA3MTI@._V1_.jpg"
+    },
+    {
+        "id": "tt4126476",
+        "title": "After",
+        "year": 2019,
+        "rating": 5.4,
+        "ratingCount": 31835,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BOGUwMjk3YzktNDI0Yy00MzFiLWFjNmEtYTA2ODVjMzNhODhjXkEyXkFqcGdeQXVyOTQ1MDI4MzY@._V1_.jpg"
+    },
+    {
+        "id": "tt7713068",
+        "title": "Harley Quinn: Birds of Prey",
+        "year": 2020,
+        "rating": 6.1,
+        "ratingCount": 141174,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMzQ3NTQxMjItODBjYi00YzUzLWE1NzQtZTBlY2Y2NjZlNzkyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt0241527",
+        "title": "Harry Potter and the Sorcerer's Stone",
+        "year": 2001,
+        "rating": 7.6,
+        "ratingCount": 627315,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_.jpg"
+    },
+    {
+        "id": "tt7556122",
+        "title": "The Old Guard",
+        "year": 2020,
+        "rating": 6.7,
+        "ratingCount": 103333,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BNDJiZDliZDAtMjc5Yy00MzVhLThkY2MtNDYwNTQ2ZTM5MDcxXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_.jpg"
+    },
+    {
+        "id": "tt7395114",
+        "title": "The Devil All the Time",
+        "year": 2020,
+        "rating": 7.2,
+        "ratingCount": 15676,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZmE1NmVmN2EtMjZmZC00YzAyLWE4MWEtYjY5YmExMjUxODU1XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt8850222",
+        "title": "Peninsula",
+        "year": 2020,
+        "rating": 5.5,
+        "ratingCount": 10560,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BNmIxNTQ4MjgtMzI0Zi00N2I5LWIxZDAtZDFlNzA5N2JiNmZmXkEyXkFqcGdeQXVyMjU0ODQ5NTA@._V1_.jpg"
+    },
+    {
+        "id": "tt0091326",
+        "title": "The Karate Kid Part II",
+        "year": 1986,
+        "rating": 6,
+        "ratingCount": 72372,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BY2E3YjliMWEtYzlmOC00NmU5LWE4NGItNmIyZmNkZjkwNTA0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg"
+    },
+    {
+        "id": "tt10059518",
+        "title": "Unhinged",
+        "year": 2020,
+        "rating": 6.1,
+        "ratingCount": 5971,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BYjc1Mjg5NjItY2I2MS00NDk3LWI5NGYtNzZjNTNiZmMwZTA3XkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_.jpg"
+    },
+    {
+        "id": "tt4364194",
+        "title": "The Peanut Butter Falcon",
+        "year": 2019,
+        "rating": 7.6,
+        "ratingCount": 54470,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BOWVmZGQ0MGYtMDI1Yy00MDkxLWJiYjQtMmZjZmQ0NDFmMDRhXkEyXkFqcGdeQXVyNjg3MDMxNzU@._V1_.jpg"
+    },
+    {
+        "id": "tt1856101",
+        "title": "Blade Runner 2049",
+        "year": 2017,
+        "rating": 8,
+        "ratingCount": 442966,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_.jpg"
+    },
+    {
+        "id": "tt12875782",
+        "title": "Freaks: You're One of Us",
+        "year": 2020,
+        "rating": 5.3,
+        "ratingCount": 2977,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMjdjMDY3OGYtZTQ3ZS00NTc5LWIxOTAtYWM0YmRmYmE0NDUwXkEyXkFqcGdeQXVyNjEwNTM2Mzc@._V1_.jpg"
+    },
+    {
+        "id": "tt7984734",
+        "title": "The Lighthouse",
+        "year": 2019,
+        "rating": 7.5,
+        "ratingCount": 123229,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZmE0MGJhNmYtOWNjYi00Njc5LWE2YjEtMWMxZTVmODUwMmMxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt8367814",
+        "title": "The Gentlemen",
+        "year": 2019,
+        "rating": 7.9,
+        "ratingCount": 182969,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTlkMmVmYjktYTc2NC00ZGZjLWEyOWUtMjc2MDMwMjQwOTA5XkEyXkFqcGdeQXVyNTI4MzE4MDU@._V1_.jpg"
+    },
+    {
+        "id": "tt1950186",
+        "title": "Ford v Ferrari",
+        "year": 2019,
+        "rating": 8.1,
+        "ratingCount": 257008,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BM2UwMDVmMDItM2I2Yi00NGZmLTk4ZTUtY2JjNTQ3OGQ5ZjM2XkEyXkFqcGdeQXVyMTA1OTYzOTUx._V1_.jpg"
+    },
+    {
+        "id": "tt8688634",
+        "title": "21 Bridges",
+        "year": 2019,
+        "rating": 6.6,
+        "ratingCount": 40075,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BYTg4YzEzNDQtZDAxOS00M2YyLTljZWEtNjk4YTc4NDM2NTBhXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt1661199",
+        "title": "Cinderella",
+        "year": 2015,
+        "rating": 6.9,
+        "ratingCount": 156506,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMjMxODYyODEzN15BMl5BanBnXkFtZTgwMDk4OTU0MzE@._V1_.jpg"
+    },
+    {
+        "id": "tt0993846",
+        "title": "The Wolf of Wall Street",
+        "year": 2013,
+        "rating": 8.2,
+        "ratingCount": 1145266,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_.jpg"
+    },
+    {
+        "id": "tt9686708",
+        "title": "The King of Staten Island",
+        "year": 2020,
+        "rating": 7.1,
+        "ratingCount": 23485,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BYzkxMzMzOTgtNmZhMS00MGM0LTk3MzUtMjE1MzI4MzU5ZjkzXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_.jpg"
+    },
+    {
+        "id": "tt3480822",
+        "title": "Black Widow",
+        "year": 2020,
+        "canRate": false,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMzFiODE0ZDUtN2IxNC00OTI5LTg4OWItZTE2MjU4ZTk2NjM5XkEyXkFqcGdeQXVyNDYzODU1ODM@._V1_.jpg"
+    },
+    {
+        "id": "tt10618286",
+        "title": "Mank",
+        "year": 2020,
+        "canRate": false,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BOThlYzQxZDUtMDY2Ni00YjgxLWJmNGQtYjBiYmExMTcxOTUzXkEyXkFqcGdeQXVyMTA3MjIyNDM5._V1_.jpg"
+    },
+    {
+        "id": "tt0068646",
+        "title": "The Godfather",
+        "year": 1972,
+        "rating": 9.2,
+        "ratingCount": 1576748,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
+    },
+    {
+        "id": "tt0111161",
+        "title": "The Shawshank Redemption",
+        "year": 1994,
+        "rating": 9.3,
+        "ratingCount": 2284367,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+    },
+    {
+        "id": "tt0093779",
+        "title": "The Princess Bride",
+        "year": 1987,
+        "rating": 8.1,
+        "ratingCount": 386122,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMGM4M2Q5N2MtNThkZS00NTc1LTk1NTItNWEyZjJjNDRmNDk5XkEyXkFqcGdeQXVyMjA0MDQ0Mjc@._V1_.jpg"
+    },
+    {
+        "id": "tt3661394",
+        "title": "The One and Only Ivan",
+        "year": 2020,
+        "rating": 6.7,
+        "ratingCount": 4799,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZWY3OTNhNWUtMDk2My00ZGVhLWE5ODQtM2NkOTZiMWM2MGY2XkEyXkFqcGdeQXVyNjMwMzc3MjE@._V1_.jpg"
+    },
+    {
+        "id": "tt0414387",
+        "title": "Pride & Prejudice",
+        "year": 2005,
+        "rating": 7.8,
+        "ratingCount": 249184,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTA1NDQ3NTcyOTNeQTJeQWpwZ15BbWU3MDA0MzA4MzE@._V1_.jpg"
+    },
+    {
+        "id": "tt0381061",
+        "title": "Casino Royale",
+        "year": 2006,
+        "rating": 8,
+        "ratingCount": 571612,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMDI5ZWJhOWItYTlhOC00YWNhLTlkNzctNDU5YTI1M2E1MWZhXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg"
+    },
+    {
+        "id": "tt0077631",
+        "title": "Grease",
+        "year": 1978,
+        "rating": 7.2,
+        "ratingCount": 233958,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZmUyMDEyOTgtZmUwOS00NTdkLThlNzctNTM1ODQ4M2VhMjdhXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
+    },
+    {
+        "id": "tt0088763",
+        "title": "Back to the Future",
+        "year": 1985,
+        "rating": 8.5,
+        "ratingCount": 1030387,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg"
+    },
+    {
+        "id": "tt0289765",
+        "title": "Red Dragon",
+        "year": 2002,
+        "rating": 7.2,
+        "ratingCount": 247598,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTQ4MDgzNjM5MF5BMl5BanBnXkFtZTYwMjUwMzY2._V1_.jpg"
+    },
+    {
+        "id": "tt8579674",
+        "title": "1917",
+        "year": 2019,
+        "rating": 8.3,
+        "ratingCount": 368441,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BOTdmNTFjNDEtNzg0My00ZjkxLTg1ZDAtZTdkMDc2ZmFiNWQ1XkEyXkFqcGdeQXVyNTAzNzgwNTg@._V1_.jpg"
+    },
+    {
+        "id": "tt8772262",
+        "title": "Midsommar",
+        "year": 2019,
+        "rating": 7.1,
+        "ratingCount": 178780,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMzQxNzQzOTQwM15BMl5BanBnXkFtZTgwMDQ2NTcwODM@._V1_.jpg"
+    },
+    {
+        "id": "tt6048922",
+        "title": "Greyhound",
+        "year": 2020,
+        "rating": 7,
+        "ratingCount": 51137,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZTFkZjYxNWItZmE2MC00MGE4LWIxYTgtZmIzOWM1YmI2YWEzXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt11576124",
+        "title": "Rogue",
+        "year": 2020,
+        "rating": 3.7,
+        "ratingCount": 2702,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZWUyY2M2M2UtMGI1NC00ZjBmLWI5NDItYjQ1MThjNzgwMjhmXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_.jpg"
+    },
+    {
+        "id": "tt1485796",
+        "title": "The Greatest Showman",
+        "year": 2017,
+        "rating": 7.6,
+        "ratingCount": 227768,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMjI1NDYzNzY2Ml5BMl5BanBnXkFtZTgwODQwODczNTM@._V1_.jpg"
+    },
+    {
+        "id": "tt3170832",
+        "title": "Room",
+        "year": 2015,
+        "rating": 8.1,
+        "ratingCount": 358991,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMjE4NzgzNzEwMl5BMl5BanBnXkFtZTgwMTMzMDE0NjE@._V1_.jpg"
+    },
+    {
+        "id": "tt0102926",
+        "title": "The Silence of the Lambs",
+        "year": 1991,
+        "rating": 8.6,
+        "ratingCount": 1237557,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg"
+    },
+    {
+        "id": "tt1345836",
+        "title": "The Dark Knight Rises",
+        "year": 2012,
+        "rating": 8.4,
+        "ratingCount": 1484548,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_.jpg"
+    },
+    {
+        "id": "tt5013056",
+        "title": "Dunkirk",
+        "year": 2017,
+        "rating": 7.9,
+        "ratingCount": 534799,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BN2YyZjQ0NTEtNzU5MS00NGZkLTg0MTEtYzJmMWY3MWRhZjM2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_.jpg"
+    },
+    {
+        "id": "tt2140571",
+        "title": "The Broken Hearts Gallery",
+        "year": 2020,
+        "rating": 6.6,
+        "ratingCount": 496,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BYzJjNWExODktNDZiMS00YzUyLWE2ZTgtYjMxZWZkNGU4YTI3XkEyXkFqcGdeQXVyNTUyMjUxMTM@._V1_.jpg"
+    },
+    {
+        "id": "tt0101452",
+        "title": "Bill & Ted's Bogus Journey",
+        "year": 1991,
+        "rating": 6.3,
+        "ratingCount": 65956,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMWMzMGY4MWMtZmY5MC00NzVjLWJlMzQtMTQ2ZTM4ZWNmYzFiXkEyXkFqcGdeQXVyMTY5Nzc4MDY@._V1_.jpg"
+    },
+    {
+        "id": "tt6306064",
+        "title": "Adrift",
+        "year": 2018,
+        "rating": 6.6,
+        "ratingCount": 44624,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTkxMTI2MjE4OF5BMl5BanBnXkFtZTgwMjIyODQzNTM@._V1_.jpg"
+    },
+    {
+        "id": "tt0482571",
+        "title": "The Prestige",
+        "year": 2006,
+        "rating": 8.5,
+        "ratingCount": 1159489,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_.jpg"
+    },
+    {
+        "id": "tt2557490",
+        "title": "A Million Ways to Die in the West",
+        "year": 2014,
+        "rating": 6.1,
+        "ratingCount": 171355,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTQ0NDcyNjg0MV5BMl5BanBnXkFtZTgwMzk4NTA4MTE@._V1_.jpg"
+    },
+    {
+        "id": "tt8580274",
+        "title": "Eurovision Song Contest: The Story of Fire Saga",
+        "year": 2020,
+        "rating": 6.5,
+        "ratingCount": 64137,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BYzRjYzA5NTQtOTE3MC00OTYzLWEzODItMzQxYWE1NDJkMDA0XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt6394270",
+        "title": "Bombshell",
+        "year": 2019,
+        "rating": 6.8,
+        "ratingCount": 71700,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZjlhOWE3YjktY2MzOC00ZmQ1LWIwNjgtZmVhZmFjZGExMzgyXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_.jpg"
+    },
+    {
+        "id": "tt9484998",
+        "title": "Palm Springs",
+        "year": 2020,
+        "rating": 7.4,
+        "ratingCount": 48131,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BYjk0MTgzMmQtZmY2My00NmE5LWExNGUtYjZkNTA3ZDkyMTJiXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "disambiguation": "II",
+        "id": "tt3774694",
+        "title": "Love",
+        "year": 2015,
+        "rating": 6.1,
+        "ratingCount": 46104,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTQzNDUwODk5NF5BMl5BanBnXkFtZTgwNzA0MDQ2NTE@._V1_.jpg"
+    },
+    {
+        "id": "tt1099212",
+        "title": "Twilight",
+        "year": 2008,
+        "rating": 5.2,
+        "ratingCount": 418457,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMTQ2NzUxMTAxN15BMl5BanBnXkFtZTcwMzEyMTIwMg@@._V1_.jpg"
+    },
+    {
+        "id": "tt4815122",
+        "title": "Time Trap",
+        "year": 2017,
+        "rating": 6.3,
+        "ratingCount": 24460,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMGE0ZGYwZjItMmQ2MC00MjMzLTk1NWEtM2ZlNDE5ZWVmOTAyL2ltYWdlXkEyXkFqcGdeQXVyMjA1NjczMDE@._V1_.jpg"
+    },
+    {
+        "id": "tt1270797",
+        "title": "Venom",
+        "year": 2018,
+        "rating": 6.7,
+        "ratingCount": 346905,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BNzAwNzUzNjY4MV5BMl5BanBnXkFtZTgwMTQ5MzM0NjM@._V1_.jpg"
+    },
+    {
+        "id": "tt0064757",
+        "title": "On Her Majesty's Secret Service",
+        "year": 1969,
+        "rating": 6.7,
+        "ratingCount": 78792,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZGFlNGNiMmQtMThhZS00MWMxLWFiNGItZTM4ZmJlODM3ZmU2XkEyXkFqcGdeQXVyNDY2MTk1ODk@._V1_.jpg"
+    },
+    {
+        "id": "tt6105098",
+        "title": "The Lion King",
+        "year": 2019,
+        "rating": 6.9,
+        "ratingCount": 200984,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_.jpg"
+    },
+    {
+        "id": "tt3281548",
+        "title": "Little Women",
+        "year": 2019,
+        "rating": 7.8,
+        "ratingCount": 124283,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BY2QzYTQyYzItMzAwYi00YjZlLThjNTUtNzMyMDdkYzJiNWM4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+        "id": "tt5843876",
+        "title": "Chemical Hearts",
+        "year": 2020,
+        "rating": 6.3,
+        "ratingCount": 4550,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZGFkMDJkOWMtNGI4MS00ZTQ0LWJkMjktYTM2YTQ1MTA3NTRiXkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_.jpg"
+    },
+    {
+        "id": "tt10888708",
+        "title": "The Sleepover",
+        "year": 2020,
+        "rating": 5.5,
+        "ratingCount": 5355,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BZmE1Mjg5ZjgtYjkzYi00OWYxLWEyMDQtYjI3NWE1ZTc3N2Q3XkEyXkFqcGdeQXVyNjEwNTM2Mzc@._V1_.jpg"
+    },
+    {
+        "id": "tt10199914",
+        "title": "The Boys in the Band",
+        "year": 2020,
+        "canRate": false,
+        "img_url": "https://m.media-amazon.com/images/M/MV5BMDkyODhlYmUtZWU1OS00NWVhLTk3MjMtMDRjZjBiYTc0OWRhXkEyXkFqcGdeQXVyMjUxMTY3ODM@._V1_.jpg"
+    }
+]

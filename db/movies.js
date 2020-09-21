@@ -1,12 +1,18 @@
 const client = require('./client');
 
-async function createMovies({ title, year, rating, price }) {
+async function createMovies({ title, year, rating,
+                              rating_votes, img_url, price }) {
     try {
         const { rows: [movie] } = await client.query(`
-        INSERT INTO movies(title, year, rating, price)
-        VALUES ($1, $2, $3, $4)
+        INSERT INTO movies(title, year, rating, rating_votes, img_url, price)
+        VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING * ;
-        `, [title, year, rating, price]);
+        `, [title,
+            year,
+            rating,
+            rating_votes,
+            img_url,
+            price]);
 
         return movie
     } catch (error) {
