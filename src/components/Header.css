@@ -25,7 +25,7 @@
   margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
 }
@@ -82,8 +82,28 @@
   display: none;
 }
 
+.navbar .login_btn {
+  padding: 8px 20px;
+  font-size: 18px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  padding: 8px 20px;
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease-out;
+}
+
+.navbar .login_btn:hover {
+  transition: all 0.3s ease-out;
+  background: #fff;
+  color: #242424;
+  transition: 250ms;
+}
+
 @media screen and (max-width: 960px) {
-  .NavbarItems {
+  .navbar-item {
     position: relative;
   }
 
@@ -122,9 +142,10 @@
 
   .navbar-logo {
     position: absolute;
-    top: 0;
+    font-size: 2em;
+    /* top: 0;
     left: 0;
-    transform: translate(25%, 50%);
+    transform: translate(25%, 50%); */
   }
 
   .menu-icon {
@@ -164,6 +185,10 @@
   }
 
   .nav-search {
+    display: none;
+  }
+
+  .navbar .login_btn {
     display: none;
   }
 }

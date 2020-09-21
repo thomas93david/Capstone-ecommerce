@@ -1,12 +1,35 @@
 .movie-container {
+  display: flex;
   text-align: center;
-  background-color: turquoise;
+  justify-content: space-evenly;
+  margin-top: 9px;
+  margin-bottom: 9px;
+  background-color: white;
 }
 
-.movie-flex {
+.movie-container .aside-left {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+}
+
+.movie-container .movie-flex {
   display: flex;
   flex-direction: row;
-  width: 800px;
+  width: 900px;
   margin: auto;
   background-color: violet;
+}
+
+.movie-container .aside-right {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+}
+
+.movie-container .aside-right .quote title {
+  font-size: 36px;
+}
+.movie-container img {
+  width: 100%;
 }

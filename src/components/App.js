@@ -1,35 +1,33 @@
 import React from "react";
-import Header from "./Header";
-
-import Footer from "./Footer";
-import Banner from "./Areas/Banner";
-import MovieList from "./Areas/MovieList";
-import Login from "./Areas/Login";
-import Register from "./Areas/Register";
-import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
+import Home from "./pages/Home";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import MoviePage from "./pages/MoviePage";
 
 function App() {
   return (
-    <div className="App">
-      <Router>
+    <Router>
+      <div className="App">
         <header>
           <Header />
         </header>
         <Switch>
-          <Route path="/" exact />
+          <Route path="/" exact component={Home} />
+          <Route path="/movies" exact component={MoviePage} />
+          <Route path="/register" exact component={RegisterPage} />
+          <Route path="/login" exact component={LoginPage} />
+          <Route path="/checkout" exact component={CheckoutPage} />
         </Switch>
 
-        <Banner />
-        <MovieList />
-        <Login />
-        <Register />
-      </Router>
-
-      <footer>
-        <Footer />
-      </footer>
-    </div>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
+    </Router>
   );
 }
 
