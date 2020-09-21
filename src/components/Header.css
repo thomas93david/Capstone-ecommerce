@@ -25,7 +25,7 @@
   margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
 }
@@ -103,7 +103,7 @@
 }
 
 @media screen and (max-width: 960px) {
-  .NavbarItems {
+  .navbar-item {
     position: relative;
   }
 
@@ -142,9 +142,10 @@
 
   .navbar-logo {
     position: absolute;
-    top: 0;
+    font-size: 2em;
+    /* top: 0;
     left: 0;
-    transform: translate(25%, 50%);
+    transform: translate(25%, 50%); */
   }
 
   .menu-icon {
@@ -184,6 +185,10 @@
   }
 
   .nav-search {
+    display: none;
+  }
+
+  .navbar .login_btn {
     display: none;
   }
 }

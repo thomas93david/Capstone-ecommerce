@@ -37,11 +37,10 @@ const Register = () => {
               <Form.Label></Form.Label>
               <Form.Control type="password" placeholder="Re-type password" />
             </Form.Group>
-            {
-              <Button variant="primary" type="submit" to="/">
-                Create movieReelz account
-              </Button>
-            }
+
+            <Button variant="primary" type="submit" to="/">
+              Create movieReelz account
+            </Button>
           </Form>
           <div className="register-logo">
             <i className="fas fa-theater-masks"></i>
