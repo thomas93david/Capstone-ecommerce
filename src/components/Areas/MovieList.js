@@ -1,7 +1,6 @@
 import React from "react";
 import "./MovieList.css";
 import MovieCard from "./MovieCard";
-import { Card } from "react-bootstrap";
 
 const MovieList = () => {
   return (

@@ -82,6 +82,26 @@
   display: none;
 }
 
+.navbar .login_btn {
+  padding: 8px 20px;
+  font-size: 18px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  padding: 8px 20px;
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease-out;
+}
+
+.navbar .login_btn:hover {
+  transition: all 0.3s ease-out;
+  background: #fff;
+  color: #242424;
+  transition: 250ms;
+}
+
 @media screen and (max-width: 960px) {
   .NavbarItems {
     position: relative;

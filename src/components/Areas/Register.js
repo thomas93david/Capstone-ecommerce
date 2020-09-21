@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Button } from "react-bootstrap";
 
 import "./Register.css";
@@ -27,7 +27,7 @@ const Register = () => {
             </Form.Label>
             <Form.Group controlId="formUsername">
               <Form.Label></Form.Label>
-              <Form.Control type="email" placeholder="Enter username" />
+              <Form.Control type="text" placeholder="Enter username" />
             </Form.Group>
             <Form.Group controlId="formPassword">
               <Form.Label></Form.Label>
@@ -38,14 +38,7 @@ const Register = () => {
               <Form.Control type="password" placeholder="Re-type password" />
             </Form.Group>
             {
-              <Button
-                variant="primary"
-                type="submit"
-                href="/register"
-                style={{
-                  width: "250px",
-                }}
-              >
+              <Button variant="primary" type="submit" to="/">
                 Create movieReelz account
               </Button>
             }
