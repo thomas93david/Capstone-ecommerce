@@ -11,7 +11,6 @@ const {
   getCartById,
 } = require("../db");
 const { addMovieToCart } = require("../db/movie_cart");
-const cartRouter = require("../routes/cartRoute");
 const { getMovieById } = require("./movies");
 async function dropTables() {
   try {
@@ -30,10 +29,10 @@ async function dropTables() {
 // create the tables
 
 //NOTE FROM CHELSEA::
-    /* I had to remove the NOT NULL constraint from several fields
-    in order to test the create movie function with the data I have acquired.
-    since there are fields missing still. once we have all of the seed data present
-    we can reestablish constraints and clean up code. */
+/* I had to remove the NOT NULL constraint from several fields
+in order to test the create movie function with the data I have acquired.
+since there are fields missing still. once we have all of the seed data present
+we can reestablish constraints and clean up code. */
 
 async function createTables() {
   console.log("Starting to build tables...");
@@ -59,7 +58,7 @@ async function createTables() {
             CREATE TABLE cart (
                 id SERIAL PRIMARY KEY,
                 "movieTitle" VARCHAR (255) REFERENCES movies(title),
-                "totalPrice" INTEGER NOT NULL,
+                "totalPrice" VARCHAR(255) NOT NULL,
                 quantity INTEGER NOT NULL,
                 UNIQUE( "movieTitle")
             );
@@ -69,6 +68,7 @@ async function createTables() {
             );
             CREATE TABLE users_cart (
                 "cartId" INTEGER REFERENCES cart(id),
+                "customerId" INTEGER REFERENCES customers(id),
                 "movieId" INTEGER REFERENCES movies(id),
                 UNIQUE ("cartId", "movieId")
             );
@@ -121,28 +121,28 @@ async function createInitialCustomers() {
 
 
 async function createIntitialMovies() {
-    console.log('making initial movies...')
-    try {
-       const movies = require("./movies_title_year_rating.json");
-       for (i = 0; i < movies.length; i++){
-           const movie = movies[i];
-           await createMovies({
-               title: movie.title,
-               year: movie.year,
-               rating: movie.rating,
-               price: faker.commerce.price(10, 100, 2, '$')
-           })
-       }
-       console.log("Successful Seed Init Movies!");
-    } catch (error) {
-        console.error(error);
+  console.log('making initial movies...')
+  try {
+    const movies = require("./movies_title_year_rating.json");
+    for (let i = 0; i < movies.length; i++) {
+      const movie = movies[i];
+      await createMovies({
+        title: movie.title,
+        year: movie.year,
+        rating: movie.rating,
+        price: faker.commerce.price(10, 100, 2, '$')
+      })
     }
+    console.log("Successful Seed Init Movies!");
+  } catch (error) {
+    console.error(error);
+  }
 
 }
 async function gettingMovieTitle() {
   try {
     console.log("getting movie title...");
-    const title = await getMovieByTitle(1);
+    const title = await getMovieByTitle(5);
     console.log("title..", title);
     console.log("finished getting movie...");
   } catch (error) {
@@ -154,8 +154,8 @@ async function createInitialCart() {
   console.log("creating cart...");
   try {
     const cart = await createCart({
-      movieTitle: "2012",
-      totalPrice: 500.0,
+      movieTitle: "Mulan",
+      totalPrice: "500.00",
       quantity: 1,
     });
     console.log("this is the cart...", cart);
@@ -167,11 +167,12 @@ async function createInitialCart() {
 async function addMovieInCart() {
   console.log("adding movie...");
   try {
+    const oldCart = await getCartById(1)
     const movieId = await getMovieById(2);
-    const addMovie = await addMovieToCart(1, movieId);
+    const addMovie = await addMovieToCart(1, 1, 1);
 
-    const getCart = await getCartById(1, addMovie);
-
+    const getCart = await getCartById(1);
+    console.log("this is the cart", oldCart)
     console.log("trying to add movie id...", movieId);
     console.log("added movie", addMovie);
     console.log("getting new cart", getCart);
@@ -184,18 +185,18 @@ async function addMovieInCart() {
 async function populateInitialData() {
 
 
-    try {
-        await createInitialCustomers();
-        await createIntitialMovies();
-        // await gettingMovieTitle();
-        // await createInitialCart();
-        // await addMovieInCart();
-        // await getInitialImdb();
+  try {
+    await createInitialCustomers();
+    await createIntitialMovies();
+    await gettingMovieTitle();
+    await createInitialCart();
+    await addMovieInCart();
+    // await getInitialImdb();
 
 
-    } catch (error) {
-        throw error;
-    }
+  } catch (error) {
+    throw error;
+  }
 
 }
 
