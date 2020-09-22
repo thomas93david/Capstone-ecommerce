@@ -1,14 +1,24 @@
 import React, { useState } from "react";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import { login } from "../../api"
 import Button from "./Button";
 import "./Login.css";
 
-export default function Login() {
+export default function Login({ customer, setCustomer }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  function handleSubmit(event) {
+  const submitHandler = (event) => {
     event.preventDefault();
+    login({ username, password }).then((customer) => {
+      localStorage.setItem('customer', JSON.stringify(customer));
+      setCustomer(customer);
+    }).catch((error) => { throw error });
+  }
+  const usernameHandler = (event) => {
+    setUsername(event.target.value); // updated
+  }
+  const passwordHandler = (event) => {
+    setPassword(event.target.value); // updated
   }
 
   return (
@@ -16,27 +26,26 @@ export default function Login() {
       <div className="login-wrap">
         <div className="Login">
           <h2>Login</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={submitHandler}>
             <FormGroup controlId="username">
               <FormLabel>Username</FormLabel>
               <FormControl
                 autoFocus
                 type="text"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={usernameHandler}
               />
             </FormGroup>
             <FormGroup controlId="password">
               <FormLabel>Password</FormLabel>
               <FormControl
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={passwordHandler}
                 type="password"
               />
             </FormGroup>
-            <Button buttonStyle="btn--primary" to="/">
-              LOGIN
-            </Button>
+            <input type="submit">
+            </input>
           </form>
         </div>
       </div>

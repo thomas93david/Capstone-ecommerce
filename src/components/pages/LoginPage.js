@@ -1,10 +1,10 @@
 import React from "react";
 import Login from "../Areas/Login";
 
-const LoginPage = () => {
+const LoginPage = ({ customer, setCustomer }) => {
   return (
     <>
-      <Login />
+      <Login customer={customer} setCustomer={setCustomer} />
     </>
   );
 };
