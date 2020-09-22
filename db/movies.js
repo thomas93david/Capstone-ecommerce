@@ -1,4 +1,4 @@
-const client = require('./client');
+const client = require("./client");
 
 async function createMovies({ title, year, rating,
                               rating_votes, img_url, price }) {
@@ -14,23 +14,42 @@ async function createMovies({ title, year, rating,
             img_url,
             price]);
 
-        return movie
-    } catch (error) {
-        console.error(error);
-    }
+
+    return movie;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function getAllMovies() {
+  try {
+    const { rows } = await client.query(
+      `
+            SELECT * FROM movies;
+        `
+    );
+    return rows;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 async function getMovieById(id) {
-    try {
-        const { rows: [movie] } = await client.query(`
+  try {
+    const {
+      rows: [movie],
+    } = await client.query(
+      `
         SELECT * FROM movies
         WHERE id=$1;
-        `, [id]);
+        `,
+      [id]
+    );
 
-        return movie;
-    } catch (error) {
-        console.error(error);
-    }
+    return movie;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 async function getMovieByTitle(movieTitle) {
@@ -45,22 +64,36 @@ async function getMovieByTitle(movieTitle) {
     }
 }
 
+async function getMovieByGenre(genre) {
+  try {
+    const { data: [category] } = await client.query(
+      ` SELECT genre FROM movies
+      ON CONFLICT (title) DO NOTHING
+            WHERE id=$1;
+          `, [genre]);
+    return category
+  } catch (error) {
+    throw error
+  }
+}
 
 //ADMIN ONLY:
 async function deleteMovie(id) {
-    try {
-        await client.query(`
+  try {
+    await client.query(`
         DELETE FROM movie
         WHERE id=$1;
         `);
-    } catch (error) {
-        console.error(error);
-    }
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 module.exports = {
-    createMovies,
-    getMovieById,
-    deleteMovie,
-    getMovieByTitle
-}
+  createMovies,
+  getAllMovies,
+  getMovieById,
+  getMovieByTitle,
+  getMovieByGenre,
+  deleteMovie,
+};

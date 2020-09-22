@@ -5,11 +5,9 @@
   width: auto;
   height: 500px;
   font-family: "Play", sans-serif;
-  border: 1px solid blue;
 }
 
 .register-cnt {
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   flex-direction: column;

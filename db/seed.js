@@ -1,3 +1,4 @@
+
 const client = require('./client');
 const faker = require("faker");
 
@@ -10,33 +11,34 @@ const {
     addMovieToCart
 } = require('../db');
 const { getMovieById } = require('./movies');
+
 async function dropTables() {
-    try {
-        await client.query(`
+  try {
+    await client.query(`
         DROP TABLE IF EXISTS users_cart;
         DROP TABLE IF EXISTS cart;
         DROP TABLE IF EXISTS genres;
         DROP TABLE IF EXISTS movies;
         DROP TABLE IF EXISTS customers;
     `);
-    } catch (error) {
-        throw error;
-    }
+  } catch (error) {
+    throw error;
+  }
 }
 
 // create the tables
 
 //NOTE FROM CHELSEA::
-    /* I had to remove the NOT NULL constraint from several fields
-    in order to test the create movie function with the data I have acquired.
-    since there are fields missing still. once we have all of the seed data present
-    we can reestablish constraints and clean up code. */
+/* I had to remove the NOT NULL constraint from several fields
+in order to test the create movie function with the data I have acquired.
+since there are fields missing still. once we have all of the seed data present
+we can reestablish constraints and clean up code. */
 
 async function createTables() {
-    console.log("Starting to build tables...");
-    try {
-        await client.query(`
-            CREATE TABLE customers(
+  console.log("Starting to build tables...");
+  try {
+    await client.query(`
+               CREATE TABLE customers(
                 id SERIAL PRIMARY KEY,
                 username VARCHAR(255) UNIQUE NOT NULL,
                 password VARCHAR (255),
@@ -64,27 +66,28 @@ async function createTables() {
             );
             CREATE TABLE movies_cart (
                 "cartId" INTEGER REFERENCES cart(id),
+                "customerId" INTEGER REFERENCES customers(id),
                 "movieId" INTEGER REFERENCES movies(id),
                 quantity INTEGER,
                 UNIQUE ("cartId", "movieId")
             );
             `);
-    } catch (error) {
-        throw error;
-    }
+  } catch (error) {
+    throw error;
+  }
 }
 async function rebuildDb() {
-    try {
-        console.log("rebuilding db..");
+  try {
+    console.log("rebuilding db..");
 
-        client.connect();
-        await dropTables();
-        await createTables();
+    client.connect();
+    await dropTables();
+    await createTables();
 
-        console.log("finished rebuilding db..");
-    } catch (error) {
-        throw error;
-    }
+    console.log("finished rebuilding db..");
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function createInitialCustomers() {
@@ -144,6 +147,7 @@ async function createInitialGenres(){
     }
 }
 
+
 async function createIntitialMovies() {
     console.log('making initial movies...')
     try {
@@ -176,16 +180,15 @@ async function initializeCarts(){
         console.error(error);
     }
 }
-
 async function gettingMovieTitle() {
-    try {
-        console.log("getting movie title...")
-        const title = await getMovieByTitle(1);
-        console.log("title..", title)
-        console.log("finished getting movie...")
-    } catch (error) {
-        throw error
-    }
+  try {
+    console.log("getting movie title...");
+    const title = await getMovieByTitle(5);
+    console.log("title..", title);
+    console.log("finished getting movie...");
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function addMovieInCart() {
@@ -201,8 +204,6 @@ async function addMovieInCart() {
     }
 }
 
-
-
 async function populateInitialData() {
     try {
         await createInitialCustomers();
@@ -215,15 +216,15 @@ async function populateInitialData() {
         // await addMovieInCart();
         // await getInitialImdb();
 
+  } catch (error) {
+    throw error;
+  }
 
-    } catch (error) {
-        throw error;
-    }
 }
 
 // initializes the test run
 
 rebuildDb()
-    .then(populateInitialData)
-    .catch(console.error)
-    .finally(() => client.end())
+  .then(populateInitialData)
+  .catch(console.error)
+  .finally(() => client.end());

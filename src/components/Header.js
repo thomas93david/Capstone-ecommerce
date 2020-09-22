@@ -56,7 +56,6 @@ const Header = () => {
                 <i className="fas fa-cart-plus"></i>
               </NavLink>
             </li>
-
             <li className="nav-item">
               <NavLink
                 to="/login"
@@ -80,10 +79,10 @@ const Header = () => {
               SIGN UP
             </Button>
           )}
+          <NavLink to="/login">
+            <button className="login_btn">LOGIN</button>
+          </NavLink>
         </div>
-        <Button buttonStyle="btn--outline" to="/login">
-          <i class="far fa-user-circle"></i>
-        </Button>
       </nav>
     </>
   );

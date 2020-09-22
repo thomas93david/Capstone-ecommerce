@@ -1,12 +1,13 @@
 .login-container {
+  text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   width: auto;
-  height: 300px;
-  border: 1px solid green;
+  height: 500px;
   margin: 12px;
+  font-family: "Play", sans-serif;
 }
 
 .login-wrap {
@@ -16,4 +17,28 @@
   flex-direction: column;
   align-items: center;
   background-color: thistle;
+}
+
+.login-container .login-wrap .login button {
+  padding: 8px 20px;
+  font-size: 18px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  padding: 8px 20px;
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease-out;
+}
+
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
 }
