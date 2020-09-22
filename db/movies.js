@@ -23,11 +23,10 @@ async function createMovies({ title, year, rating,
 
 async function getAllMovies() {
   try {
-    const { rows } = await client.query(
-      `
-            SELECT * FROM movies;
-        `
-    );
+    const { rows } = await client.query(`
+        SELECT * FROM movies
+        RETURNING *;
+        `);
     return rows;
   } catch (error) {
     console.error(error);
