@@ -1,5 +1,4 @@
-
-const client = require('./client');
+const client = require("./client");
 const faker = require("faker");
 
 const {
@@ -30,9 +29,11 @@ async function dropTables() {
 
 //NOTE FROM CHELSEA::
 /* I had to remove the NOT NULL constraint from several fields
+
 in order to test the create movie function with the data I have acquired.
 since there are fields missing still. once we have all of the seed data present
 we can reestablish constraints and clean up code. */
+
 
 async function createTables() {
   console.log("Starting to build tables...");
@@ -147,8 +148,8 @@ async function createInitialGenres(){
     }
 }
 
-
 async function createIntitialMovies() {
+
     console.log('making initial movies...')
     try {
        const movies = require("./movies.json");
@@ -179,6 +180,7 @@ async function initializeCarts(){
     } catch (error) {
         console.error(error);
     }
+
 }
 async function gettingMovieTitle() {
   try {
@@ -205,6 +207,7 @@ async function addMovieInCart() {
 }
 
 async function populateInitialData() {
+
     try {
         await createInitialCustomers();
         await createInitialGenres();

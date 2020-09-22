@@ -7,7 +7,7 @@ const STYLES = ["btn--primary", "btn--outline"];
 
 const SIZES = ["btn--medium", "btn--large"];
 
-const Button = ({ children, type, onClick, buttonStyle, buttonSize }) => {
+const Button = ({ to, children, type, onClick, buttonStyle, buttonSize }) => {
   const checkButtonStyle = STYLES.includes(buttonStyle)
     ? buttonStyle
     : STYLES[0];
@@ -15,7 +15,7 @@ const Button = ({ children, type, onClick, buttonStyle, buttonSize }) => {
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
   return (
-    <NavLink to="/register">
+    <NavLink to={to}>
       <button
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
         onClick={onClick}
