@@ -1,2 +1,5 @@
 .movie-card {
+  background-color: lightcoral;
+  border-radius: 15%;
+  margin: 9px;
 }

@@ -1,7 +1,5 @@
-
-const client = require('./client');
+const client = require("./client");
 const faker = require("faker");
-
 
 const {
   createCustomer,
@@ -30,7 +28,7 @@ async function dropTables() {
 // create the tables
 
 //NOTE FROM CHELSEA::
-    /* I had to remove the NOT NULL constraint from several fields
+/* I had to remove the NOT NULL constraint from several fields
     in order to test the create movie function with the data I have acquired.
     since there are fields missing still. once we have all of the seed data present
     we can reestablish constraints and clean up code. */
@@ -119,25 +117,23 @@ async function createInitialCustomers() {
   }
 }
 
-
 async function createIntitialMovies() {
-    console.log('making initial movies...')
-    try {
-       const movies = require("./movies_title_year_rating.json");
-       for (i = 0; i < movies.length; i++){
-           const movie = movies[i];
-           await createMovies({
-               title: movie.title,
-               year: movie.year,
-               rating: movie.rating,
-               price: faker.commerce.price(10, 100, 2, '$')
-           })
-       }
-       console.log("Successful Seed Init Movies!");
-    } catch (error) {
-        console.error(error);
+  console.log("making initial movies...");
+  try {
+    const movies = require("./movies_title_year_rating.json");
+    for (i = 0; i < movies.length; i++) {
+      const movie = movies[i];
+      await createMovies({
+        title: movie.title,
+        year: movie.year,
+        rating: movie.rating,
+        price: faker.commerce.price(10, 100, 2, "$"),
+      });
     }
-
+    console.log("Successful Seed Init Movies!");
+  } catch (error) {
+    console.error(error);
+  }
 }
 async function gettingMovieTitle() {
   try {
@@ -182,21 +178,16 @@ async function addMovieInCart() {
 }
 
 async function populateInitialData() {
-
-
-    try {
-        await createInitialCustomers();
-        await createIntitialMovies();
-        // await gettingMovieTitle();
-        // await createInitialCart();
-        // await addMovieInCart();
-        // await getInitialImdb();
-
-
-    } catch (error) {
-        throw error;
-    }
-
+  try {
+    await createInitialCustomers();
+    await createIntitialMovies();
+    // await gettingMovieTitle();
+    // await createInitialCart();
+    // await addMovieInCart();
+    // await getInitialImdb();
+  } catch (error) {
+    throw error;
+  }
 }
 
 // initializes the test run

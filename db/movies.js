@@ -1,14 +1,17 @@
 const client = require("./client");
 
-
 async function createMovies({ title, year, rating, price }) {
-    try {
-        const { rows: [movie] } = await client.query(`
+  try {
+    const {
+      rows: [movie],
+    } = await client.query(
+      `
         INSERT INTO movies(title, year, rating, price)
         VALUES ($1, $2, $3, $4)
         RETURNING * ;
-        `, [title, year, rating, price]);
-
+        `,
+      [title, year, rating, price]
+    );
 
     return movie;
   } catch (error) {
@@ -63,16 +66,14 @@ WHERE id= $1;
   }
 }
 
-async function getMovieByGenre(genre) {
-    try {
-        const 
+// async function getMovieByGenre(genre) {
+//     try {
+//         const
 
-    } catch(error) {
-        throw error
-    }
-}
-
-
+//     } catch(error) {
+//         throw error
+//     }
+// }
 
 async function deleteMovie(id) {
   try {
