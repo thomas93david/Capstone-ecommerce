@@ -6,7 +6,7 @@ const {
   getMovieByTitle,
 } = require("../db");
 
-movieRouter.get("/", async (req, res) => {
+movieRouter.get("/", async (req, res, next) => {
   try {
     const allMovies = await getAllMovies();
     res.send({ allMovies });
@@ -14,7 +14,22 @@ movieRouter.get("/", async (req, res) => {
     next({ name, message });
   }
 });
-
+movieRouter.get('/:movieId', async (req, res, next) => {
+  try {
+    const id = req.params.movieId
+    const getMovieId = await getMovieById(id)
+    if (!getMovieId) {
+      next({ name: "Id error", message: "no movie found by this id try again" })
+    }
+    else {
+      res.send({
+        getMovieId
+      })
+    }
+  } catch ({ name, message }) {
+    next({ name, message })
+  }
+})
 movieRouter.post("/", async (req, res, next) => {
   const { title, genre, price, rated } = req.body;
   const movieData = {};
@@ -27,7 +42,7 @@ movieRouter.post("/", async (req, res, next) => {
 
     const createMovie = await createMovies(movieData);
 
-    if (isAdmin && createMovie) {
+    if (createMovie) {
       res.send({ createMovie });
     } else {
       next({

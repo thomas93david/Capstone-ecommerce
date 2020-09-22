@@ -5,6 +5,7 @@ const {
   createCustomer,
   createMovies,
   getMovieByTitle,
+  getAllMovies,
   createCart,
   createGenres,
   addMovieToCart,
@@ -208,7 +209,7 @@ async function populateInitialData() {
     // await gettingMovieTitle();
     // await createInitialCart();
     // await addMovieInCart();
-    // await getInitialImdb();
+    await getAllMovies();
   } catch (error) {
     throw error;
   }
