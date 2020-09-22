@@ -1,10 +1,10 @@
 import React from "react";
 import Register from "../Areas/Register";
 
-const RegisterPage = () => {
+const RegisterPage = ({ customer, setCustomer }) => {
   return (
     <>
-      <Register />
+      <Register customer={customer} setCustomer={setCustomer} />
     </>
   );
 };

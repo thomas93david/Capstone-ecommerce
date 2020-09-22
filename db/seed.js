@@ -9,14 +9,12 @@ const {
   createGenres,
   addMovieToCart,
 } = require("../db");
-const { getMovieById } = require("./movies");
-
 async function dropTables() {
   try {
     await client.query(`
-        DROP TABLE IF EXISTS users_cart;
-        DROP TABLE IF EXISTS cart;
+        DROP TABLE IF EXISTS movies_cart;
         DROP TABLE IF EXISTS genres;
+        DROP TABLE IF EXISTS cart;
         DROP TABLE IF EXISTS movies;
         DROP TABLE IF EXISTS customers;
     `);
@@ -177,16 +175,16 @@ async function initializeCarts() {
     console.error(error);
   }
 }
-async function gettingMovieTitle() {
-  try {
-    console.log("getting movie title...");
-    const title = await getMovieByTitle(5);
-    console.log("title..", title);
-    console.log("finished getting movie...");
-  } catch (error) {
-    throw error;
-  }
-}
+// async function gettingMovieTitle() {
+//   try {
+//     console.log("getting movie title...");
+//     const title = await getMovieByTitle(5);
+//     console.log("title..", title);
+//     console.log("finished getting movie...");
+//   } catch (error) {
+//     throw error;
+//   }
+// }
 
 async function addMovieInCart() {
   console.log("adding movie...");
