@@ -1,23 +1,19 @@
 const client = require('./client');
-async function getCustomerCart(customerId) {
+
+//read our cart for the movies that are in it. 
+async function readCartMovies(){
     try {
-        const { rows: customer } = await client.query(
-            `
-				SELECT *
-				FROM users_cart
-				WHERE "customerId"=$1
-				;
-			`,
-            [customerId]
-        );
-        return customer;
+        const {rows: movies} = await client.query(`
+        SELECT id, title, price FROM movies
+        LEFT JOIN users_cart ON "movieId" = id
+        RETURNING *; 
+        `, );
+        console.log(movies);
     } catch (error) {
-        throw error;
+        console.error(error);
     }
 }
 
 module.exports = {
-    getCustomerCart,
+    readCartMovies
 }
-
-

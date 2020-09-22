@@ -7,17 +7,15 @@ const {
     createMovies,
     getMovieByTitle,
     createCart,
-    getCartById,
-    createGenres
+    createGenres,
+    addMovieToCart
 } = require('../db');
-const { addMovieToCart } = require('../db/movie_cart');
 const { getMovieById } = require('./movies');
 
 async function dropTables() {
   try {
     await client.query(`
         DROP TABLE IF EXISTS users_cart;
-        DROP TABLE IF EXISTS wishlist;
         DROP TABLE IF EXISTS cart;
         DROP TABLE IF EXISTS genres;
         DROP TABLE IF EXISTS movies;
@@ -62,19 +60,15 @@ async function createTables() {
             );
             CREATE TABLE cart (
                 id SERIAL PRIMARY KEY,
-                "movieTitle" VARCHAR (255) REFERENCES movies(title),
-                "totalPrice" VARCHAR(255) NOT NULL,
-                quantity INTEGER NOT NULL,
-                UNIQUE( "movieTitle")
+                "customerId" INTEGER REFERENCES customers(id),
+                subtotal VARCHAR (255),
+                UNIQUE("customerId")
             );
-            CREATE TABLE wishlist (
-                "wishlistId" INTEGER REFERENCES cart(id),
-                UNIQUE ("wishlistId")
-            );
-            CREATE TABLE users_cart (
+            CREATE TABLE movies_cart (
                 "cartId" INTEGER REFERENCES cart(id),
                 "customerId" INTEGER REFERENCES customers(id),
                 "movieId" INTEGER REFERENCES movies(id),
+                quantity INTEGER,
                 UNIQUE ("cartId", "movieId")
             );
             `);
@@ -97,31 +91,32 @@ async function rebuildDb() {
 }
 
 async function createInitialCustomers() {
-  try {
-    console.log("creating intital users..");
+    try {
+        console.log("creating intital users..");
 
-    const customer1 = await createCustomer({
-      username: "DavidThomas",
-      password: "hardcorePorn",
-    });
-    console.log("this is customer1", customer1);
+        const customer1 = await createCustomer({
+            username: "DavidThomas",
+            password: "hardcorePorn",
+        });
+        console.log("this is customer1", customer1);
 
-    const customer2 = await createCustomer({
-      username: "Kamikaze1",
-      password: "Password1",
-    });
-    console.log("this is customer2", customer2);
+        const customer2 = await createCustomer({
+            username: "Kamikaze1",
+            password: "Password1",
+        
+        });
+        console.log("this is customer2", customer2);
 
-    const customer3 = await createCustomer({
-      username: "ChelseWenzel",
-      password: "Dork1234",
-    });
-    console.log("this is customer3", customer3);
+        const customer3 = await createCustomer({
+            username: "ChelseWenzel",
+            password: "Dork1234",
+        });
+        console.log("this is customer3", customer3);
 
-    console.log("finsihed creating intitial customers..");
-  } catch (error) {
-    throw error;
-  }
+        console.log("finsihed creating intitial customers..");
+    } catch (error) {
+        throw error;
+    }
 }
 async function createInitialGenres(){
     try{
@@ -172,7 +167,19 @@ async function createIntitialMovies() {
     } catch (error) {
         console.error(error);
     }
-   }
+}
+
+async function initializeCarts(){
+    try {
+        console.log("Initializing Cartz..");
+        await createCart(1);
+        await createCart(2);
+        await createCart(3);
+
+    } catch (error) {
+        console.error(error);
+    }
+}
 async function gettingMovieTitle() {
   try {
     console.log("getting movie title...");
@@ -184,36 +191,17 @@ async function gettingMovieTitle() {
   }
 }
 
-async function createInitialCart() {
-  console.log("creating cart...");
-  try {
-    const cart = await createCart({
-      movieTitle: "Mulan",
-      totalPrice: "500.00",
-      quantity: 1,
-    });
-    console.log("this is the cart...", cart);
-    console.log("finished creating cart...");
-  } catch (error) {
-    throw error;
-  }
-}
 async function addMovieInCart() {
-  console.log("adding movie...");
-  try {
-    const oldCart = await getCartById(1)
-    const movieId = await getMovieById(2);
-    const addMovie = await addMovieToCart(1, 1, 1);
-
-    const getCart = await getCartById(1);
-    console.log("this is the cart", oldCart)
-    console.log("trying to add movie id...", movieId);
-    console.log("added movie", addMovie);
-    console.log("getting new cart", getCart);
-    console.log("finsihed adding");
-  } catch (error) {
-    throw error;
-  }
+    console.log("adding movie...");
+    try {
+        
+        await addMovieToCart("Mulan", 1);
+        await addMovieToCart("Dune", 2);
+        await addMovieToCart("Hamilton", 3);
+        console.log("finished adding movies..");
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 async function populateInitialData() {
@@ -221,6 +209,8 @@ async function populateInitialData() {
         await createInitialCustomers();
         await createInitialGenres();
         await createIntitialMovies();
+        await initializeCarts();
+        await addMovieInCart();
         // await gettingMovieTitle();
         // await createInitialCart();
         // await addMovieInCart();

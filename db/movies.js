@@ -51,20 +51,17 @@ async function getMovieById(id) {
     console.error(error);
   }
 }
+
 async function getMovieByTitle(movieTitle) {
-  try {
-    const {
-      rows: [title],
-    } = await client.query(
-      `SELECT title FROM movies
-       WHERE id= $1;
-`,
-      [movieTitle]
-    );
-    return title;
-  } catch (error) {
-    throw error;
-  }
+    try {
+        const { rows: [title] } = await client.query(`
+            SELECT title FROM movies
+            WHERE id= $1;
+            `, [movieTitle]);
+        return title;
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 async function getMovieByGenre(genre) {
@@ -80,8 +77,7 @@ async function getMovieByGenre(genre) {
   }
 }
 
-
-
+//ADMIN ONLY:
 async function deleteMovie(id) {
   try {
     await client.query(`
