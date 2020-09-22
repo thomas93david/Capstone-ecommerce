@@ -2,7 +2,7 @@ const client = require('./client');
 const bcrypt = require('bcrypt')
 
 
-async function createCustomer({ username, password }) {
+async function createCustomer({username, password}) {
     try {
         const {
             rows: [customer],
@@ -12,11 +12,13 @@ async function createCustomer({ username, password }) {
     ON CONFLICT (username) DO NOTHING
     RETURNING *; 
     `, [username, password]);
+
         return customer;
     } catch (error) {
         throw error
     }
 }
+
 async function getCustomerById(customerId) {
     try {
         // grabs the user by the "customerId"
