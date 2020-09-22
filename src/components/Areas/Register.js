@@ -1,5 +1,6 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
+import Button from "./Button";
 
 import "./Register.css";
 
@@ -38,8 +39,8 @@ const Register = () => {
               <Form.Control type="password" placeholder="Re-type password" />
             </Form.Group>
 
-            <Button variant="primary" type="submit" to="/">
-              Create movieReelz account
+            <Button buttonStyle="btn--primary" to="/">
+              SIGN UP
             </Button>
           </Form>
           <div className="register-logo">
