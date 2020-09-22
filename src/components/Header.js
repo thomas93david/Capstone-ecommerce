@@ -79,9 +79,11 @@ const Header = () => {
               SIGN UP
             </Button>
           )}
-          <NavLink to="/login">
-            <button className="login_btn">LOGIN</button>
-          </NavLink>
+          {button && (
+            <Button buttonStyle="btn--outline" to="/login">
+              LOGIN
+            </Button>
+          )}
         </div>
       </nav>
     </>

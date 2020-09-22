@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-import {
-  NavLink,
-  Button,
-  FormGroup,
-  FormControl,
-  FormLabel,
-} from "react-bootstrap";
+import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import Button from "./Button";
 import "./Login.css";
 
 export default function Login() {
@@ -39,11 +34,9 @@ export default function Login() {
                 type="password"
               />
             </FormGroup>
-            <NavLink>
-              <Button variant="primary" type="submit">
-                Login
-              </Button>
-            </NavLink>
+            <Button buttonStyle="btn--primary" to="/">
+              LOGIN
+            </Button>
           </form>
         </div>
       </div>

@@ -2,14 +2,14 @@ const client = require("./client");
 const faker = require("faker");
 
 const {
-    createCustomer,
-    createMovies,
-    getMovieByTitle,
-    createCart,
-    createGenres,
-    addMovieToCart
-} = require('../db');
-const { getMovieById } = require('./movies');
+  createCustomer,
+  createMovies,
+  getMovieByTitle,
+  createCart,
+  createGenres,
+  addMovieToCart,
+} = require("../db");
+const { getMovieById } = require("./movies");
 
 async function dropTables() {
   try {
@@ -33,7 +33,6 @@ async function dropTables() {
 in order to test the create movie function with the data I have acquired.
 since there are fields missing still. once we have all of the seed data present
 we can reestablish constraints and clean up code. */
-
 
 async function createTables() {
   console.log("Starting to build tables...");
@@ -92,95 +91,91 @@ async function rebuildDb() {
 }
 
 async function createInitialCustomers() {
-    try {
-        console.log("creating intital users..");
+  try {
+    console.log("creating intital users..");
 
-        const customer1 = await createCustomer({
-            username: "DavidThomas",
-            password: "hardcorePorn",
-        });
-        console.log("this is customer1", customer1);
+    const customer1 = await createCustomer({
+      username: "DavidThomas",
+      password: "hardcorePorn",
+    });
+    console.log("this is customer1", customer1);
 
-        const customer2 = await createCustomer({
-            username: "Kamikaze1",
-            password: "Password1",
-        
-        });
-        console.log("this is customer2", customer2);
+    const customer2 = await createCustomer({
+      username: "Kamikaze1",
+      password: "Password1",
+    });
+    console.log("this is customer2", customer2);
 
-        const customer3 = await createCustomer({
-            username: "ChelseWenzel",
-            password: "Dork1234",
-        });
-        console.log("this is customer3", customer3);
+    const customer3 = await createCustomer({
+      username: "ChelseWenzel",
+      password: "Dork1234",
+    });
+    console.log("this is customer3", customer3);
 
-        console.log("finsihed creating intitial customers..");
-    } catch (error) {
-        throw error;
-    }
+    console.log("finsihed creating intitial customers..");
+  } catch (error) {
+    throw error;
+  }
 }
-async function createInitialGenres(){
-    try{
-        console.log("Starting Create Genre");
-        await createGenres("Action");
-        await createGenres("Adventure");
-        await createGenres("Animation");
-        await createGenres("Biography");
-        await createGenres("Comedy");
-        await createGenres("Crime");
-        await createGenres("Drama");
-        await createGenres("Documentary");
-        await createGenres("Family");
-        await createGenres("Fantasy");
-        await createGenres("Horror");
-        await createGenres("Musical");
-        await createGenres("Mystery");
-        await createGenres("Romance");
-        await createGenres("Sci-Fi");
-        await createGenres("Sport");
-        await createGenres("Thriller");
-        await createGenres("War");
-        await createGenres("Western");
+async function createInitialGenres() {
+  try {
+    console.log("Starting Create Genre");
+    await createGenres("Action");
+    await createGenres("Adventure");
+    await createGenres("Animation");
+    await createGenres("Biography");
+    await createGenres("Comedy");
+    await createGenres("Crime");
+    await createGenres("Drama");
+    await createGenres("Documentary");
+    await createGenres("Family");
+    await createGenres("Fantasy");
+    await createGenres("Horror");
+    await createGenres("Musical");
+    await createGenres("Mystery");
+    await createGenres("Romance");
+    await createGenres("Sci-Fi");
+    await createGenres("Sport");
+    await createGenres("Thriller");
+    await createGenres("War");
+    await createGenres("Western");
 
-        console.log("Made Genres!");
-    }catch (error){
-        console.error(error);
-    }
+    console.log("Made Genres!");
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 async function createIntitialMovies() {
-
-    console.log('making initial movies...')
-    try {
-       const movies = require("./movies.json");
-       for (i = 0; i < movies.length; i++){
-           const movie = movies[i];
-           await createMovies({
-               title: movie.title,
-               year: movie.year,
-               rating: movie.rating || faker.commerce.price(1, 10, 1, ''),
-               rating_votes: faker.commerce.price(200, 3000, 0, ''),
-               img_url: movie.img_url,
-               price: faker.commerce.price(10, 100, 2, '$')
-           })
-       }
-       console.log("Successful Seed Init Movies!");
-    } catch (error) {
-        console.error(error);
+  console.log("making initial movies...");
+  try {
+    const movies = require("./movies.json");
+    for (i = 0; i < movies.length; i++) {
+      const movie = movies[i];
+      await createMovies({
+        title: movie.title,
+        year: movie.year,
+        rating: movie.rating || faker.commerce.price(1, 10, 1, ""),
+        rating_votes: faker.commerce.price(200, 3000, 0, ""),
+        img_url: movie.img_url,
+        price: faker.commerce.price(10, 100, 2, "$"),
+      });
     }
+    console.log("Successful Seed Init Movies!");
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-async function initializeCarts(){
-    try {
-        console.log("Initializing Cartz..");
-        await createCart(1);
-        await createCart(2);
-        await createCart(3);
-
-    } catch (error) {
-        console.error(error);
-    }
-
+async function initializeCarts() {
+  try {
+    console.log("Initializing Cartz..");
+    await createCart(1);
+    await createCart(2);
+    await createCart(3);
+  } catch (error) {
+    console.error(error);
+  }
 }
 async function gettingMovieTitle() {
   try {
@@ -194,35 +189,31 @@ async function gettingMovieTitle() {
 }
 
 async function addMovieInCart() {
-    console.log("adding movie...");
-    try {
-        
-        await addMovieToCart("Mulan", 1);
-        await addMovieToCart("Dune", 2);
-        await addMovieToCart("Hamilton", 3);
-        console.log("finished adding movies..");
-    } catch (error) {
-        console.error(error);
-    }
+  console.log("adding movie...");
+  try {
+    await addMovieToCart("Mulan", 1);
+    await addMovieToCart("Dune", 2);
+    await addMovieToCart("Hamilton", 3);
+    console.log("finished adding movies..");
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 async function populateInitialData() {
-
-    try {
-        await createInitialCustomers();
-        await createInitialGenres();
-        await createIntitialMovies();
-        await initializeCarts();
-        await addMovieInCart();
-        // await gettingMovieTitle();
-        // await createInitialCart();
-        // await addMovieInCart();
-        // await getInitialImdb();
-
+  try {
+    await createInitialCustomers();
+    await createInitialGenres();
+    await createIntitialMovies();
+    await initializeCarts();
+    await addMovieInCart();
+    // await gettingMovieTitle();
+    // await createInitialCart();
+    // await addMovieInCart();
+    // await getInitialImdb();
   } catch (error) {
     throw error;
   }
-
 }
 
 // initializes the test run
