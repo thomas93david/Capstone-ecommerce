@@ -14,7 +14,7 @@ const MovieList = () => {
     }
     fetchData();
   }, []);
-  // let movieObj = Object.entries(movies);
+
   return (
     <div className="movie-container">
       <div className="movie-flex">
