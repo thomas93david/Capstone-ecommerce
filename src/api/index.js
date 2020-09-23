@@ -38,7 +38,7 @@ export async function login({ username, password }) {
 }
 export async function getAllMovies() {
     try {
-        const { data: [movies] } = await axios.get('api/movies')
+        const { data: movies } = await axios.get('api/movies')
         return movies
     } catch (error) {
         throw error

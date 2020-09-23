@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import Button from "./Button";
 import { register } from "../../api"
+// import { Redirect } from "react-router-dom"
 import "./Register.css";
 // const [username, setUsername] = useState("");
 // const [password, setPassword] = useState("");
@@ -72,8 +73,8 @@ const Register = ({ customer, setCustomer }) => {
               <Form.Label></Form.Label>
               <Form.Control type="password" placeholder="Re-type password" onChange={handlePassword2} />
             </Form.Group>
-
             <input type="submit">
+
             </input>
           </Form>
           <div className="register-logo">
