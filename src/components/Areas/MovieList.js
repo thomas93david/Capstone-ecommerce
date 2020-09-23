@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from "react";
 import "./MovieList.css";
 import MovieCard from "./MovieCard";
-import { getAllMovies } from "../../api"
+import { getAllMovies } from "../../api";
 
 const MovieList = () => {
-  const [movies, setMovies] = useState([])
-  const [filteredMovies, setFilteredMovies] = useState([])
+  const [movies, setMovies] = useState([]);
+
   useEffect(() => {
     async function fetchData() {
       const result = await getAllMovies();
-      console.log("looking for result", result)
-      setMovies(result)
+      console.log("Here are the Movies:", result);
+      setMovies(result.allMovies);
     }
-    fetchData()
+    fetchData();
   }, []);
-  let movieObj = Object.entries(movies)
+  // let movieObj = Object.entries(movies);
   return (
-
-    <div className="movie-container" >
-      <div className="movie-flex" >
-        {
-          movieObj.map((movies) => {
-
-            return (<MovieCard key={movies.id} movies={movies} />
-            )
-          })
-        }
-
+    <div className="movie-container">
+      <div className="movie-flex">
+        {movies.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            title={movie.title}
+            rating={movie.rating}
+            price={movie.price}
+            image={movie.img_url}
+          />
+        ))}
       </div>
     </div>
   );

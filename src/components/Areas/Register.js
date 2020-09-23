@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import Button from "./Button";
-import { register } from "../../api"
+import { register } from "../../api";
 // import { Redirect } from "react-router-dom"
 import "./Register.css";
 // const [username, setUsername] = useState("");
 // const [password, setPassword] = useState("");
 
 const Register = ({ customer, setCustomer }) => {
-
   // TODO Use State
   let username;
   let password1;
@@ -22,7 +21,7 @@ const Register = ({ customer, setCustomer }) => {
 
     if (password1 === password2) {
       register({ username, password: password1 }).then((newCustomer) => {
-        console.log('New User', newCustomer)
+        console.log("New User", newCustomer);
         setCustomer(newCustomer);
       });
     }
@@ -38,13 +37,12 @@ const Register = ({ customer, setCustomer }) => {
     password2 = event.target.value;
   };
 
-
-
   return (
     <>
       <div className="register-container">
         <div className="register-cnt">
-          <Form onSubmit={handleSubmit}
+          <Form
+            onSubmit={handleSubmit}
             style={{
               backgroundColor: "pink",
               width: "500px",
@@ -63,19 +61,29 @@ const Register = ({ customer, setCustomer }) => {
             </Form.Label>
             <Form.Group controlId="formUsername">
               <Form.Label></Form.Label>
-              <Form.Control type="text" placeholder="Enter username" onChange={handleUser} />
+              <Form.Control
+                type="text"
+                placeholder="Enter username"
+                onChange={handleUser}
+              />
             </Form.Group>
             <Form.Group controlId="formPassword">
               <Form.Label></Form.Label>
-              <Form.Control type="password" placeholder="Enter password" onChange={handlePassword} />
+              <Form.Control
+                type="password"
+                placeholder="Enter password"
+                onChange={handlePassword}
+              />
             </Form.Group>
             <Form.Group controlId="formRePassword">
               <Form.Label></Form.Label>
-              <Form.Control type="password" placeholder="Re-type password" onChange={handlePassword2} />
+              <Form.Control
+                type="password"
+                placeholder="Re-type password"
+                onChange={handlePassword2}
+              />
             </Form.Group>
-            <input type="submit">
-
-            </input>
+            <input type="submit"></input>
           </Form>
           <div className="register-logo">
             <i className="fas fa-theater-masks"></i>

@@ -1,35 +1,20 @@
 import React from "react";
-import { Card, CardDeck } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import "./MovieCard.css";
 
-const MovieCard = ({ movies }) => {
-  console.log("is this is the movies", movies[1])
-  const getTheFucker = movies[1]
-  const getit = getTheFucker.map((movie) => {
-    return movie
-
-  })
-  console.log("sounds like fun", getit)
-
-
+const MovieCard = ({ title, rating, price, image }) => {
   return (
     <div className="movie-card">
-      <CardDeck>
-        <Card>
-          <Card.Img
-            style={{ padding: "18px" }}
-            src={movies.img_url}
-          />
+      <img src={image} className="img" />
+      <div className="movie-card-layer_top">
+        <div className="movie-card-text">
           <Card.Body>
-            <Card.Title>{movies.title}</Card.Title>
-            <Card.Text>{movies.rating}</Card.Text>
-            <Card.Text>{movies.price}</Card.Text>
+            <Card.Title>{title}</Card.Title>
+            <Card.Text>Rating: {rating}/10</Card.Text>
+            <Card.Text>Buy:{price}</Card.Text>
           </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">$$$$</small>
-          </Card.Footer>
-        </Card>
-      </CardDeck>
+        </div>
+      </div>
     </div>
   );
 };
