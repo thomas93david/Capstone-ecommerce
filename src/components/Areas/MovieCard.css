@@ -11,6 +11,7 @@
   display: block;
   width: 175px;
   height: 250px;
+  padding: 9px;
 }
 .movie-card .movie-card-layer_top {
   opacity: 0;

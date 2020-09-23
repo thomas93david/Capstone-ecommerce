@@ -13,6 +13,8 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
-  /* background-color: violet; */
+  padding-left: 150px;
+  padding-right: 150px;
+
   background-color: rgb(5, 57, 226);
 }

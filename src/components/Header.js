@@ -84,6 +84,11 @@ const Header = () => {
               LOGIN
             </Button>
           )}
+          {button && (
+            <Button buttonStyle="btn--outline" to="/" type="submit">
+              LOGOUT
+            </Button>
+          )}
         </div>
       </nav>
     </>
