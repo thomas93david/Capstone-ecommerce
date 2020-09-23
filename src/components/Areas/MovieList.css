@@ -7,29 +7,12 @@
   background-color: white;
 }
 
-.movie-container .aside-left {
-  display: flex;
-  flex-direction: column;
-  width: 220px;
-}
-
 .movie-container .movie-flex {
   display: flex;
   flex-direction: row;
-  width: 900px;
-  margin: auto;
-  background-color: violet;
-}
-
-.movie-container .aside-right {
-  display: flex;
-  flex-direction: column;
-  width: 220px;
-}
-
-.movie-container .aside-right .quote title {
-  font-size: 36px;
-}
-.movie-container img {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   width: 100%;
+  /* background-color: violet; */
+  background-color: rgb(5, 57, 226);
 }

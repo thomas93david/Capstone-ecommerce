@@ -7,9 +7,10 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import MoviePage from "./pages/MoviePage";
+import "./App.css";
 
 function App() {
-  const [customer, setCustomer] = useState({})
+  const [customer, setCustomer] = useState({});
   function localStorageCustomer() {
     if (localStorage.getItem("customer")) {
       const localStorageCustomer = localStorage.getItem("customer");
@@ -31,8 +32,20 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/movies" exact component={MoviePage} />
-          <Route path="/register" exact render={() => <RegisterPage customer={customer} setCustomer={setCustomer} />} />
-          <Route path="/login" exact render={() => <LoginPage customer={customer} setCustomer={setCustomer} />} />
+          <Route
+            path="/register"
+            exact
+            render={() => (
+              <RegisterPage customer={customer} setCustomer={setCustomer} />
+            )}
+          />
+          <Route
+            path="/login"
+            exact
+            render={() => (
+              <LoginPage customer={customer} setCustomer={setCustomer} />
+            )}
+          />
           <Route path="/checkout" exact component={CheckoutPage} />
         </Switch>
 
@@ -44,4 +57,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
