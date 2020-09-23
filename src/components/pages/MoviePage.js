@@ -1,9 +1,9 @@
 import React from "react";
-
+import MovieList from "../Areas/MovieList"
 const MoviePage = () => {
   return (
     <>
-      <h1>MOVIE PAGE</h1>
+      <MovieList />
     </>
   );
 };
