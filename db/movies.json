@@ -71,15 +71,7 @@
     "img_url": "https://m.media-amazon.com/images/M/MV5BMWEwMDU3MWUtZTdiMy00Yjg5LWFiNWYtYTRmZGExNzk5YjQ2XkEyXkFqcGdeQXVyNTUwOTkzMzY@._V1_.jpg",
     "genre": ["Comedy", "Horror"]
   },
-  {
-    "id": "tt0087182",
-    "title": "Dune",
-    "year": 1984,
-    "rating": 6.5,
-    "ratingCount": 123141,
-    "img_url": "https://m.media-amazon.com/images/M/MV5BYTAzYzNlMDMtMGRjYS00M2UxLTk0MmEtYmE4YWZiYmEwOTIwL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_.jpg",
-    "genre": ["Action", "Adventure", "Sci-Fi"]
-  },
+
   {
     "id": "tt10362466",
     "title": "After We Collided",
@@ -116,15 +108,7 @@
     "img_url": "https://m.media-amazon.com/images/M/MV5BZDQ2NTdmNDgtMGIwMS00ODE2LTk5M2EtZGZhYzc4MWRlNTU3XkEyXkFqcGdeQXVyNTc4MjczMTM@._V1_.jpg",
     "genre": ["Action", "Horror", "Sci-Fi"]
   },
-  {
-    "id": "tt0120762",
-    "title": "Mulan",
-    "year": 1998,
-    "rating": 7.6,
-    "ratingCount": 248158,
-    "img_url": "https://m.media-amazon.com/images/M/MV5BODkxNGQ1NWYtNzg0Ny00Yjg3LThmZTItMjE2YjhmZTQ0ODY5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-    "genre": ["Animation", "Adventure", "Family", "Fantasy", "Musical", "War"]
-  },
+
   {
     "id": "tt1877830",
     "title": "The Batman",
