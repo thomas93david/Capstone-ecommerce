@@ -13,12 +13,11 @@ const client = require('./client');
 // }
 
 //create
-async function createCart(customerId){
+async function createCart(customerId) {
     try {
-        const {rows: [cart]} = await client.query(`
+        const { rows: [cart] } = await client.query(`
         INSERT INTO cart("customerId")
-        VALUES ($1)
-        RETURNING *;
+        VALUES ($1);
         `, [customerId]);
 
         return cart;
@@ -28,12 +27,12 @@ async function createCart(customerId){
 }
 
 //update
-async function addMovieToCart(movieId, cartId){
+async function addMovieToCart(movieId, cartId) {
     try {
         await client.query(`
         INSERT INTO movies_cart("movieId", "cartId")
         VALUES ($1, $2);
-        `,[movieId, cartId]);
+        `, [movieId, cartId]);
 
     } catch (error) {
         console.error(error);
@@ -54,12 +53,12 @@ async function getCartByCustomer(customerId) {
 }
 
 //delete
-async function removeMovieFromCart(movieTitle){
+async function removeMovieFromCart(movieTitle) {
     try {
         await client.query(`
         DELETE FROM cart
         WHERE "movieTitle"=$1;
-        `,[movieTitle]);
+        `, [movieTitle]);
     } catch (error) {
         console.error(error);
     }

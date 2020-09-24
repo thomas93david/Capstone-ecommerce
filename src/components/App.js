@@ -27,7 +27,7 @@ function App() {
     <Router>
       <div className="App">
         <header>
-          <Header />
+          <Header customer={customer} setCustomer={setCustomer} />
         </header>
         <Switch>
           <Route path="/" exact component={Home} />
