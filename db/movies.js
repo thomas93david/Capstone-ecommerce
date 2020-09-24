@@ -2,7 +2,7 @@ const client = require("./client");
 
 
 async function createMovies({ title, year, rating,
-                              rating_votes, img_url, price }) {
+                              rating_votes, img_url, price}) {
     try {
         const { rows: [movie] } = await client.query(`
         INSERT INTO movies(title, year, rating, rating_votes, img_url, price)

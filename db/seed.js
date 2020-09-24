@@ -14,6 +14,7 @@ async function dropTables() {
   try {
     await client.query(`
         DROP TABLE IF EXISTS movies_cart;
+        DROP TABLE IF EXISTS cart;
         DROP TABLE IF EXISTS genres;
         DROP TABLE IF EXISTS cart;
         DROP TABLE IF EXISTS movies;
@@ -65,7 +66,6 @@ async function createTables() {
             );
             CREATE TABLE movies_cart (
                 "cartId" INTEGER REFERENCES cart(id),
-                "customerId" INTEGER REFERENCES customers(id),
                 "movieId" INTEGER REFERENCES movies(id),
                 quantity INTEGER,
                 UNIQUE ("cartId", "movieId")
@@ -157,7 +157,7 @@ async function createIntitialMovies() {
         rating: movie.rating || faker.commerce.price(1, 10, 1, ""),
         rating_votes: faker.commerce.price(200, 3000, 0, ""),
         img_url: movie.img_url,
-        price: faker.commerce.price(10, 100, 2, "$"),
+        price: faker.commerce.price(10, 100, 2, "$")
       });
     }
     console.log("Successful Seed Init Movies!");
@@ -190,9 +190,9 @@ async function initializeCarts() {
 async function addMovieInCart() {
   console.log("adding movie...");
   try {
-    await addMovieToCart("Mulan", 1);
-    await addMovieToCart("Dune", 2);
-    await addMovieToCart("Hamilton", 3);
+    await addMovieToCart(1, 1);
+    await addMovieToCart(2, 2);
+    await addMovieToCart(17, 3);
     console.log("finished adding movies..");
   } catch (error) {
     console.error(error);
