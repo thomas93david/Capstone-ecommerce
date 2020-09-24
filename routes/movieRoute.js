@@ -9,6 +9,7 @@ const {
 movieRouter.get("/", async (req, res, next) => {
   try {
     const allMovies = await getAllMovies();
+    console.log("all movies", allMovies)
     res.send({ allMovies });
   } catch ({ name, message }) {
     next({ name, message });
