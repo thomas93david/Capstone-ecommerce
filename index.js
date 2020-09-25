@@ -7,7 +7,6 @@ const server = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const path = require("path");
-
 // set up required middleware
 
 server.use(morgan("dev"));

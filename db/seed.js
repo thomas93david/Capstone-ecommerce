@@ -155,7 +155,7 @@ async function createIntitialMovies() {
   console.log("making initial movies...");
   try {
     const movies = require("./movies.json");
-    for (i = 0; i < movies.length; i++) {
+    for (let i = 0; i < movies.length; i++) {
       const movie = movies[i];
       await createMovies({
         title: movie.title,

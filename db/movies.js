@@ -1,5 +1,6 @@
 const client = require("./client");
 
+
 async function createMovies({
   title,
   year,
@@ -20,6 +21,7 @@ async function createMovies({
       [title, year, rating, rating_votes, img_url, price]
     );
 
+
     return movie;
   } catch (error) {
     console.error(error);
@@ -29,7 +31,9 @@ async function createMovies({
 async function getAllMovies() {
   try {
     const { rows } = await client.query(`
+
         SELECT * FROM movies;
+
         `);
     return rows;
   } catch (error) {
@@ -57,6 +61,7 @@ async function getMovieById(id) {
 
 async function getMovieByTitle(movieTitle) {
   try {
+
     const {
       rows: [title],
     } = await client.query(
@@ -66,6 +71,7 @@ async function getMovieByTitle(movieTitle) {
             `,
       [movieTitle]
     );
+
     return title;
   } catch (error) {
     console.error(error);

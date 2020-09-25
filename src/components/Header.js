@@ -5,7 +5,7 @@ import { Form } from "react-bootstrap";
 import Button from "./Areas/Button";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ customer, setCustomer }) => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -19,6 +19,11 @@ const Header = () => {
       setButton(true);
     }
   };
+  const signOutHandler = (event) => {
+    event.preventDefault();
+    localStorage.removeItem('customer');
+    setCustomer({});
+  }
 
   window.addEventListener("resize", showButton);
 
@@ -28,6 +33,7 @@ const Header = () => {
         <div className="navbar-container">
           <NavLink to="/" className="navbar-logo">
             movieReelz <i className="fas fa-theater-masks"></i>
+            Welcome, {customer.username}
           </NavLink>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -74,21 +80,28 @@ const Header = () => {
               placeholder="search movies"
             />
           </Form.Group>
-          {button && (
-            <Button buttonStyle="btn--outline" to="/register">
-              SIGN UP
-            </Button>
-          )}
-          {button && (
-            <Button buttonStyle="btn--outline" to="/login">
-              LOGIN
-            </Button>
-          )}
-          {button && (
-            <Button buttonStyle="btn--outline" to="/" type="submit">
-              LOGOUT
-            </Button>
-          )}
+          {customer.token ?
+            <>
+              {button && (
+                <Button onClick={signOutHandler} buttonStyle="btn--outline" to="/" type="submit">
+                  LOGOUT
+                </Button>
+              )}
+            </>
+            : <>
+              {button && (
+                <Button buttonStyle="btn--outline" to="/register">
+                  SIGN UP
+                </Button>
+              )}
+              {button && (
+                <Button buttonStyle="btn--outline" to="/login">
+                  LOGIN
+                </Button>
+              )}
+            </>
+          }
+
         </div>
       </nav>
     </>
