@@ -1,19 +1,26 @@
 const client = require("./client");
 
 
-async function createMovies({ title, year, rating,
-  rating_votes, img_url, price }) {
+async function createMovies({
+  title,
+  year,
+  rating,
+  rating_votes,
+  img_url,
+  price,
+}) {
   try {
-    const { rows: [movie] } = await client.query(`
+    const {
+      rows: [movie],
+    } = await client.query(
+      `
         INSERT INTO movies(title, year, rating, rating_votes, img_url, price)
         VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING * ;
-        `, [title,
-      year,
-      rating,
-      rating_votes,
-      img_url,
-      price]);
+        `,
+      [title, year, rating, rating_votes, img_url, price]
+    );
+
 
     return movie;
   } catch (error) {
@@ -24,8 +31,9 @@ async function createMovies({ title, year, rating,
 async function getAllMovies() {
   try {
     const { rows } = await client.query(`
-        SELECT * FROM movies
-       
+
+        SELECT * FROM movies;
+
         `);
     return rows;
   } catch (error) {
@@ -51,13 +59,19 @@ async function getMovieById(id) {
   }
 }
 
-
 async function getMovieByTitle(movieTitle) {
   try {
-    const { rows: [title] } = await client.query(`
+
+    const {
+      rows: [title],
+    } = await client.query(
+      `
             SELECT title FROM movies
             WHERE id= $1;
-            `, [movieTitle]);
+            `,
+      [movieTitle]
+    );
+
     return title;
   } catch (error) {
     console.error(error);
@@ -66,14 +80,18 @@ async function getMovieByTitle(movieTitle) {
 
 async function getMovieByGenre(genre) {
   try {
-    const { data: [category] } = await client.query(
+    const {
+      data: [category],
+    } = await client.query(
       ` SELECT genre FROM movies
       ON CONFLICT (title) DO NOTHING
             WHERE id=$1;
-          `, [genre]);
-    return category
+          `,
+      [genre]
+    );
+    return category;
   } catch (error) {
-    throw error
+    throw error;
   }
 }
 

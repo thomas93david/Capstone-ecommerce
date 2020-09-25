@@ -5,6 +5,7 @@ const {
   createCustomer,
   createMovies,
   getMovieByTitle,
+  addGenreToMovie,
   getAllMovies,
   createCart,
   createGenres,
@@ -13,10 +14,10 @@ const {
 async function dropTables() {
   try {
     await client.query(`
-        DROP TABLE IF EXISTS movies_cart;
+        DROP TABLE IF EXISTS movies_genres;
+        DROP TABLE IF EXISTS movies_cart; 
         DROP TABLE IF EXISTS cart;
         DROP TABLE IF EXISTS genres;
-        DROP TABLE IF EXISTS cart;
         DROP TABLE IF EXISTS movies;
         DROP TABLE IF EXISTS customers;
     `);
@@ -38,17 +39,13 @@ async function createTables() {
   console.log("Starting to build tables...");
   try {
     await client.query(`
-               CREATE TABLE customers(
+              CREATE TABLE customers(
                 id SERIAL PRIMARY KEY,
                 username VARCHAR(255) UNIQUE NOT NULL,
                 password VARCHAR (255),
                 "isAdmin" BOOLEAN default false
             );
-            CREATE TABLE genres(
-                id SERIAL PRIMARY KEY,
-                name VARCHAR(255)
-            );
-            CREATE TABLE movies(
+              CREATE TABLE movies(
                 id SERIAL PRIMARY KEY,
                 title VARCHAR (255) UNIQUE NOT NULL,
                 year VARCHAR(255),
@@ -58,11 +55,20 @@ async function createTables() {
                 img_url VARCHAR(500),
                 price VARCHAR NOT NULL
             );
-            CREATE TABLE cart (
+              CREATE TABLE genres(
+                id SERIAL PRIMARY KEY,
+                name VARCHAR(255)
+            );
+              CREATE TABLE cart (
                 id SERIAL PRIMARY KEY,
                 "customerId" INTEGER REFERENCES customers(id),
                 subtotal VARCHAR (255),
                 UNIQUE("customerId")
+            );
+              CREATE TABLE movies_genres (
+                id SERIAL PRIMARY KEY,
+                "filmId" INTEGER REFERENCES movies(id),
+                "genreId" INTEGER REFERENCES genres(id)
             );
             CREATE TABLE movies_cart (
                 "cartId" INTEGER REFERENCES cart(id),
@@ -157,10 +163,23 @@ async function createIntitialMovies() {
         rating: movie.rating || faker.commerce.price(1, 10, 1, ""),
         rating_votes: faker.commerce.price(200, 3000, 0, ""),
         img_url: movie.img_url,
-        price: faker.commerce.price(10, 100, 2, "$")
+        price: faker.commerce.price(10, 100, 2, "$"),
       });
     }
     console.log("Successful Seed Init Movies!");
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function addGenreToFilm() {
+  console.log("adding genre to movie");
+  try {
+    await addGenreToMovie({
+      filmId: 1,
+      genreId: 2,
+    });
+    console.log("added genre to movie!");
   } catch (error) {
     console.error(error);
   }
@@ -204,6 +223,7 @@ async function populateInitialData() {
     await createInitialCustomers();
     await createInitialGenres();
     await createIntitialMovies();
+    await addGenreToFilm();
     await initializeCarts();
     await addMovieInCart();
     // await gettingMovieTitle();
@@ -216,8 +236,17 @@ async function populateInitialData() {
 }
 
 // initializes the test run
+// async function testDB() {
+//   try {
+//     const films = await getAllMovies();
+//     console.log(films);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
 rebuildDb()
   .then(populateInitialData)
+  // .then(testDB)
   .catch(console.error)
   .finally(() => client.end());
