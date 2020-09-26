@@ -28,23 +28,6 @@ async function createCart(customerId) {
 
 
 
-
-//update
-async function addMovieToCart(cartId, movieId) {
-  try {
-    await client.query(
-      `
-        INSERT INTO movies_cart("cartId","movieId")
-        VALUES ($1, $2);
-        
-        `,
-      [movieId, cartId]
-    );
-  } catch (error) {
-    console.error(error);
-  }
-}
-
 //read
 async function getCartByCustomer(customerId) {
   try {
@@ -116,19 +99,19 @@ async function getMoviesByCart(cartId) {
 
 //delete
 
-async function removeMovieFromCart(movieTitle) {
-  try {
-    await client.query(
-      `
-        DELETE FROM cart
-        WHERE "movieTitle"=$1;
-        `,
-      [movieTitle]
-    );
-  } catch (error) {
-    console.error(error);
-  }
-}
+// async function removeMovieFromCart(movieTitle) {
+//   try {
+//     await client.query(
+//       `
+//         DELETE FROM cart
+//         WHERE "movieTitle"=$1;
+//         `,
+//       [movieTitle]
+//     );
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
 
 

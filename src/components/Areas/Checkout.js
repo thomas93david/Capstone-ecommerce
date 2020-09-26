@@ -3,6 +3,7 @@ import "./Checkout.css";
 import StripeCheckout from "react-stripe-checkout"
 import { toast } from "react-toastify";
 import axios from "axios"
+import Cart from "./Cart";
 toast.configure()
 const Checkout = () => {
   const [product] = useState({
@@ -24,6 +25,9 @@ const Checkout = () => {
   }
   return (
     <div className="checkout_container">
+      <div className="cart-container">
+        <Cart />
+      </div>
       <h1>CHECKOUT PAGE</h1>
       <div className="checkout_img_temp"></div>
       <div><StripeCheckout

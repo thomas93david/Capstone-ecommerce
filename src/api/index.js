@@ -48,12 +48,24 @@ export async function getAllMovies() {
   }
 }
 export async function getMoviesById() {
-  try {
-    const {
-      data: { movie },
-    } = await axios.get(`api/movies/:movieId`);
-    return movie;
-  } catch (error) {
-    throw error;
-  }
+
+    try {
+        const { data: { movie } } = await axios.get(`api/movies/:movieId`)
+        return movie
+    } catch (error) {
+        throw error
+    }
 }
+export async function addMovieToCart() {
+    try {
+        console.log("getting here to the axios call")
+        const { data: { movie } } = await axios.post(`api/cart`)
+        console.log("adding the movie axios call", movie)
+        return movie
+    } catch (error) {
+
+    }
+
+}
+
+
