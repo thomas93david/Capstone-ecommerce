@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./MovieList.css";
 import MovieCard from "./MovieCard";
 import { getAllMovies } from "../../api";
-
+import { addMovieToCart } from "../../api"
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
 
@@ -14,6 +14,14 @@ const MovieList = () => {
     }
     fetchData();
   }, []);
+  useEffect(() => {
+    async function fetchNewData() {
+      const result = await addMovieToCart()
+      console.log("this is the added movie", result)
+      setMovies(result)
+    }
+    fetchNewData()
+  }, [movies])
 
   return (
     <div className="movie-container">
