@@ -11,6 +11,7 @@ import "./App.css";
 
 function App() {
   const [customer, setCustomer] = useState({});
+
   function localStorageCustomer() {
     if (localStorage.getItem("customer")) {
       const localStorageCustomer = localStorage.getItem("customer");
@@ -19,19 +20,18 @@ function App() {
       return {};
     }
   }
+
   useEffect(() => {
     setCustomer(localStorageCustomer());
   }, []);
 
   return (
     <Router>
-      <div className="App">
+      <div className="app">
         <header>
           <Header customer={customer} setCustomer={setCustomer} />
         </header>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/movies" exact component={MoviePage} />
           <Route
             path="/register"
             exact
@@ -47,6 +47,8 @@ function App() {
             )}
           />
           <Route path="/checkout" exact component={CheckoutPage} />
+          <Route path="/movies" exact component={MoviePage} />
+          <Route path="/" exact component={Home} />
         </Switch>
 
         <footer>

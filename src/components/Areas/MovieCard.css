@@ -57,3 +57,7 @@
 .movie-card.active .movie-card-text_mobile {
   display: block;
 }
+
+.movie__rating {
+  display: flex;
+}

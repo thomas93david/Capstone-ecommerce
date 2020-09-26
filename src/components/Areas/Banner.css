@@ -37,7 +37,7 @@
 .slider-frame {
   overflow: hidden;
   height: 400px;
-  width: auto;
+  width: 100%;
 }
 
 .slider-frame figure {
@@ -50,10 +50,14 @@
 }
 
 .slider-frame figure img {
-  height: 400px;
+  height: 600px;
+  object-fit: cover;
+  position: relative;
+
   width: 20%;
   position: relative;
   float: right;
+  image-rendering: optimizeQuality;
 }
 
 @media screen and (max-width: 960px) {

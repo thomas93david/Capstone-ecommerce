@@ -22,6 +22,7 @@ const MovieList = () => {
           <MovieCard
             key={movie.id}
             title={movie.title}
+            year={movie.year}
             rating={movie.rating}
             price={movie.price}
             image={movie.img_url}

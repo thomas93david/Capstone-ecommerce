@@ -23,3 +23,16 @@
   width: 250px;
   height: 30px;
 }
+
+.register-container .register-btn {
+  padding: 8px 20px;
+  font-size: 18px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  padding: 8px 20px;
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease-out;
+}

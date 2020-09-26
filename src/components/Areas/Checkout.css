@@ -6,13 +6,13 @@
   height: 700px;
 }
 
-.checkout_container .checkout_img_temp {
+/* .checkout_container .checkout_img_temp {
   background-image: url("https://images4.alphacoders.com/605/thumb-1920-60578.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   width: auto;
   height: 100%;
-}
+} */
 
 .checkout_container img {
 }

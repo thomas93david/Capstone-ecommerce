@@ -7,7 +7,7 @@
   font-size: 1.2rem;
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 100;
 }
 
 .navbar-container {
@@ -15,7 +15,6 @@
   justify-content: center;
   align-items: center;
   height: 80px;
-  max-width: 1500px;
   font-family: "Play", sans-serif;
 }
 
@@ -23,6 +22,7 @@
   color: #fff;
   justify-self: start;
   margin-left: 20px;
+  object-fit: contain;
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
@@ -46,10 +46,22 @@
   margin-right: 2rem;
 }
 
-.nav-search {
-  width: 175px;
+.header__search {
+  display: flex;
   height: 30px;
-  margin-right: 6px;
+  flex: 1;
+  margin-left: 150px;
+}
+
+.header__searchInput {
+  width: 300px;
+  padding: 3px;
+}
+
+.header__searchIcon {
+  background-color: lightgray;
+  padding: 2px;
+  height: 30px !important;
 }
 
 .nav-item {
@@ -82,17 +94,26 @@
   display: none;
 }
 
-.navbar .login_btn {
-  padding: 8px 20px;
-  font-size: 18px;
-  border-radius: 2px;
-  outline: none;
-  cursor: pointer;
-  background-color: transparent;
-  color: #fff;
-  padding: 8px 20px;
-  border: 1px solid var(--primary);
-  transition: all 0.3s ease-out;
+.header__option {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  color: white;
+  margin-left: 9px;
+  margin-right: 9px;
+}
+
+.header__optionOne {
+  font-size: 14px;
+}
+
+.header__optionTwo {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.checkout__value {
+  margin-left: 6px;
 }
 
 .navbar .login_btn:hover {
@@ -184,7 +205,11 @@
     transition: 250ms;
   }
 
-  .nav-search {
+  .header__search {
+    display: none;
+  }
+
+  .header__option {
     display: none;
   }
 
