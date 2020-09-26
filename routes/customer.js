@@ -2,7 +2,28 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const customersRouter = express.Router();
-const { createCustomer, getCustomerByUsername, getCustomer } = require("../db");
+const { createCustomer, getCustomerByUsername, getCustomer, createCart, getCustomerById } = require("../db");
+const { requireCustomer } = require("./utils");
+
+
+customersRouter.get("/getcustomer", requireCustomer, async (req, res, next) => {
+  try {
+    const getCustomer = req.customer
+    console.log("fucking work", getCustomer)
+    const customer = await getCustomerById(getCustomer.id)
+    console.log("fucking work or im done...please", customer)
+    res.send({ customer })
+  } catch (error) {
+    console.error(error);
+  }
+})
+
+
+
+
+
+
+
 
 customersRouter.post("/register", async (req, res, next) => {
   try {
@@ -37,10 +58,12 @@ customersRouter.post("/register", async (req, res, next) => {
             expiresIn: "5w",
           }
         );
+        const cart = await createCart(customer.id)
+
         // delete customer;
         // delete customer.password;
         customer.token = token;
-        res.send({ message: "customer was created", customer });
+        res.send({ message: "customer was created", customer, cart });
       });
   } catch ({ name, message }) {
     next({ name, message });
@@ -74,7 +97,6 @@ customersRouter.post("/login", async (req, res, next) => {
           expiresIn: "5w",
         }
       );
-
       delete customer.password;
       customer.token = token;
       res.send({ message: "you're logged in!", customer });

@@ -1,6 +1,6 @@
 const express = require('express')
 const cartRouter = express.Router();
-
+const { requireCustomer } = require("./utils")
 const { addMovieToCart, removeMovieFromCart, updateQuantity, getMoviesByCart } = require('../db');
 //add movies to cart:
 cartRouter.post('/', async (req, res, next) => {
@@ -16,8 +16,9 @@ cartRouter.post('/', async (req, res, next) => {
 
 //get movies in persons cart:
 //uncertain about the url thing trav help a sister out:
-cartRouter.get('/:customerId/:cartId', async (req, res, next) => {
+cartRouter.get('/:customerId/:cartId', requireCustomer, async (req, res, next) => {
     try {
+        const customerId = req.params.customerId;
         const cartMovies = await getMoviesByCart(req.params.cartId);
         res.send(cartMovies);
     } catch (error) {
@@ -26,6 +27,7 @@ cartRouter.get('/:customerId/:cartId', async (req, res, next) => {
 })
 
 //remove movie from cart
+
 cartRouter.delete('/:cartId', async (req, res, next) => {
     try {
         const { movieId, quantity } = req.body;

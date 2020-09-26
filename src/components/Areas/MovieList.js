@@ -14,21 +14,15 @@ const MovieList = () => {
     }
     fetchData();
   }, []);
-  useEffect(() => {
-    async function fetchNewData() {
-      const result = await addMovieToCart()
-      console.log("this is the added movie", result)
-      setMovies(result)
-    }
-    fetchNewData()
-  }, [movies])
-
   return (
     <div className="movie-container">
       <div className="movie-flex">
-        {movies.map((movie) => (
+        {movies.map((movie, index) => (
           <MovieCard
-            key={movie.id}
+            movies={movies}
+            id={movie.id}
+            setMovies={setMovies}
+            key={index}
             title={movie.title}
             year={movie.year}
             rating={movie.rating}
