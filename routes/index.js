@@ -13,18 +13,23 @@ const { JWT_SECRET } = process.env;
 apiRouter.use(async (req, res, next) => {
     const prefix = 'Bearer ';
     const auth = req.header('Authorization');
+
     if (!auth) { // nothing to see here
         next();
     } else if (auth.startsWith(prefix)) {
         const token = auth.slice(prefix.length);
 
         try {
+            console.log("is this the auth", auth)
+            console.log("this is the token", token)
             const { id } = jwt.verify(token, JWT_SECRET);
-
+            console.log("this is the id......", id)
             if (id) {
-                req.customer = await getCustomerById(id);
+                req.customer = await getCustomerById(id.id);
+                console.log("is this the rq.customer..", req.customer)
                 next();
             }
+
         } catch ({ name, message }) {
             next({ name, message });
         }

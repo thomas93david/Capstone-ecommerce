@@ -30,8 +30,8 @@ async function getCustomerById(customerId) {
     } = await client.query(`
       SELECT *
       FROM customers
-      WHERE id=${customerId}
-    `);
+      WHERE id=$1
+    `, [customerId]);
     // if there is no user there will not be a userid so return null
     if (!customer) {
       return null;

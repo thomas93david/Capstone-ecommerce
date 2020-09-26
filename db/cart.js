@@ -16,7 +16,8 @@ async function createCart(customerId) {
   try {
     const { rows: [cart] } = await client.query(`
       INSERT INTO cart("customerId")
-      VALUES ($1);
+      VALUES ($1)
+      RETURNING *;
       `, [customerId]);
 
     return cart;
@@ -25,26 +26,6 @@ async function createCart(customerId) {
   }
 }
 
-
-
-
-//read
-async function getCartByCustomer(customerId) {
-  try {
-    const {
-      rows: [cart],
-    } = await client.query(
-      `
-            SELECT * FROM cart
-             WHERE "customerId"=$1;
-            `,
-      [customerId]
-    );
-    return cart;
-  } catch (error) {
-    throw error;
-  }
-}
 
 //add movies to cart (movies_cart table, brett)
 async function addMovieToCart(movieId, cartId, quantity) {

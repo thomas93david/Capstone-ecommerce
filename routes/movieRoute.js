@@ -18,13 +18,13 @@ movieRouter.get("/", async (req, res, next) => {
 movieRouter.get('/:movieId', async (req, res, next) => {
   try {
     const id = req.params.movieId
-    const getMovieId = await getMovieById(id)
-    if (!getMovieId) {
+    const movie = await getMovieById(id)
+    if (!movie) {
       next({ name: "Id error", message: "no movie found by this id try again" })
     }
     else {
       res.send({
-        getMovieId
+        movie
       })
     }
   } catch ({ name, message }) {
