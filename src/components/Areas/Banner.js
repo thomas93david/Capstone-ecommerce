@@ -8,9 +8,15 @@ const Banner = () => {
         <figure className="image-container">
           <img src="images/StarWars1.jpg" alt="StarWars" />
           <img src="images/MarvelA1.jpg" alt="MarvelAvengers" />
-          <img src="images/BlackPanther1.png" alt="BlackPanther" />
+          <img
+            src="https://images8.alphacoders.com/815/thumb-1920-815755.jpg"
+            alt="BlackPanther"
+          />
           <img src="images/HarryPotter1.jpg" alt="Harry Potter" />
-          <img src="images/WallE.1.jpg" alt="Wall-E" />
+          <img
+            src="https://images3.alphacoders.com/103/thumb-1920-1039332.jpg"
+            alt="Wall-E"
+          />
         </figure>
       </div>
     </>

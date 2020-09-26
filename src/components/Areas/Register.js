@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form } from "react-bootstrap";
-import Button from "./Button";
+
 import { register } from "../../api";
 // import { Redirect } from "react-router-dom"
 import "./Register.css";
@@ -83,7 +83,7 @@ const Register = ({ customer, setCustomer }) => {
                 onChange={handlePassword2}
               />
             </Form.Group>
-            <input type="submit"></input>
+            <input className="register-btn" type="submit"></input>
           </Form>
           <div className="register-logo">
             <i className="fas fa-theater-masks"></i>

@@ -1,18 +1,24 @@
 import React from "react";
-import { Card } from "react-bootstrap";
 import "./MovieCard.css";
+import StarIcon from "@material-ui/icons/Star";
 
-const MovieCard = ({ title, rating, price, image }) => {
+const MovieCard = ({ id, title, rating, price, image, year }) => {
   return (
     <div className="movie-card">
-      <img src={image} className="img" />
+      <img src={image} className="img" alt={title} />
       <div className="movie-card-layer_top">
         <div className="movie-card-text">
-          <Card.Body>
-            <Card.Title>{title}</Card.Title>
-            <Card.Text>Rating: {rating}/10</Card.Text>
-            <Card.Text>Buy:{price}</Card.Text>
-          </Card.Body>
+          <p>{title}</p>
+          <p>{year}</p>
+          <strong>{price}</strong>
+          <div className="movie__rating">
+            {Array(rating)
+              .fill()
+              .map((_) => (
+                <StarIcon className="star__icon" />
+              ))}
+          </div>
+          <button>Add to cart</button>
         </div>
       </div>
     </div>

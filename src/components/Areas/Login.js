@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import { login } from "../../api"
-import Button from "./Button";
+import { login } from "../../api";
 import "./Login.css";
 
 export default function Login({ customer, setCustomer }) {
@@ -9,17 +8,21 @@ export default function Login({ customer, setCustomer }) {
   const [password, setPassword] = useState("");
   const submitHandler = (event) => {
     event.preventDefault();
-    login({ username, password }).then((customer) => {
-      localStorage.setItem('customer', JSON.stringify(customer));
-      setCustomer(customer);
-    }).catch((error) => { throw error });
-  }
+    login({ username, password })
+      .then((customer) => {
+        localStorage.setItem("customer", JSON.stringify(customer));
+        setCustomer(customer);
+      })
+      .catch((error) => {
+        throw error;
+      });
+  };
   const usernameHandler = (event) => {
     setUsername(event.target.value); // updated
-  }
+  };
   const passwordHandler = (event) => {
     setPassword(event.target.value); // updated
-  }
+  };
 
   return (
     <div className="login-container">
@@ -44,8 +47,7 @@ export default function Login({ customer, setCustomer }) {
                 type="password"
               />
             </FormGroup>
-            <input type="submit">
-            </input>
+            <input type="submit"></input>
           </form>
         </div>
       </div>
