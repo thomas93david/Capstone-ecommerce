@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Form } from "react-bootstrap";
 import SearchIcon from "@material-ui/icons/Search";
+import { useStateValue } from "./StateProvider";
 
 import Button from "./Areas/Button";
 import "./Header.css";
 
 const Header = ({ customer, setCustomer }) => {
+  //first parameter gives us the state of the data layer
+  //second parameter gives dispatch(actions), changes the data layer
+  const [{ cart }, dispatch] = useStateValue();
+  console.log(cart);
+
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -66,7 +71,7 @@ const Header = ({ customer, setCustomer }) => {
               onClick={closeMobileMenu}
             >
               <i className="fas fa-cart-plus"></i>
-              <span className="checkout__value">0</span>
+              <span className="checkout__value">{cart?.length}</span>
             </NavLink>
           </li>
 
