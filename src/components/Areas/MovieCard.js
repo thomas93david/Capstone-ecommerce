@@ -1,25 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./MovieCard.css";
 import StarIcon from "@material-ui/icons/Star";
-import { getMoviesById } from "../../api";
-import { addMovieToCart } from "../../api"
-import { getCustomer } from "../../api"
+// import { getMoviesById } from "../../api";
+// import { addMovieToCart } from "../../api";
+// import { getCustomer } from "../../api";
+import { useStateValue } from "../StateProvider";
+
 const MovieCard = ({ id, title, rating, price, image, year }) => {
-  const [singleMovie, setSingleMovie] = useState({})
+  const [{ cart }, dispatch] = useStateValue();
+  //Think of it as, everytime we click add to cart we dispatch an action
+  //we listen to the action in the reducer.js
+  //then it updates it
 
-  const addMovieHandler = () => {
-    async function fetchNewData() {
-      const customer = await getCustomer()
-      console.log("come on please customer.....", customer.data.customer.id)
-      const movie = await getMoviesById(id)
+  const addToCart = () => {
+    //Add items to cart
+    dispatch({
+      type: "ADD_TO_CART",
+      movie: {
+        id: id,
+        title: title,
+        rating: rating,
+        price: price,
+        year: year,
+        image: image,
+      },
+    });
+  };
 
-      console.log("this is getting the movie id i hope..", movie.id)
-      const result = await addMovieToCart(movie.id, customer.data.customer.id, 1)
-      console.log("this is the added movie", result)
-      setSingleMovie(result)
-    }
-    fetchNewData()
-  }
   return (
     <div className="movie-card">
       <img src={image} className="img" alt={title} />
@@ -31,11 +38,11 @@ const MovieCard = ({ id, title, rating, price, image, year }) => {
           <div className="movie__rating">
             {Array(rating)
               .fill()
-              .map((_) => (
+              .map((_, i) => (
                 <StarIcon className="star__icon" />
               ))}
           </div>
-          <button onClick={addMovieHandler}>add a movie</button>
+          <button onClick={addToCart}>Add to cart</button>
         </div>
       </div>
     </div>

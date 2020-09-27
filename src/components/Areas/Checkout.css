@@ -1,18 +1,28 @@
-.checkout_container {
+.payment {
   display: flex;
-  flex-direction: column;
-  text-align: center;
-  width: 100%;
-  height: 700px;
+  justify-content: flex-end;
 }
 
-/* .checkout_container .checkout_img_temp {
-  background-image: url("https://images4.alphacoders.com/605/thumb-1920-60578.jpg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: auto;
-  height: 100%;
-} */
+.checkout__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-.checkout_container img {
+.checkout__imgs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.checkout__adOne {
+  max-width: 100%;
+  height: 200px;
+  opacity: 3;
+  object-fit: contain;
+}
+
+.checkout__adTwo {
+  max-width: 100%;
+  object-fit: contain;
 }
