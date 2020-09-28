@@ -106,19 +106,19 @@ const Header = ({ customer, setCustomer }) => {
             )}
           </>
         ) : (
-          <>
-            {button && (
-              <Button buttonStyle="btn--outline" to="/register">
-                SIGN UP
-              </Button>
-            )}
-            {button && (
-              <Button buttonStyle="btn--outline" to="/login">
-                LOGIN
-              </Button>
-            )}
-          </>
-        )}
+            <>
+              {button && (
+                <Button buttonStyle="btn--outline" to="/register">
+                  SIGN UP
+                </Button>
+              )}
+              {button && (
+                <Button buttonStyle="btn--outline" to="/login">
+                  LOGIN
+                </Button>
+              )}
+            </>
+          )}
       </div>
     </nav>
   );

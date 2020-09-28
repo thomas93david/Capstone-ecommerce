@@ -6,9 +6,9 @@ const { createCustomer, getCustomerByUsername, getCustomer, createCart, getCusto
 const { requireCustomer } = require("./utils");
 
 
-customersRouter.get("/getcustomer", requireCustomer, async (req, res, next) => {
+customersRouter.get("/:customerId", requireCustomer, async (req, res, next) => {
   try {
-    const getCustomer = req.customer
+    const getCustomer = req.params.customerId
     console.log("fucking work", getCustomer)
     const customer = await getCustomerById(getCustomer.id)
     console.log("fucking work or im done...please", customer)
