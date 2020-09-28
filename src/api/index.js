@@ -73,19 +73,39 @@ export async function addMovieToCart(movieId, cartId, quantity) {
         console.error(error);
     }
 }
-export async function getCustomer() {
+export async function getCustomer(customerId) {
     console.log("getting the customer")
+    let customer = await axios.get(`api/customer/${customerId}`, {
+        // headers: {
+        //     "content-type": "application/json",
+        //     "Authorization": `Bearer ${JSON.parse(localStorage.getItem("customer")).token}`
+        // }
+    })
     console.log("real token...", JSON.parse(localStorage.getItem("customer")).token)
-    const customer = await axios.get(`api/customer/getcustomer`, {
-        headers: {
-            "content-type": "application/json",
-            "Authorization": `Bearer ${JSON.parse(localStorage.getItem("customer")).token}`
-        }
-
-    });
 
     console.log("this is the customer please work...", customer)
     return customer
+};
+
+
+export async function createCart() {
+    console.log("hello world")
+    try {
+        console.log("getting the cart")
+        // customerId = await axios.get(`api/customer/getcustomer`, {
+        //     headers: {
+        //         "content-type": "application/json",
+        //         "Authorization": `Bearer ${JSON.parse(localStorage.getItem("customer")).token}`
+        //     }
+
+        // });
+        // customerId = getCustomer()
+        // console.log("getting to the customer", customerId)
+        const cart = await axios.post(`api/cart`);
+        console.log("this is the cart with", cart)
+        return cart
+    } catch (error) {
+        console.error(error)
+    }
+
 }
-
-

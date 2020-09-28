@@ -8,9 +8,11 @@ import RegisterPage from "./pages/RegisterPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import MoviePage from "./pages/MoviePage";
 import "./App.css";
+import Pagination from "./Areas/Pagination";
 
 function App() {
   const [customer, setCustomer] = useState({});
+  const [cart, setCart] = useState({})
 
   function localStorageCustomer() {
     if (localStorage.getItem("customer")) {
@@ -20,10 +22,23 @@ function App() {
       return {};
     }
   }
+  function localStorageCart() {
+    if (localStorage.getItem("customer")) {
+      const localStorageCart = localStorage.getItem("cart")
+      return localStorageCart
+
+    } else {
+      return {}
+    }
+  }
 
   useEffect(() => {
     setCustomer(localStorageCustomer());
   }, []);
+
+  useEffect(() => {
+    setCart(localStorageCart());
+  }, [])
 
   return (
     <Router>
@@ -46,7 +61,7 @@ function App() {
               <LoginPage customer={customer} setCustomer={setCustomer} />
             )}
           />
-          <Route path="/checkout" exact component={CheckoutPage} />
+          <Route path="/checkout" exact component={CheckoutPage} cart={cart} setCart={setCart} customer={customer} setCustomer={setCustomer} />
           <Route path="/movies" exact component={MoviePage} />
           <Route path="/" exact component={Home} />
         </Switch>
