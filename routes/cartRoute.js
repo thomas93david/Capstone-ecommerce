@@ -4,6 +4,7 @@ const cartRouter = express.Router()
 const cors = require("cors");
 const stripe = require("stripe")("STRIPsk_test_51HV1w8L7qGrgZ4TMBtb08cFEbCg24EXhsIVpXjI1HmMxeQSeEsaXePy35P6biuUxcNpn6ZCN5DzNNu2Az3IGjMwA00LeEfpmHwE_SECRET_KEY");
 const uuid = require("uuid/v4");
+const { requireCustomer } = require("./utils")
 cartRouter.use(express.json());
 cartRouter.use(cors());
 
@@ -51,18 +52,35 @@ cartRouter.post("/checkout", async (req, res) => {
     }
     res.json({ error, status });
 })
-const { addMovieToCart, removeMovieFromCart, updateQuantity, getMoviesByCart } = require('../db');
+const { addMovieToCart, removeMovieFromCart, updateQuantity, getMoviesByCart, createCart } = require('../db');
 //add movies to cart:
-cartRouter.post('/', async (req, res, next) => {
-    try {
-        const { movieId, cartId, quantity } = req.body;
-        await addMovieToCart(movieId, cartId, quantity);
-        res.send("Added Movie To Cart!");
+// cartRouter.post('/', async (req, res, next) => {
+//     try {
+//         const { movieId, cartId, quantity } = req.body;
+//         await addMovieToCart(movieId, cartId, quantity);
+//         res.send("Added Movie To Cart!");
 
-    } catch (error) {
-        next(error);
+//     } catch (error) {
+//         next(error);
+//     }
+// });
+cartRouter.post('/', requireCustomer, async (req, res, next) => {
+    console.log("hello world")
+    try {
+        console.log("im getting here at cartroute...")
+        // const customerId = req.params.customerId
+        const cart = await createCart();
+        if (!cart) {
+            next({ name: "customer error", message: "no customer exist check cart route" })
+        }
+        else {
+            res.send({ cart })
+        }
+    } catch ({ name, message }) {
+        next({ name, message })
+
     }
-});
+})
 
 //get movies in persons cart:
 //uncertain about the url thing trav help a sister out:

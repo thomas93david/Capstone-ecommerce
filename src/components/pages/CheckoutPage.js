@@ -1,10 +1,10 @@
 import React from "react";
 import Checkout from "../Areas/Checkout";
 
-const CheckoutPage = () => {
+const CheckoutPage = ({ customer, setCustomer }) => {
   return (
     <>
-      <Checkout />
+      <Checkout customer={customer} setCustomer={setCustomer} />
     </>
   );
 };

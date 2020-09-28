@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Checkout.css";
 import StripeCheckout from "react-stripe-checkout";
 import { toast } from "react-toastify";
@@ -7,10 +7,11 @@ import CheckoutItem from "./CheckoutItem";
 import Subtotal from "./Subtotal";
 
 import axios from "axios";
+import { createCart } from "../../api";
 
 toast.configure();
 
-const Checkout = () => {
+const Checkout = ({ customer, setCustomer }) => {
   const [{ cart }] = useStateValue();
   const [product] = useState({
     name: "diehard",
@@ -29,13 +30,25 @@ const Checkout = () => {
       toast("Something went wrong", { type: "error" });
     }
   }
+  useEffect(() => {
+    createCart(customer)
+      .then((cart) => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }, [cart]);
+
+
+
   return (
     <div className="checkout__container">
       <div className="checkout__leftSide">
         <div className="checkout__imgs">
           <img
             className="checkout__adOne"
-            src="https://cdn.shopify.com/s/files/1/1501/1194/files/Enjoy_the_show_3D.png?13210101147469849548"
+            alt="checkout" src="https://cdn.shopify.com/s/files/1/1501/1194/files/Enjoy_the_show_3D.png?13210101147469849548"
           />
         </div>
 
@@ -49,24 +62,24 @@ const Checkout = () => {
               </p>
             </div>
           ) : (
-            <div>
-              <h2> Your Shopping Cart</h2>
+              <div>
+                <h2> Your Shopping Cart</h2>
 
-              {cart.map((movie) => {
-                console.log(movie);
-                return (
-                  <CheckoutItem
-                    id={movie.id}
-                    movie={movie.id}
-                    title={movie.title}
-                    image={movie.image}
-                    price={movie.price}
-                    rating={movie.rating}
-                  />
-                );
-              })}
-            </div>
-          )}
+                {cart.map((movie) => {
+                  console.log(movie);
+                  return (
+                    <CheckoutItem
+                      id={movie.id}
+                      movie={movie.id}
+                      title={movie.title}
+                      image={movie.image}
+                      price={movie.price}
+                      rating={movie.rating}
+                    />
+                  );
+                })}
+              </div>
+            )}
         </div>
       </div>
       {cart.length > 0 && (
