@@ -7,7 +7,7 @@ async function createMovies({
   rating,
   rating_votes,
   img_url,
-  price,
+  price
 }) {
   try {
     const {
@@ -23,6 +23,18 @@ async function createMovies({
 
 
     return movie;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function addGenres(movieGenres, id){
+  try {
+    await client.query(`
+    UPDATE movies
+    SET genre=ARRAY[$1]
+    WHERE id=$2;
+    `, [movieGenres, id])
   } catch (error) {
     console.error(error);
   }
@@ -78,14 +90,13 @@ async function getMovieByTitle(movieTitle) {
   }
 }
 
-async function getMovieByGenre(genre) {
+async function getMoviesByGenre(genre) {
   try {
     const {
-      data: [category],
+      data: movies
     } = await client.query(
-      ` SELECT genre FROM movies
-      ON CONFLICT (title) DO NOTHING
-            WHERE id=$1;
+      ` SELECT * FROM movies
+        WHERE genre=$1;
           `,
       [genre]
     );
@@ -113,6 +124,7 @@ module.exports = {
   getAllMovies,
   getMovieById,
   getMovieByTitle,
-  getMovieByGenre,
+  getMoviesByGenre,
   deleteMovie,
+  addGenres
 };

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import { useStateValue } from "./StateProvider";
-
+import GenreDropdown from "./Areas/GenreDropdown";
 import Button from "./Areas/Button";
 import "./Header.css";
 
@@ -46,6 +46,7 @@ const Header = ({ customer, setCustomer }) => {
 
         <div className="header__search">
           <input type="text" className="header__searchInput" />
+          <GenreDropdown />
           <SearchIcon className="header__searchIcon" />
         </div>
 
