@@ -1,28 +1,36 @@
-import React from "react"
+import React from "react";
 
-const Pagination = ({ moviesPerPage, totalMovies }) => {
+const Pagination = ({moviesPerPage, totalMovies}) => {
+
     const pageNumbers = [];
-    console.log("am igetting here", pageNumbers)
-    for (let i = 1; i <= Math.ceil(totalMovies / moviesPerPage); i++) {
-        console.log("pagenumbers..", pageNumbers)
-        return pageNumbers.push(i)
-    }
-    return (
-        <nav>
-            <ul className="pagination">
-                {pageNumbers.map(number => (
-                    <li key={number} className="page-item">
-                        <a href="!#" className="page-link">
-                            {number}
-                        </a>
-                    </li>
 
-                ))}
+    for (let i = 1; i < Math.ceil(totalMovies / moviesPerPage); i++) {
+                pageNumbers.push(i);
+                console.log("confirm loop", i);
+                return;
+    }
+
+    console.log("am i getting here", pageNumbers);
+    
+    return (
+        <div>
+            Hello World!
+            <ul className="pagination">
+                {
+                
+                pageNumbers.map(number => (
+                    <li key={number} className="page-item">
+                        Hello World! {number}
+                    </li>
+                ))
+
+                }
             </ul>
-        </nav>
+        </div>
     )
+
 }
 
-export default Pagination
+export default Pagination;
 
 

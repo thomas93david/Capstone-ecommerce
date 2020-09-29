@@ -1,11 +1,10 @@
 import React from "react";
 import MovieList from "../Areas/MovieList"
-import Pagination from "../Areas/Pagination";
-const MoviePage = ({ moviesperpage, totalmovies }) => {
+
+const MoviePage = () => {
   return (
     <>
       <MovieList />
-      <Pagination />
     </>
   );
 };

@@ -53,6 +53,24 @@ async function getAllMovies() {
   }
 }
 
+
+async function moviesPaginated(increment, pageSize){
+  try {
+      const {rows: movies} = await client.query(`
+      SELECT * 
+      FROM movies   
+      ORDER BY  id
+      OFFSET $1 
+      LIMIT $2;
+      `, [increment * pageSize, pageSize]);
+
+      return movies;
+  } catch (error) {
+      console.error(error);
+  }
+}
+
+
 async function getMovieById(id) {
   try {
     const {
@@ -126,5 +144,6 @@ module.exports = {
   getMovieByTitle,
   getMoviesByGenre,
   deleteMovie,
-  addGenres
-};
+  addGenres,
+  moviesPaginated
+}

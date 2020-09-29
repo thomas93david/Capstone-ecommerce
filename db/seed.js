@@ -175,18 +175,18 @@ async function createIntitialMovies() {
   }
 }
 
-// async function addGenreToFilm() {
-//   console.log("adding genre to movie");
-//   try {
-//     await addGenreToMovie({
-//       filmId: 1,
-//       genreId: 2,
-//     });
-//     console.log("added genre to movie!");
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+async function addGenreToFilm() {
+  console.log("adding genre to movie");
+  try {
+    await addGenreToMovie({
+      filmId: 1,
+      genreId: 2,
+    });
+    console.log("added genre to movie!");
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 async function initializeCarts() {
   try {
