@@ -4,13 +4,21 @@ const {
   getAllMovies,
   getMovieById,
   getMovieByTitle,
+  moviesPaginated
 } = require("../db");
 
 movieRouter.get("/", async (req, res, next) => {
   try {
-    const allMovies = await getAllMovies();
-    console.log("all movies", allMovies)
-    res.send({ allMovies });
+    const { pageSize = 10, pageNumber } = req.query
+
+    let movies
+    if (pageSize && pageNumber) {
+      movies = await moviesPaginated(pageNumber, pageSize);
+    } else {
+      movies = await getAllMovies();
+    }
+    
+    res.send({ allMovies: movies });
   } catch ({ name, message }) {
     next({ name, message });
   }

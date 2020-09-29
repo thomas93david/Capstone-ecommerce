@@ -88,6 +88,19 @@ export async function getCustomer(customerId) {
 };
 
 
+export async function getGenres(){
+    try {
+        const { data: genres } = await axios.get('api/genres');
+        const genreNames = genres.map(genre =>{
+            return genre.name;
+        });
+        console.log("genres in fetch", genreNames);
+        return genreNames;
+    } catch (error) {
+       console.error(error); 
+    }
+}
+
 export async function createCart() {
     console.log("hello world")
     try {

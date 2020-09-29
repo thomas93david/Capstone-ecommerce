@@ -12,24 +12,31 @@ import { createCart } from "../../api";
 toast.configure();
 
 const Checkout = ({ customer, setCustomer }) => {
+
   const [{ cart }] = useStateValue();
+
   const [product] = useState({
     name: "diehard",
     price: 500.0,
   });
+
   async function handleToken(token, addresses) {
     const response = await axios.post("http://localhost:3000/checkout/cart", {
       token,
       product,
     });
+
     const { status } = response.data;
+
     console.log("Response:", response.data);
+
     if (status === "success") {
       toast("Success! Check email for details", { type: "success" });
     } else {
       toast("Something went wrong", { type: "error" });
     }
   }
+
   useEffect(() => {
     createCart(customer)
       .then((cart) => {
@@ -41,8 +48,8 @@ const Checkout = ({ customer, setCustomer }) => {
   }, [cart]);
 
 
-
   return (
+
     <div className="checkout__container">
       <div className="checkout__leftSide">
         <div className="checkout__imgs">
@@ -53,7 +60,9 @@ const Checkout = ({ customer, setCustomer }) => {
         </div>
 
         <div className="cart-container">
-          {cart?.length === 0 ? (
+          {
+          
+          cart?.length === 0 ? (
             <div>
               <h2> Your Shopping Cart is empty</h2>
               <p>
@@ -65,7 +74,9 @@ const Checkout = ({ customer, setCustomer }) => {
               <div>
                 <h2> Your Shopping Cart</h2>
 
-                {cart.map((movie) => {
+                {
+
+                cart.map((movie) => {
                   console.log(movie);
                   return (
                     <CheckoutItem
@@ -77,12 +88,18 @@ const Checkout = ({ customer, setCustomer }) => {
                       rating={movie.rating}
                     />
                   );
-                })}
+                })
+
+                }
               </div>
             )}
+
         </div>
       </div>
-      {cart.length > 0 && (
+
+      {
+
+      cart.length > 0 && (
         <div className="checkout__rightSide">
           <Subtotal />
           <div className="payment">
@@ -96,7 +113,10 @@ const Checkout = ({ customer, setCustomer }) => {
             />
           </div>
         </div>
-      )}
+      )
+
+      }
+
     </div>
   );
 };

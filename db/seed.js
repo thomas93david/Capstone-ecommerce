@@ -10,6 +10,7 @@ const {
   createCart,
   createGenres,
   addMovieToCart,
+  addGenres
 } = require("../db");
 async function dropTables() {
   try {
@@ -53,7 +54,8 @@ async function createTables() {
                 rating VARCHAR(255),
                 rating_votes VARCHAR(255),
                 img_url VARCHAR(500),
-                price VARCHAR NOT NULL
+                price VARCHAR NOT NULL,
+                genre VARCHAR[]
             );
               CREATE TABLE genres(
                 id SERIAL PRIMARY KEY,
@@ -112,7 +114,7 @@ async function createInitialCustomers() {
     console.log("this is customer2", customer2);
 
     const customer3 = await createCustomer({
-      username: "ChelseWenzel",
+      username: "ChelseaWenzel",
       password: "Dork1234",
     });
     console.log("this is customer3", customer3);
@@ -163,8 +165,9 @@ async function createIntitialMovies() {
         rating: movie.rating || faker.commerce.price(1, 10, 1, ""),
         rating_votes: faker.commerce.price(200, 3000, 0, ""),
         img_url: movie.img_url,
-        price: faker.commerce.price(10, 100, 2, "$"),
+        price: faker.commerce.price(10, 100, 2, "$")
       });
+      await addGenres(movie.genre, i);
     }
     console.log("Successful Seed Init Movies!");
   } catch (error) {
@@ -206,17 +209,17 @@ async function initializeCarts() {
 //   }
 // }
 
-async function addMovieInCart() {
-  console.log("adding movie...");
-  try {
-    await addMovieToCart(1, 1);
-    await addMovieToCart(2, 2);
-    await addMovieToCart(17, 3);
-    console.log("finished adding movies..");
-  } catch (error) {
-    console.error(error);
-  }
-}
+// async function addMovieInCart() {
+//   console.log("adding movie...");
+//   try {
+//     await addMovieToCart(1, 1);
+//     await addMovieToCart(2, 2);
+//     await addMovieToCart(17, 3);
+//     console.log("finished adding movies..");
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
 async function populateInitialData() {
   try {

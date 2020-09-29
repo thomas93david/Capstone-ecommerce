@@ -10,18 +10,18 @@ function Subtotal() {
     <div className="subtotal">
       <p>Below will be subtotal</p>
       <CurrencyFormat
-      // renderText={(value) => (
-      //   <>
-      //     <p>
-      //       Subtotal ({cart.length} movies): <strong>{`${value}`}</strong>
-      //     </p>
-      //   </>
-      // )}
-      // decimalScale={2}
-      // value={0}
-      // displayText={"text"}
-      // thousandSeparator={true}
-      // prefix={"$"}
+      renderText={(value) => (
+        <>
+          <p>
+            Subtotal ({cart.length} movies): <strong>{`${value}`}</strong>
+          </p>
+        </>
+      )}
+      decimalScale={2}
+      value={0}
+      displayText={"text"}
+      thousandSeparator={true}
+      prefix={"$"}
       />
     </div>
   );

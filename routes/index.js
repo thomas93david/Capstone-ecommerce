@@ -3,6 +3,7 @@ const apiRouter = express.Router()
 const customersRouter = require('./customer');
 const moviesRouter = require('./movieRoute');
 const cartRouter = require('./cartRoute');
+const genreRouter = require('./genres');
 // // authorization
 // set `req.user` if possible
 const jwt = require('jsonwebtoken');
@@ -51,6 +52,7 @@ apiRouter.use((req, res, next) => {
 apiRouter.use('/customer', customersRouter);
 apiRouter.use('/movies', moviesRouter);
 apiRouter.use('/cart', cartRouter);
+apiRouter.use('/genres', genreRouter);
 apiRouter.use((error, req, res, next) => {
     res.status(500).send(error);
 })
