@@ -8,6 +8,7 @@ import { useStateValue } from "../StateProvider";
 
 const MovieCard = ({ id, title, rating, price, image, year }) => {
   const [{ cart }, dispatch] = useStateValue();
+
   //Think of it as, everytime we click add to cart we dispatch an action
   //we listen to the action in the reducer.js
   //then it updates it

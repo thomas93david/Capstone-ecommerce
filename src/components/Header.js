@@ -9,7 +9,9 @@ import "./Header.css";
 const Header = ({ customer, setCustomer }) => {
   //first parameter gives us the state of the data layer
   //second parameter gives dispatch(actions), changes the data layer
+
   const [{ cart }, dispatch] = useStateValue();
+
   console.log(cart);
 
   const [click, setClick] = useState(false);
