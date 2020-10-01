@@ -8,6 +8,7 @@ const {
 } = require("../db");
 
 movieRouter.get("/", async (req, res, next) => {
+  console.log("am i getting here?")
   try {
     const { pageSize = 10, pageNumber } = req.query
 
@@ -17,10 +18,11 @@ movieRouter.get("/", async (req, res, next) => {
     } else {
       movies = await getAllMovies();
     }
-    
+
     res.send({ allMovies: movies });
-  } catch ({ name, message }) {
-    next({ name, message });
+  } catch (err) {
+    console.log("err", err)
+    next(err);
   }
 });
 movieRouter.get('/:movieId', async (req, res, next) => {

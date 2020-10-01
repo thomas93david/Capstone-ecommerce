@@ -10,6 +10,7 @@ const {
   createCart,
   createGenres,
   addMovieToCart,
+  makeAdmin,
   addGenres
 } = require("../db");
 async function dropTables() {
@@ -106,7 +107,8 @@ async function createInitialCustomers() {
       password: "hardcorePorn",
     });
     console.log("this is customer1", customer1);
-
+    const makeA = await makeAdmin(1)
+    console.log("makeA....", makeA)
     const customer2 = await createCustomer({
       username: "Kamikaze1",
       password: "Password1",
@@ -228,7 +230,7 @@ async function populateInitialData() {
     await createIntitialMovies();
     await addGenreToFilm();
     await initializeCarts();
-    await addMovieInCart();
+    // await addMovieInCart();
     // await gettingMovieTitle();
     // await createInitialCart();
     // await addMovieInCart();

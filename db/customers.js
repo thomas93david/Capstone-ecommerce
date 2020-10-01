@@ -21,6 +21,49 @@ async function createCustomer({ username, password }) {
   }
 }
 
+async function getAllCustomers() {
+  try {
+    const data = await client.query(`
+    SELECT * FROM customers;
+    `)
+    return data.rows
+  } catch (error) {
+    throw error
+  }
+}
+
+
+
+async function makeAdmin(customerId) {
+  try {
+    const cId = await getCustomerById(customerId)
+    console.log("this is the customerId", cId.id)
+    const { data: customer } = await client.query(`
+    UPDATE customers
+    SET "isAdmin"=true
+    WHERE id=$1;
+    `, [cId.id])
+    return customer
+  } catch (error) {
+    console.error(error);
+  }
+}
+async function deleteCustomer(customerId) {
+  try {
+    const cId = await getCustomerById(customerId)
+    const { data: customer } = await client.query(`
+        DELETE FROM customers
+        WHERE id=$1;
+        `, cId.id);
+    return customer
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+
+
 async function getCustomerById(customerId) {
   try {
     // grabs the user by the "customerId"
@@ -81,6 +124,9 @@ async function getCustomer({ username, password }) {
 module.exports = {
   createCustomer,
   getCustomerById,
+  makeAdmin,
+  getAllCustomers,
+  deleteCustomer,
   getCustomerByUsername,
   getCustomer,
 };

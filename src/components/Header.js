@@ -46,7 +46,7 @@ const Header = ({ customer, setCustomer }) => {
 
         <div className="header__search">
           <input type="text" className="header__searchInput" />
-          <GenreDropdown />
+          {/* <GenreDropdown /> */}
           <SearchIcon className="header__searchIcon" />
         </div>
 

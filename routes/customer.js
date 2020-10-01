@@ -2,7 +2,7 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const customersRouter = express.Router();
-const { createCustomer, getCustomerByUsername, getCustomer, createCart, getCustomerById } = require("../db");
+const { createCustomer, getCustomerByUsername, getCustomer, createCart, getCustomerById, makeAdmin } = require("../db");
 const { requireCustomer } = require("./utils");
 
 
@@ -15,6 +15,24 @@ customersRouter.get("/:customerId", requireCustomer, async (req, res, next) => {
     res.send({ customer })
   } catch (error) {
     console.error(error);
+  }
+})
+
+customersRouter.patch("/:customerId", async (req, res, next) => {
+  try {
+    const cId = req.params.customerId
+    console.log("this is the C Id... ", cId)
+    // const customerId = await getCustomerById(cId.id)
+    // console.log("is this the customer i want to update", customerId)
+    const createAdmin = makeAdmin(cId)
+    if (cId) {
+      res.send({ createAdmin })
+    } else {
+      next({ name: "no customer ID", message: "please create a customer first before making admin" })
+    }
+
+  } catch ({ name, message }) {
+    next({ name, message })
   }
 })
 
