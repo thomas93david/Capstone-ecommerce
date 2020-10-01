@@ -46,7 +46,7 @@ apiRouter.use(async (req, res, next) => {
 });
 
 
-const isAdminThunk = (req, res, next) => {
+const adminCheck = (req, res, next) => {
     console.log("is this here?...", req.customer)
     if (req.customer && req.customer.isAdmin) {
         console.log("is this admin Checked? set:", req.customer.isAdmin);
@@ -67,7 +67,7 @@ apiRouter.use('/customer', customersRouter);
 apiRouter.use('/movies', moviesRouter);
 apiRouter.use('/cart', cartRouter);
 apiRouter.use('/genres', genreRouter);
-apiRouter.use("/admin", isAdminThunk, adminRouter);
+apiRouter.use("/admin", adminCheck, adminRouter);
 apiRouter.use((error, req, res, next) => {
     console.error(error)
     res.status(500).send(error);

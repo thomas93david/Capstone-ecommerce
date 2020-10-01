@@ -129,9 +129,9 @@ async function getMoviesByGenre(genre) {
 async function deleteMovie(movieId) {
   try {
     const { data: movie } = await client.query(`
-        DELETE FROM movie
+        DELETE FROM movies
         WHERE id=$1;
-        `, movieId);
+        `, [movieId.id]);
     return movie
   } catch (error) {
     console.error(error);

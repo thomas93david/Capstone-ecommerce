@@ -1,5 +1,6 @@
 const client = require("./client");
 const bcrypt = require("bcrypt");
+const { getCartIdByCustomerId } = require("./cart")
 
 async function createCustomer({ username, password }) {
   try {
@@ -48,13 +49,23 @@ async function makeAdmin(customerId) {
     console.error(error);
   }
 }
-async function deleteCustomer(customerId) {
+async function deleteCustomer(customerId, cartId) {
   try {
+
     const cId = await getCustomerById(customerId)
+    console.log("is this the cid", cId)
+    cartId = await getCartIdByCustomerId(cId.id)
+    console.log("this is the CID in the backend..", cartId)
+    await client.query(`
+    DELETE FROM cart 
+    WHERE "customerId"=$1 and id=$2 ;
+    `, [cId.id, cartId.id]);
     const { data: customer } = await client.query(`
         DELETE FROM customers
         WHERE id=$1;
-        `, cId.id);
+        `, [cId.id]);
+
+    console.log("is this the cartId?", cartId.id)
     return customer
   } catch (error) {
     console.error(error);

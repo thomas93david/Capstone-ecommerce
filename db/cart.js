@@ -48,8 +48,7 @@ async function getCartIdByCustomerId(customerId) {
   try {
     const { rows: [cartId] } = await client.query(`
             SELECT id FROM cart
-             WHERE "customerId"=$1
-             RETURNING *;
+             WHERE "customerId"=$1;
             `, [customerId]);
     return cartId;
   } catch (error) {

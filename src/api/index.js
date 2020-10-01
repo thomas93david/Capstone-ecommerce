@@ -1,3 +1,4 @@
+import { CastConnectedSharp } from "@material-ui/icons";
 import axios from "axios";
 
 export async function register({ username, password }) {
@@ -88,16 +89,16 @@ export async function getCustomer(customerId) {
 };
 
 
-export async function getGenres(){
+export async function getGenres() {
     try {
         const { data: genres } = await axios.get('api/genres');
-        const genreNames = genres.map(genre =>{
+        const genreNames = genres.map(genre => {
             return genre.name;
         });
         console.log("genres in fetch", genreNames);
         return genreNames;
     } catch (error) {
-       console.error(error); 
+        console.error(error);
     }
 }
 
@@ -122,3 +123,47 @@ export async function createCart() {
     }
 
 }
+
+export async function customerList() {
+    try {
+        const { data: customers } = await axios.get('api/admin/customers');
+        console.log("customers in fetch", customers);
+        return customers;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export async function adminCustomerDelete(customerId, cartId) {
+    try {
+        const { data: customer } = await
+            axios.delete(
+                `api/admin/customers/${customerId}/${cartId}`
+            );
+        console.log("deleted customer", customer);
+        return customer;
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export async function adminMovieCreate() {
+    try {
+        const { data: movie } = await axios.post(`api/admin/movies`);
+        console.log("this is the created movie", movie);
+        return movie;
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export async function adminDeleteMovies(movieId) {
+    try {
+        const { data: movie } = await axios.delete(`api/admin/movies/${movieId}`);
+        return movie
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+
