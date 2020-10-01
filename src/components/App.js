@@ -16,7 +16,7 @@ function App() {
 
   function localStorageCustomer() {
     if (localStorage.getItem("customer")) {
-      const localStorageCustomer = localStorage.getItem("customer");
+      const localStorageCustomer = JSON.parse(localStorage.getItem("customer"));
       return localStorageCustomer;
     } else {
       return {};

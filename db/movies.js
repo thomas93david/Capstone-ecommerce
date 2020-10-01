@@ -28,7 +28,7 @@ async function createMovies({
   }
 }
 
-async function addGenres(movieGenres, id){
+async function addGenres(movieGenres, id) {
   try {
     await client.query(`
     UPDATE movies
@@ -54,9 +54,9 @@ async function getAllMovies() {
 }
 
 
-async function moviesPaginated(increment, pageSize){
+async function moviesPaginated(increment, pageSize) {
   try {
-      const {rows: movies} = await client.query(`
+    const { rows: movies } = await client.query(`
       SELECT * 
       FROM movies   
       ORDER BY  id
@@ -64,9 +64,9 @@ async function moviesPaginated(increment, pageSize){
       LIMIT $2;
       `, [increment * pageSize, pageSize]);
 
-      return movies;
+    return movies;
   } catch (error) {
-      console.error(error);
+    console.error(error);
   }
 }
 
@@ -118,7 +118,7 @@ async function getMoviesByGenre(genre) {
           `,
       [genre]
     );
-    return category;
+    return movies;
   } catch (error) {
     throw error;
   }
@@ -126,12 +126,13 @@ async function getMoviesByGenre(genre) {
 
 //ADMIN ONLY:
 
-async function deleteMovie(id) {
+async function deleteMovie(movieId) {
   try {
-    await client.query(`
+    const { data: movie } = await client.query(`
         DELETE FROM movie
         WHERE id=$1;
-        `);
+        `, movieId);
+    return movie
   } catch (error) {
     console.error(error);
   }

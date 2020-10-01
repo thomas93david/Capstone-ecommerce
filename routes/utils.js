@@ -7,6 +7,18 @@ function requireCustomer(req, res, next) {
     }
     next();
 }
+
+function requireAdmin(req, res, next) {
+    if (!req.isAdmin) {
+        next({
+            name: "admin error",
+            message: "you are not an admin please contact a current administrator"
+        })
+    }
+    next()
+}
+
 module.exports = {
-    requireCustomer
+    requireCustomer,
+    requireAdmin
 }
