@@ -13,7 +13,7 @@ const Header = ({ customer, setCustomer }) => {
   const [{ cart }, dispatch] = useStateValue();
 
   console.log(cart);
-
+  console.log("this should be the customer admin status", customer.isAdmin)
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 

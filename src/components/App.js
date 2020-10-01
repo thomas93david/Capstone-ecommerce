@@ -9,14 +9,18 @@ import CheckoutPage from "./pages/CheckoutPage";
 import MoviePage from "./pages/MoviePage";
 import "./App.css";
 import Pagination from "./Areas/Pagination";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   const [customer, setCustomer] = useState({});
   const [cart, setCart] = useState({})
+  const [customerlist, setCustomerList] = useState({})
 
   function localStorageCustomer() {
     if (localStorage.getItem("customer")) {
+
       const localStorageCustomer = JSON.parse(localStorage.getItem("customer"));
+      console.log("does this show Isadmin....", customer);
       return localStorageCustomer;
     } else {
       return {};
@@ -24,6 +28,7 @@ function App() {
   }
   function localStorageCart() {
     if (localStorage.getItem("customer")) {
+
       const localStorageCart = localStorage.getItem("cart")
       return localStorageCart
 
@@ -47,23 +52,32 @@ function App() {
           <Header customer={customer} setCustomer={setCustomer} />
         </header>
         <Switch>
-          <Route
-            path="/register"
-            exact
-            render={() => (
-              <RegisterPage customer={customer} setCustomer={setCustomer} />
-            )}
-          />
-          <Route
-            path="/login"
-            exact
-            render={() => (
-              <LoginPage customer={customer} setCustomer={setCustomer} />
-            )}
-          />
-          <Route path="/checkout" exact component={CheckoutPage} cart={cart} setCart={setCart} customer={customer} setCustomer={setCustomer} />
-          <Route path="/movies" exact component={MoviePage} />
-          <Route path="/" exact component={Home} />
+          {customer.isAdmin ?
+            <Route
+              path="/admin"
+              exact
+              render={() => (
+                <AdminPage customerlist={customerlist} setCustomerList={setCustomerList} />
+              )}
+            /> : <>
+              <Route
+                path="/register"
+                exact
+                render={() => (
+                  <RegisterPage customer={customer} setCustomer={setCustomer} />
+                )}
+              />
+              <Route
+                path="/login"
+                exact
+                render={() => (
+                  <LoginPage customer={customer} setCustomer={setCustomer} />
+                )}
+              />
+              <Route path="/checkout" exact component={CheckoutPage} cart={cart} setCart={setCart} customer={customer} setCustomer={setCustomer} />
+              <Route path="/movies" exact component={MoviePage} />
+              <Route path="/" exact component={Home} />
+            </>}
         </Switch>
 
         <footer>
