@@ -8,6 +8,7 @@ import RegisterPage from "./pages/RegisterPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import MoviePage from "./pages/MoviePage";
 import "./App.css";
+<<<<<<< Updated upstream
 import Pagination from "./Areas/Pagination";
 import AdminPage from "./pages/AdminPage";
 
@@ -44,6 +45,23 @@ function App() {
   useEffect(() => {
     setCart(localStorageCart());
   }, [])
+=======
+// import Pagination from "./Areas/Pagination";
+import { useStateValue } from "./StateProvider";
+
+function App() {
+  const [customer, setCustomer] = useState({});
+  //lets do unto customer what we did for cart ay?^^
+  // const [cart, setCart] = useState({})
+  
+  //pull it in everywhere fuck setCart cant coexist.
+    const [{ cart }] = useStateValue();
+
+    useEffect(()=>{
+      localStorage.setItem("cart", JSON.stringify(cart));
+    });
+  //adding items to local storage when we load the whole app not just checkout page.
+>>>>>>> Stashed changes
 
   return (
     <Router>
@@ -52,6 +70,7 @@ function App() {
           <Header customer={customer} setCustomer={setCustomer} />
         </header>
         <Switch>
+<<<<<<< Updated upstream
           {customer.isAdmin ?
             <Route
               path="/admin"
@@ -78,6 +97,25 @@ function App() {
               <Route path="/movies" exact component={MoviePage} />
               <Route path="/" exact component={Home} />
             </>}
+=======
+          <Route
+            path="/register"
+            exact
+            render={() => (
+              <RegisterPage customer={customer} setCustomer={setCustomer} />
+            )}
+          />
+          <Route
+            path="/login"
+            exact
+            render={() => (
+              <LoginPage customer={customer} setCustomer={setCustomer} />
+            )}
+          />
+          <Route path="/checkout" exact component={CheckoutPage} customer={customer} setCustomer={setCustomer} />
+          <Route path="/movies" exact component={MoviePage} />
+          <Route path="/" exact component={Home} />
+>>>>>>> Stashed changes
         </Switch>
 
         <footer>
