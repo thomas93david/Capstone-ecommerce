@@ -52,39 +52,37 @@ function App() {
           <Header customer={customer} setCustomer={setCustomer} />
         </header>
         <Switch>
-          {customer.isAdmin ?
-            <Route
-              path="/admin"
-              exact
-              render={() => (
-                <AdminPage customerlist={customerlist} setCustomerList={setCustomerList} />
-              )}
-            /> : <>
-              <Route
-                path="/register"
-                exact
-                render={() => (
-                  <RegisterPage customer={customer} setCustomer={setCustomer} />
-                )}
-              />
-              <Route
-                path="/login"
-                exact
-                render={() => (
-                  <LoginPage customer={customer} setCustomer={setCustomer} />
-                )}
-              />
-              <Route path="/checkout" exact component={CheckoutPage} cart={cart} setCart={setCart} customer={customer} setCustomer={setCustomer} />
-              <Route path="/movies" exact component={MoviePage} />
-              <Route path="/" exact component={Home} />
-            </>}
+          <Route
+            path="/admin"
+            exact
+            render={() => (
+              <AdminPage customerlist={customerlist} setCustomer={setCustomer} />
+            )}
+          />
+          <Route
+            path="/register"
+            exact
+            render={() => (
+              <RegisterPage customer={customer} setCustomer={setCustomer} />
+            )}
+          />
+          <Route
+            path="/login"
+            exact
+            render={() => (
+              <LoginPage customer={customer} setCustomer={setCustomer} />
+            )}
+          />
+          <Route path="/checkout" exact component={CheckoutPage} cart={cart} setCart={setCart} customer={customer} setCustomer={setCustomer} />
+          <Route path="/movies" exact component={MoviePage} />
+          <Route path="/" exact component={Home} />
         </Switch>
 
         <footer>
-          <Footer />
+          <Footer customer={customer} setCustomer={setCustomer} />
         </footer>
       </div>
-    </Router>
+    </Router >
   );
 }
 
