@@ -70,6 +70,7 @@ function App() {
           <Header customer={customer} setCustomer={setCustomer} />
         </header>
         <Switch>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
           {customer.isAdmin ?
             <Route
@@ -98,6 +99,15 @@ function App() {
               <Route path="/" exact component={Home} />
             </>}
 =======
+=======
+          <Route
+            path="/admin"
+            exact
+            render={() => (
+              <AdminPage customerlist={customerlist} setCustomer={setCustomer} />
+            )}
+          />
+>>>>>>> 4461d1dd88e51c85f4237034a176ae380bdf088e
           <Route
             path="/register"
             exact
@@ -112,17 +122,23 @@ function App() {
               <LoginPage customer={customer} setCustomer={setCustomer} />
             )}
           />
+<<<<<<< HEAD
           <Route path="/checkout" exact component={CheckoutPage} customer={customer} setCustomer={setCustomer} />
           <Route path="/movies" exact component={MoviePage} />
           <Route path="/" exact component={Home} />
 >>>>>>> Stashed changes
+=======
+          <Route path="/checkout" exact component={CheckoutPage} cart={cart} setCart={setCart} customer={customer} setCustomer={setCustomer} />
+          <Route path="/movies" exact component={MoviePage} />
+          <Route path="/" exact component={Home} />
+>>>>>>> 4461d1dd88e51c85f4237034a176ae380bdf088e
         </Switch>
 
         <footer>
-          <Footer />
+          <Footer customer={customer} setCustomer={setCustomer} />
         </footer>
       </div>
-    </Router>
+    </Router >
   );
 }
 

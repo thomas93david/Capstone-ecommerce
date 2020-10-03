@@ -127,7 +127,13 @@ export async function createCart() {
 <<<<<<< Updated upstream
 export async function customerList() {
     try {
-        const { data: customers } = await axios.get('api/admin/customers');
+        const { data: customers } = await axios.get('api/admin/customers', {
+            headers: {
+                "content-type": "application/json",
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("customer")).token}`
+            }
+
+        });
         console.log("customers in fetch", customers);
         return customers;
     } catch (error) {
