@@ -15,4 +15,4 @@ async function pagination(increment, pageSize){
     }
 }
 
-let increment = 10;
+
