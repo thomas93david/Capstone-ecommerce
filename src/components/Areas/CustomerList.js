@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { customerList } from "../../api"
+import "./CustomerList.css"
 
 
 const CustomerList = () => {
@@ -12,10 +13,10 @@ const CustomerList = () => {
         }
         fetchData();
 
-    })
+    }, [])
 
     return (
-        <div>
+        <div className="customerList">
             <h1>
                 Here are the Customers we currently have.
             </h1>
@@ -30,7 +31,5 @@ const CustomerList = () => {
 
         </div>
     )
-
-
 }
 export default CustomerList

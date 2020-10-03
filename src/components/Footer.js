@@ -1,9 +1,13 @@
 import React from "react";
 import "./Footer.css";
+import AdminPage from "./pages/AdminPage"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 
 import { Link } from "react-router-dom";
 
-function Footer() {
+function Footer({ customer, setCustomer, customerlist, setCustomerList }) {
+  console.log("is this true inside the footer?", customer.isAdmin)
   return (
     <div className="footer-container">
       <div className="footer-links">
@@ -13,7 +17,12 @@ function Footer() {
             <Link to="/">How it works</Link>
             <Link to="/">Testimonials</Link>
             <Link to="/">Careers</Link>
-            <Link to="/">Investors</Link>
+            {customer.isAdmin ?
+              <>
+                <Link to="/admin"> Administrator View</Link>
+              </>
+              : <> </>
+            }
             <Link to="/">Terms of Service</Link>
           </div>
           <div className="footer-link-items">
