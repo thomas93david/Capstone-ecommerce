@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Checkout.css";
 import StripeCheckout from "react-stripe-checkout";
 import { toast } from "react-toastify";
@@ -7,13 +7,14 @@ import CheckoutItem from "./CheckoutItem";
 import Subtotal from "./Subtotal";
 
 import axios from "axios";
-import { createCart } from "../../api";
+// import { createCart } from "../../api";
+
 
 toast.configure();
 
-const Checkout = ({ customer, setCustomer }) => {
+const Checkout = () => {
 
-  const [{ cart }] = useStateValue();
+  const [{cart}] = useStateValue();
 
   const [product] = useState({
     name: "diehard",
@@ -36,17 +37,6 @@ const Checkout = ({ customer, setCustomer }) => {
       toast("Something went wrong", { type: "error" });
     }
   }
-
-  useEffect(() => {
-    createCart(customer)
-      .then((cart) => {
-        localStorage.setItem("cart", JSON.stringify(cart));
-      })
-      .catch((error) => {
-        throw error;
-      });
-  }, [cart]);
-
 
   return (
 

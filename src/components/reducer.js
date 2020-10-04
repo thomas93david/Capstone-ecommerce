@@ -11,7 +11,7 @@ const reducer = (state, action) => {
   //Switch = look at a bunch of cases
   // takes in a action
   //always add console.log above the action to debug
-  console.log(action);
+  console.log("action in reducer.js", action);
 
   switch (action.type) {
     case "ADD_TO_CART":

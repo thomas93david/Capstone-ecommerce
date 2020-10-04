@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
-function Footer({ customer, setCustomer, customerlist, setCustomerList }) {
+function Footer({ customer }) {
   console.log("is this true inside the footer?", customer.isAdmin)
   return (
     <div className="footer-container">

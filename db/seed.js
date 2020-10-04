@@ -65,7 +65,7 @@ async function createTables() {
               CREATE TABLE cart (
                 id SERIAL PRIMARY KEY,
                 "customerId" INTEGER REFERENCES customers(id),
-                subtotal VARCHAR (255),
+                status 
                 UNIQUE("customerId")
             );
               CREATE TABLE movies_genres (

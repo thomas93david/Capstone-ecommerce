@@ -52,18 +52,9 @@ cartRouter.post("/checkout", async (req, res) => {
     }
     res.json({ error, status });
 })
-const { addMovieToCart, removeMovieFromCart, updateQuantity, getMoviesByCart, createCart } = require('../db');
-//add movies to cart:
-// cartRouter.post('/', async (req, res, next) => {
-//     try {
-//         const { movieId, cartId, quantity } = req.body;
-//         await addMovieToCart(movieId, cartId, quantity);
-//         res.send("Added Movie To Cart!");
+const { addMovieToCart, removeMovieFromCart, updateQuantity, getMoviesByCart, createCart, getCartIdByCustomerId } = require('../db');
 
-//     } catch (error) {
-//         next(error);
-//     }
-// });
+//I believe you used this to assign cart to customer??
 cartRouter.post('/', requireCustomer, async (req, res, next) => {
     console.log("hello world")
     try {
@@ -82,33 +73,47 @@ cartRouter.post('/', requireCustomer, async (req, res, next) => {
     }
 })
 
-//get movies in persons cart:
-//uncertain about the url thing trav help a sister out:
-cartRouter.get('/:customerId/:cartId', async (req, res, next) => {
+//@david or @travis: how to we use this route to set the initial state upon login!!!?
+//get movies in persons cart from either our DB or local storage (-: ->
+cartRouter.get('/:customerId', async (req, res, next) => {
     try {
-        const cartMovies = await getMoviesByCart(req.params.cartId);
+        const customerCartId = await getCartIdByCustomerId(req.params.customerId)
+        const cartMovies = 
+        await getMoviesByCart(customerCartId) || localStorage.getItem("cart");
         res.send(cartMovies);
     } catch (error) {
         next(error);
     }
-})
+});
 
-//remove movie from cart
-cartRouter.delete('/:cartId', async (req, res, next) => {
+//add movie to cart:
+cartRouter.post('/:customerId', async (req, res, next)=>{
     try {
+        const { movieId, quantity } = req.body;
+        const cartId = await getCartIdByCustomerId(req.params.customerId);
+        await addMovieToCart(movieId, cartId, quantity);
+    } catch (error) {
+        next(error);
+    }
+});
+
+//remove movie from cart in DB ( local storage updates with redux state ):
+cartRouter.delete('/:customerId', async (req, res, next) => {
+    try {
+        const customerCartId = await getCartIdByCustomerId(req.params.customerId)
         const { movieId, quantity } = req.body;
         if (quantity > 1) {
             let newQuantity = quantity - 1;
             await updateQuantity(newQuantity);
             res.send("Successfully removed movie");
         } else {
-            await removeMovieFromCart(movieId, req.params.cartId);
+            await removeMovieFromCart(movieId, customerCartId);
             res.send("Successfully removed movie");
         }
 
     } catch (error) {
         next(error);
     }
-})
+});
 
 module.exports = cartRouter

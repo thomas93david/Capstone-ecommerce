@@ -82,10 +82,10 @@ export async function getCustomer(customerId) {
         //     "Authorization": `Bearer ${JSON.parse(localStorage.getItem("customer")).token}`
         // }
     })
-    console.log("real token...", JSON.parse(localStorage.getItem("customer")).token)
+    console.log("real token...", JSON.parse(localStorage.getItem("customer")).token);
 
-    console.log("this is the customer please work...", customer)
-    return customer
+    console.log("this is the customer please work...", customer);
+    return customer;
 };
 
 
@@ -116,8 +116,8 @@ export async function createCart() {
         // customerId = getCustomer()
         // console.log("getting to the customer", customerId)
         const cart = await axios.post(`api/cart`);
-        console.log("this is the cart with", cart)
-        return cart
+        console.log("this is the cart with", cart);
+        return cart;
     } catch (error) {
         console.error(error)
     }
@@ -173,3 +173,53 @@ export async function adminDeleteMovies(movieId) {
 }
 
 
+//hey brett, check this out:
+
+export async function getUserCart(){
+    try {
+
+        const customerId = localStorage.getItem("customer").id;
+        const data = await axios.get(`api/cart/${customerId}`);
+
+        return data;
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+export async function addMovieToDBCart(movieId, customerId){
+    try {
+        // const customerId = localStorage.getItem("customer").id;
+        // console.log("um hello?", customerId);
+        await axios.post(`api/cartRoute/${customerId}`,
+        {
+            headers: {"content-type": "application/json"},
+            body: {
+                movieId: movieId,
+                quantity: 1
+            }
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export async function deleteMovieFromDB(movieId, quantity){
+    try {
+        const customerId = localStorage.getItem("customer").id;
+        await axios.delete(`api/cartRoute/${customerId}`,
+        {
+            headers: {"content-type": "application/json"},
+            body: {
+                movieId: movieId,
+                quantity: quantity
+            }
+        })
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+//since I dont do nothin. xoxo

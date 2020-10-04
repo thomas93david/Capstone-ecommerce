@@ -7,43 +7,24 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import MoviePage from "./pages/MoviePage";
-import "./App.css";
-import Pagination from "./Areas/Pagination";
 import AdminPage from "./pages/AdminPage";
+import "./App.css";
+// import Pagination from "./Areas/Pagination";
+import { useStateValue } from "./StateProvider";
 
 function App() {
   const [customer, setCustomer] = useState({});
-  const [cart, setCart] = useState({})
-  const [customerlist, setCustomerList] = useState({})
+  const [customerlist, setCustomerList] = useState({});
+  // const [cart, setCart] = useState({})
+  
+  
+  //pull it in everywhere fuck setCart cant coexist.
+    const [{ cart }] = useStateValue();
 
-  function localStorageCustomer() {
-    if (localStorage.getItem("customer")) {
-
-      const localStorageCustomer = JSON.parse(localStorage.getItem("customer"));
-      console.log("does this show Isadmin....", customer);
-      return localStorageCustomer;
-    } else {
-      return {};
-    }
-  }
-  function localStorageCart() {
-    if (localStorage.getItem("customer")) {
-
-      const localStorageCart = localStorage.getItem("cart")
-      return localStorageCart
-
-    } else {
-      return {}
-    }
-  }
-
-  useEffect(() => {
-    setCustomer(localStorageCustomer());
-  }, []);
-
-  useEffect(() => {
-    setCart(localStorageCart());
-  }, [])
+    useEffect(()=>{
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
+  //adding items to local storage when we load the whole app not just checkout page.
 
   return (
     <Router>
@@ -52,13 +33,34 @@ function App() {
           <Header customer={customer} setCustomer={setCustomer} />
         </header>
         <Switch>
-          <Route
-            path="/admin"
-            exact
-            render={() => (
-              <AdminPage customerlist={customerlist} setCustomer={setCustomer} />
-            )}
-          />
+          {
+          customer.isAdmin ?
+            <Route
+              path="/admin"
+              exact
+              render={() => (
+                <AdminPage customerlist={customerlist} setCustomerList={setCustomerList} />
+              )}
+            /> : <>
+              <Route
+                path="/register"
+                exact
+                render={() => (
+                  <RegisterPage customer={customer} setCustomer={setCustomer} />
+                )}
+              />
+              <Route
+                path="/login"
+                exact
+                render={() => (
+                  <LoginPage customer={customer} setCustomer={setCustomer} />
+                )}
+              />
+              <Route path="/checkout" exact component={CheckoutPage} cart={cart} customer={customer} setCustomer={setCustomer} />
+              <Route path="/movies" exact component={MoviePage} customer={customer} />
+              <Route path="/" exact component={Home} customer={customer} />
+            </>
+            }
           <Route
             path="/register"
             exact
@@ -73,16 +75,15 @@ function App() {
               <LoginPage customer={customer} setCustomer={setCustomer} />
             )}
           />
-          <Route path="/checkout" exact component={CheckoutPage} cart={cart} setCart={setCart} customer={customer} setCustomer={setCustomer} />
-          <Route path="/movies" exact component={MoviePage} />
-          <Route path="/" exact component={Home} />
+          <Route path="/checkout" exact component={CheckoutPage} customer={customer} setCustomer={setCustomer} />
+          <Route path="/movies" exact component={MoviePage} customer={customer}/>
+          <Route path="/" exact component={Home} customer={customer}/>
         </Switch>
-
         <footer>
-          <Footer customer={customer} setCustomer={setCustomer} />
+          <Footer customer={customer}/>
         </footer>
       </div>
-    </Router >
+    </Router>
   );
 }
 

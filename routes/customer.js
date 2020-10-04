@@ -37,19 +37,13 @@ customersRouter.patch("/:customerId", async (req, res, next) => {
 })
 
 
-
-
-
-
-
-
 customersRouter.post("/register", async (req, res, next) => {
   try {
     const { username, password } = req.body;
     let passwordHash;
     const SALT_COUNT = 11;
-    const _customer = await getCustomerByUsername({ username });
-
+    const _customer = await getCustomerByUsername(username);
+    console.log("brett said to console log the username", username);
     if (_customer) {
       next({
         name: "customerExistsError",
@@ -77,7 +71,6 @@ customersRouter.post("/register", async (req, res, next) => {
           }
         );
         const cart = await createCart(customer.id)
-
         // delete customer;
         // delete customer.password;
         customer.token = token;
@@ -117,6 +110,7 @@ customersRouter.post("/login", async (req, res, next) => {
       );
       delete customer.password;
       customer.token = token;
+      localStorage.setItem("customer", customer);
       res.send({ message: "you're logged in!", customer });
     }
     // console.log('my user', user)

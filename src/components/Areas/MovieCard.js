@@ -5,8 +5,9 @@ import StarIcon from "@material-ui/icons/Star";
 // import { addMovieToCart } from "../../api";
 // import { getCustomer } from "../../api";
 import { useStateValue } from "../StateProvider";
+import { addMovieToDBCart } from "../../api";
 
-const MovieCard = ({ id, title, rating, price, image, year, movies, loading }) => {
+const MovieCard = ({ id, title, rating, price, image, year, movies, loading, customer }) => {
   const [{ cart }, dispatch] = useStateValue();
 
   //Think of it as, everytime we click add to cart we dispatch an action
@@ -17,6 +18,7 @@ const MovieCard = ({ id, title, rating, price, image, year, movies, loading }) =
   }
   const addToCart = () => {
     //Add items to cart
+    console.log("adding to da cart");
     dispatch({
       type: "ADD_TO_CART",
       movie: {
@@ -29,6 +31,17 @@ const MovieCard = ({ id, title, rating, price, image, year, movies, loading }) =
       },
     });
   };
+
+  const addToDB = (id) => {
+    console.log("heard on button");
+    addMovieToDBCart(id);
+  }
+
+  const addHandler = (id) => {
+    addToCart();
+    console.log("customer info", customer);
+    addToDB(id);
+  }
 
   return (
     <div className="movie-card">
@@ -45,7 +58,7 @@ const MovieCard = ({ id, title, rating, price, image, year, movies, loading }) =
                 <StarIcon className="star__icon" />
               ))}
           </div>
-          <button onClick={addToCart}>Add to cart</button>
+          <button onClick={addHandler}>Add to cart</button>
         </div>
       </div>
     </div>

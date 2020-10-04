@@ -29,6 +29,7 @@
     "react-scripts": "3.4.3",
     "react-stripe-checkout": "^2.6.3",
     "react-toastify": "^6.0.8",
+    "redux": "^4.0.5",
     "stripe": "^8.99.0",
     "uuid-v4": "^0.1.0"
   },
