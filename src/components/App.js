@@ -43,7 +43,7 @@ function App() {
               )}
             /> : <>
               <Route
-                path="/register"
+                 path="/register"
                 exact
                 render={() => (
                   <RegisterPage customer={customer} setCustomer={setCustomer} />
