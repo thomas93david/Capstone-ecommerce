@@ -84,18 +84,18 @@ cartRouter.get('/:customerId', async (req, res, next) => {
     } catch (error) {
         next(error);
     }
-})
+});
 
 //add movie to cart:
 cartRouter.post('/:customerId', async (req, res, next)=>{
     try {
         const { movieId, quantity } = req.body;
-        const customerCartId = await getCartIdByCustomerId(req.params.customerId);
-        await addMovieToCart(movieId, customerCartId, quantity);
+        const cartId = await getCartIdByCustomerId(req.params.customerId);
+        await addMovieToCart(movieId, cartId, quantity);
     } catch (error) {
         next(error);
     }
-})
+});
 
 //remove movie from cart in DB ( local storage updates with redux state ):
 cartRouter.delete('/:customerId', async (req, res, next) => {
@@ -114,6 +114,6 @@ cartRouter.delete('/:customerId', async (req, res, next) => {
     } catch (error) {
         next(error);
     }
-})
+});
 
 module.exports = cartRouter

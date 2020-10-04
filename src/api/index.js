@@ -124,7 +124,6 @@ export async function createCart() {
 
 }
 
-<<<<<<< Updated upstream
 export async function customerList() {
     try {
         const { data: customers } = await axios.get('api/admin/customers', {
@@ -173,8 +172,9 @@ export async function adminDeleteMovies(movieId) {
     }
 }
 
-=======
-// this shuld set init state by retrieving cart from DB.
+
+//hey brett, check this out:
+
 export async function getUserCart(){
     try {
 
@@ -188,33 +188,38 @@ export async function getUserCart(){
     }
 }
 
-//dunno where to put this, checkout I guess. otherwise we may see dupl-triplicates. maybe a save for later option upon user logout!!?? this will store data for next login!
-export async function addMoviestoDB(){
+
+export async function addMovieToDBCart(movieId, customerId){
+    try {
+        // const customerId = localStorage.getItem("customer").id;
+        // console.log("um hello?", customerId);
+        await axios.post(`api/cartRoute/${customerId}`,
+        {
+            headers: {"content-type": "application/json"},
+            body: {
+                movieId: movieId,
+                quantity: 1
+            }
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export async function deleteMovieFromDB(movieId, quantity){
     try {
         const customerId = localStorage.getItem("customer").id;
-        const cart = localStorage.getItem("cart");
-        const movieId = cart.map(movie =>{
-            return movie.id;
-        });
-        movieId.forEach(async (movie)=>{
-            await axios.post(`api/cart/${customerId}`,
-            {
-                headers: {"content-type": "application/json"},
-                body: {
-                    movieId: movieId,
-                    quantity: 1
-                }
-            }) 
+        await axios.delete(`api/cartRoute/${customerId}`,
+        {
+            headers: {"content-type": "application/json"},
+            body: {
+                movieId: movieId,
+                quantity: quantity
+            }
         })
     } catch (error) {
         console.error(error);
     }
 }
 
-//need to make decisions on saving cart methods before I do our delete.
-//need to figure out how to separate individual movies (call add movies where state is updated)
-//OR delete whole carts from DB
-//which we will need to do anyway when we complete a checkout.
-//lmk thoughts .
->>>>>>> Stashed changes
-
+//since I dont do nothin. xoxo

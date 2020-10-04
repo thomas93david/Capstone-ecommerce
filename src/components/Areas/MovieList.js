@@ -5,7 +5,7 @@ import { getAllMovies } from "../../api";
 // import { addMovieToCart } from "../../api"
 // import { TrainOutlined, TrendingUpRounded } from "@material-ui/icons";
 // import Pagination from "./Pagination";
-const MovieList = () => {
+const MovieList = ({customer}) => {
   const [movies, setMovies] = useState([]);
   // const [loading, setLoading] = useState(false);
   // const [currentpage, setcurrentpage] = useState(1);
@@ -53,6 +53,7 @@ const MovieList = () => {
               rating={movie.rating}
               price={movie.price}
               image={movie.img_url}
+              customer={customer}
             />
           ))
           }
