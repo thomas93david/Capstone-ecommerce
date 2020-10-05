@@ -1,5 +1,7 @@
 const client = require("./client");
 const faker = require("faker");
+const SALT_COUNT = 11;
+const bcrypt = require("bcrypt");
 
 const {
   createCustomer,
@@ -11,7 +13,7 @@ const {
   createGenres,
   addMovieToCart,
   makeAdmin,
-  addGenres
+  addGenres,
 } = require("../db");
 async function dropTables() {
   try {
@@ -65,7 +67,6 @@ async function createTables() {
               CREATE TABLE cart (
                 id SERIAL PRIMARY KEY,
                 "customerId" INTEGER REFERENCES customers(id),
-                status 
                 UNIQUE("customerId")
             );
               CREATE TABLE movies_genres (
@@ -98,31 +99,75 @@ async function rebuildDb() {
   }
 }
 
+// async function createInitialCustomers() {
+//   try {
+//     console.log("creating intital users..");
+
+//     const customer1 = await createCustomer({
+//       username: "DavidThomas",
+//       password: "hardcorePorn",
+//     });
+//     console.log("this is customer1", customer1);
+//     const makeA = await makeAdmin(1);
+//     console.log("makeA....", makeA);
+//     const customer2 = await createCustomer({
+//       username: "Kamikaze1",
+//       password: "Password1",
+//     });
+//     console.log("this is customer2", customer2);
+
+//     const customer3 = await createCustomer({
+//       username: "ChelseaWenzel",
+//       password: "Dork1234",
+//     });
+//     console.log("this is customer3", customer3);
+
+//     console.log("finsihed creating intitial customers..");
+//   } catch (error) {
+//     throw error;
+//   }
+// }
+
 async function createInitialCustomers() {
   try {
-    console.log("creating intital users..");
-
-    const customer1 = await createCustomer({
-      username: "DavidThomas",
-      password: "hardcorePorn",
+    console.log("Starting to create users...");
+    await new Promise((resolve, reject) => {
+      bcrypt.hash("hardcorePorn", SALT_COUNT, async function (
+        err,
+        hashedPassword
+      ) {
+        const david = await createCustomer({
+          username: "DavidThomas",
+          password: hashedPassword,
+        });
+        resolve();
+      });
     });
-    console.log("this is customer1", customer1);
-    const makeA = await makeAdmin(1)
-    console.log("makeA....", makeA)
-    const customer2 = await createCustomer({
-      username: "Kamikaze1",
-      password: "Password1",
+    await new Promise((resolve, reject) => {
+      bcrypt.hash("Password1", SALT_COUNT, async function (
+        err,
+        hashedPassword
+      ) {
+        const admin = await createCustomer({
+          username: "Kamikaze1",
+          password: hashedPassword,
+        });
+        resolve();
+      });
     });
-    console.log("this is customer2", customer2);
-
-    const customer3 = await createCustomer({
-      username: "ChelseaWenzel",
-      password: "Dork1234",
+    await new Promise((resolve, reject) => {
+      bcrypt.hash("Dork1234", SALT_COUNT, async function (err, hashedPassword) {
+        const james = await createCustomer({
+          username: "ChelseaWenzel",
+          password: hashedPassword,
+        });
+        resolve();
+      });
     });
-    console.log("this is customer3", customer3);
 
-    console.log("finsihed creating intitial customers..");
+    console.log("Finished creating users!");
   } catch (error) {
+    console.error("Error creating users!");
     throw error;
   }
 }
@@ -167,7 +212,7 @@ async function createIntitialMovies() {
         rating: movie.rating || faker.commerce.price(1, 10, 1, ""),
         rating_votes: faker.commerce.price(200, 3000, 0, ""),
         img_url: movie.img_url,
-        price: faker.commerce.price(10, 100, 2, "$")
+        price: faker.commerce.price(10, 100, 2, "$"),
       });
       await addGenres(movie.genre, i);
     }

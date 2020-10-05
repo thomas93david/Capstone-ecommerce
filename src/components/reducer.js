@@ -4,8 +4,14 @@
 
 export const initialState = {
   cart: [],
-  //   user: null,.....next step with checkout
 };
+
+//example of a SELECTOR
+//allows to be called anywhere
+//maybe needed for localstorage?
+
+export const getCartTotal = (cart) =>
+  cart?.reduce((amount, movie) => movie.price + amount);
 
 const reducer = (state, action) => {
   //Switch = look at a bunch of cases
@@ -22,27 +28,34 @@ const reducer = (state, action) => {
         //value of the cart with a new value
         ...state,
         cart: [...state.cart, action.movie],
+
         //return the cart's state and add 1
       };
 
     case "REMOVE_FROM_CART":
       //Logic for removing item from cart
-
       //cloned the cart
       let newCart = [...state.cart];
-
-      //
       const index = state.cart.findIndex(
         (cartItem) => cartItem.id === action.id
       );
-
       //item exists, remove/cut/splice from cart
       if (index >= 0) {
         newCart.splice(index, 1);
       }
-
       //returns the enite state AND the newCart
       return { ...state, cart: newCart };
+
+    // case "SET_CART_LS":
+    //   let updateCart = [...state.cart.cart];
+    //   const setCart = localStorage.getItem("cart")
+    //     ? JSON.parse(localStorage.getItem("cart"))
+    //     : [updateCart];
+
+    //   return {
+    //     ...state,
+    //     cart: setCart,
+    //   };
 
     //If nothing changes, return the state
     default:
