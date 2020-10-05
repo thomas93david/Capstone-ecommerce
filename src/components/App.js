@@ -14,46 +14,19 @@ import { useStateValue } from "./StateProvider";
 function App() {
   const [customer, setCustomer] = useState({});
   const [customerlist, setCustomerList] = useState({});
-  const [{ cart }, dispatch] = useStateValue();
-  // const [cart, setCart] = useLocalStorage("cart");
+  const [cart, setCart] = useState([]);
+  // const [{ cart }] = useStateValue();
+  console.log("this is cart state in app.js", cart);
+  
+  useEffect(()=>{
+    const localData = localStorage.getItem("cart");
+    if (localData){
+      setCart(localData)
+    }
+  }, []);
 
-  // let moviez;
-  // let setCart = localStorage.setItem("cart", moviez)
-
-  // function useLocalStorage(localItem) {
-  //   const [localState, setLocalState] = useState(
-  //     localStorage.getItem(localItem)
-  //   );
-
-  //   function setLocation(newItem) {
-  //     localStorage.setItem(localItem, newItem);
-  //     setLocalState(newItem);
-  //   }
-  //   return [localState, setLocation];
-  // }
-
-  // const [cart, setCart] = useState({});
-
-  // const customersCart = JSON.parse(localStorage.getItem("cart"));
-
-  // const ALL_CART = localStorage.getItem("cart")
-  //   ? JSON.parse(localStorage.getItem("cart"))
-  //   : [ALL_CART];
-
-  // const setCartInLocalStorage = () => {
-  //   dispatch({
-  //     type: "SET_CART_LS",
-  //     cart: customer.id,
-  //   });
-  // };
-  // localStorage.setItem("cart", JSON.stringify(cart));
-
-  // useEffect(() => {
-  //   localStorage.setItem("cart", JSON.stringify(cart));
-  // }, [setCartInLocalStorage]);
-
-  //adding items to local storage when we load the whole app not just checkout page.
-
+  
+  
   return (
     <Router>
       <div className="app">
@@ -92,13 +65,14 @@ function App() {
                 path="/checkout"
                 exact
                 component={CheckoutPage}
-                // cart={cart}
                 customer={customer}
                 setCustomer={setCustomer}
+                cart={cart}
+                // setCart={setCart}
               />
               <Route
                 path="/movies"
-                render={(props) => <MoviePage {...props} customer={customer} />}
+                render={(props) => <MoviePage {...props} customer={customer}/>}
                 // component={MoviePage}
                 // customer={customer}
               />

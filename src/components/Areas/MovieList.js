@@ -3,9 +3,9 @@ import "./MovieList.css";
 import MovieCard from "./MovieCard";
 import { getAllMovies } from "../../api";
 
-const MovieList = ({ customer }) => {
+const MovieList = ({ customer, setCart }) => {
   const [movies, setMovies] = useState([]);
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -32,6 +32,7 @@ const MovieList = ({ customer }) => {
               price={movie.price}
               image={movie.img_url}
               customer={customer}
+              setCart={setCart}
             />
           ))}
         </div>
