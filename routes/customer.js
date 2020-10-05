@@ -2,40 +2,47 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const customersRouter = express.Router();
-const { createCustomer, getCustomerByUsername, getCustomer, createCart, getCustomerById, makeAdmin } = require("../db");
+const {
+  createCustomer,
+  getCustomerByUsername,
+  getCustomer,
+  createCart,
+  getCustomerById,
+  makeAdmin,
+} = require("../db");
 const { requireCustomer } = require("./utils");
-
 
 customersRouter.get("/:customerId", requireCustomer, async (req, res, next) => {
   try {
-    const getCustomer = req.params.customerId
-    console.log("fucking work", getCustomer)
-    const customer = await getCustomerById(getCustomer.id)
-    console.log("fucking work or im done...please", customer)
-    res.send({ customer })
+    const getCustomer = req.params.customerId;
+    console.log("fucking work", getCustomer);
+    const customer = await getCustomerById(getCustomer.id);
+    console.log("fucking work or im done...please", customer);
+    res.send({ customer });
   } catch (error) {
     console.error(error);
   }
-})
+});
 
 customersRouter.patch("/:customerId", async (req, res, next) => {
   try {
-    const cId = req.params.customerId
-    console.log("this is the C Id... ", cId)
+    const cId = req.params.customerId;
+    console.log("this is the C Id... ", cId);
     // const customerId = await getCustomerById(cId.id)
     // console.log("is this the customer i want to update", customerId)
-    const createAdmin = makeAdmin(cId)
+    const createAdmin = makeAdmin(cId);
     if (cId) {
-      res.send({ createAdmin })
+      res.send({ createAdmin });
     } else {
-      next({ name: "no customer ID", message: "please create a customer first before making admin" })
+      next({
+        name: "no customer ID",
+        message: "please create a customer first before making admin",
+      });
     }
-
   } catch ({ name, message }) {
-    next({ name, message })
+    next({ name, message });
   }
-})
-
+});
 
 customersRouter.post("/register", async (req, res, next) => {
   try {
@@ -70,7 +77,7 @@ customersRouter.post("/register", async (req, res, next) => {
             expiresIn: "5w",
           }
         );
-        const cart = await createCart(customer.id)
+        const cart = await createCart(customer.id);
         // delete customer;
         // delete customer.password;
         customer.token = token;
@@ -84,6 +91,7 @@ customersRouter.post("/register", async (req, res, next) => {
 customersRouter.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
   // request must have both
+
   if (!username || !password) {
     next({
       name: "MissingCredentialsError",
@@ -91,6 +99,7 @@ customersRouter.post("/login", async (req, res, next) => {
     });
   }
   try {
+    // console.log("Loggin", password);
     const customer = await getCustomer({ username, password });
     if (!customer) {
       next({
@@ -110,7 +119,7 @@ customersRouter.post("/login", async (req, res, next) => {
       );
       delete customer.password;
       customer.token = token;
-      localStorage.setItem("customer", customer);
+      // localStorage.setItem("customer", customer);
       res.send({ message: "you're logged in!", customer });
     }
     // console.log('my user', user)

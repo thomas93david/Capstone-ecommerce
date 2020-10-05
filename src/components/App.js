@@ -9,21 +9,49 @@ import CheckoutPage from "./pages/CheckoutPage";
 import MoviePage from "./pages/MoviePage";
 import AdminPage from "./pages/AdminPage";
 import "./App.css";
-// import Pagination from "./Areas/Pagination";
 import { useStateValue } from "./StateProvider";
 
 function App() {
   const [customer, setCustomer] = useState({});
   const [customerlist, setCustomerList] = useState({});
-  // const [cart, setCart] = useState({})
-  
-  
-  //pull it in everywhere fuck setCart cant coexist.
-    const [{ cart }] = useStateValue();
+  const [{ cart }, dispatch] = useStateValue();
+  // const [cart, setCart] = useLocalStorage("cart");
 
-    useEffect(()=>{
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }, [cart]);
+  // let moviez;
+  // let setCart = localStorage.setItem("cart", moviez)
+
+  // function useLocalStorage(localItem) {
+  //   const [localState, setLocalState] = useState(
+  //     localStorage.getItem(localItem)
+  //   );
+
+  //   function setLocation(newItem) {
+  //     localStorage.setItem(localItem, newItem);
+  //     setLocalState(newItem);
+  //   }
+  //   return [localState, setLocation];
+  // }
+
+  // const [cart, setCart] = useState({});
+
+  // const customersCart = JSON.parse(localStorage.getItem("cart"));
+
+  // const ALL_CART = localStorage.getItem("cart")
+  //   ? JSON.parse(localStorage.getItem("cart"))
+  //   : [ALL_CART];
+
+  // const setCartInLocalStorage = () => {
+  //   dispatch({
+  //     type: "SET_CART_LS",
+  //     cart: customer.id,
+  //   });
+  // };
+  // localStorage.setItem("cart", JSON.stringify(cart));
+
+  // useEffect(() => {
+  //   localStorage.setItem("cart", JSON.stringify(cart));
+  // }, [setCartInLocalStorage]);
+
   //adding items to local storage when we load the whole app not just checkout page.
 
   return (
@@ -33,15 +61,19 @@ function App() {
           <Header customer={customer} setCustomer={setCustomer} />
         </header>
         <Switch>
-          {
-          customer.isAdmin ?
+          {customer.isAdmin ? (
             <Route
               path="/admin"
               exact
               render={() => (
-                <AdminPage customerlist={customerlist} setCustomerList={setCustomerList} />
+                <AdminPage
+                  customerlist={customerlist}
+                  setCustomerList={setCustomerList}
+                />
               )}
-            /> : <>
+            />
+          ) : (
+            <>
               <Route
                 path="/register"
                 exact
@@ -56,31 +88,26 @@ function App() {
                   <LoginPage customer={customer} setCustomer={setCustomer} />
                 )}
               />
-              <Route path="/checkout" exact component={CheckoutPage} cart={cart} customer={customer} setCustomer={setCustomer} />
-              <Route path="/movies" exact component={MoviePage} customer={customer} />
+              <Route
+                path="/checkout"
+                exact
+                component={CheckoutPage}
+                // cart={cart}
+                customer={customer}
+                setCustomer={setCustomer}
+              />
+              <Route
+                path="/movies"
+                render={(props) => <MoviePage {...props} customer={customer} />}
+                // component={MoviePage}
+                // customer={customer}
+              />
               <Route path="/" exact component={Home} customer={customer} />
             </>
-            }
-          <Route
-            path="/register"
-            exact
-            render={() => (
-              <RegisterPage customer={customer} setCustomer={setCustomer} />
-            )}
-          />
-          <Route
-            path="/login"
-            exact
-            render={() => (
-              <LoginPage customer={customer} setCustomer={setCustomer} />
-            )}
-          />
-          <Route path="/checkout" exact component={CheckoutPage} customer={customer} setCustomer={setCustomer} />
-          <Route path="/movies" exact component={MoviePage} customer={customer}/>
-          <Route path="/" exact component={Home} customer={customer}/>
+          )}
         </Switch>
         <footer>
-          <Footer customer={customer}/>
+          <Footer customer={customer} />
         </footer>
       </div>
     </Router>
