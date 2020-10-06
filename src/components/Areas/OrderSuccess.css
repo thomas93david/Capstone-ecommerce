@@ -1,0 +1,16 @@
+.order__container{
+    margin: auto;
+    border: 1px solid red;
+    background-color: rgb(77, 78, 80);
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.order__complete{
+    text-align: center;
+
+}
