@@ -19,8 +19,17 @@ function App() {
   const [customerlist, setCustomerList] = useState({});
   const [{ cart }, dispatch] = useStateValue();
   console.log("this is cart state in app.js", cart);
+  function localStorageCustomer() {
+    if (localStorage.getItem("customer")) {
+      const localStorageUser = localStorage.getItem("customer");
+      return localStorageUser;
+    } else {
+      return {};
+    }
+  }
 
   useEffect(() => {
+    setCustomer(localStorageCustomer());
     const localCart = JSON.parse(localStorage.getItem('cart'))
     if (!localCart) {
       localStorage.setItem("cart", JSON.stringify(cart));
@@ -83,15 +92,10 @@ function App() {
                 // customer={customer}
                 />
                 <Route path="/" exact component={Home} customer={customer} />
-
-
                 <Route path="/CheckoutSuccess" render={() => (
                   <CheckoutSuccessPage />
                 )} />
-
-
               </>
-
             )}
         </Switch>
         <footer>
