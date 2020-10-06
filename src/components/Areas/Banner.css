@@ -60,6 +60,16 @@
   image-rendering: optimizeQuality;
 }
 
+/* .slider-frame .image-container {
+  position: absolute;
+  font-size: 75px;
+  color: white;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  z-index: 300;
+} */
+
 @media screen and (max-width: 960px) {
   .slider-frame {
     display: none;

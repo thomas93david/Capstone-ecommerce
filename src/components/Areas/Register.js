@@ -1,5 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
+import Button from "./Button";
 
 import { register } from "../../api";
 // import { Redirect } from "react-router-dom"
@@ -41,24 +42,8 @@ const Register = ({ customer, setCustomer }) => {
     <>
       <div className="register-container">
         <div className="register-cnt">
-          <Form
-            onSubmit={handleSubmit}
-            style={{
-              backgroundColor: "pink",
-              width: "500px",
-              height: "275px",
-              textAlign: "center",
-            }}
-          >
-            <Form.Label
-              style={{
-                textAlign: "center",
-                fontSize: "24px",
-                padding: "20px",
-              }}
-            >
-              Create Account
-            </Form.Label>
+          <Form className="form" onSubmit={handleSubmit}>
+            <Form.Label className="form-label">Create Account</Form.Label>
             <Form.Group controlId="formUsername">
               <Form.Label></Form.Label>
               <Form.Control
@@ -83,7 +68,9 @@ const Register = ({ customer, setCustomer }) => {
                 onChange={handlePassword2}
               />
             </Form.Group>
-            <input className="register-btn" type="submit"></input>
+            <Button id="account__button" to="/" type="submit">
+              Submit
+            </Button>
           </Form>
           <div className="register-logo">
             <i className="fas fa-theater-masks"></i>

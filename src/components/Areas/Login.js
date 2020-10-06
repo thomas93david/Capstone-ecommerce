@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { login } from "../../api";
+import Button from "./Button";
+
 import "./Login.css";
 
 export default function Login({ customer, setCustomer }) {
@@ -28,10 +30,10 @@ export default function Login({ customer, setCustomer }) {
     <div className="login-container">
       <div className="login-wrap">
         <div className="Login">
-          <h2>Login</h2>
+          <h2 className="login__heading">Login</h2>
           <form onSubmit={submitHandler}>
             <FormGroup controlId="username">
-              <FormLabel>Username</FormLabel>
+              <FormLabel id="username__login">Username</FormLabel>
               <FormControl
                 autoFocus
                 type="text"
@@ -40,15 +42,22 @@ export default function Login({ customer, setCustomer }) {
               />
             </FormGroup>
             <FormGroup controlId="password">
-              <FormLabel>Password</FormLabel>
+              <FormLabel id="password__login">Password</FormLabel>
               <FormControl
                 value={password}
                 onChange={passwordHandler}
                 type="password"
               />
             </FormGroup>
-            <input type="submit"></input>
+            <Button id="account__button" to="/" type="submit">
+              Submit
+            </Button>
           </form>
+          <div className="setup__account__button">
+            <Button to="/register" type="submit">
+              Register for an Account
+            </Button>
+          </div>
         </div>
       </div>
     </div>

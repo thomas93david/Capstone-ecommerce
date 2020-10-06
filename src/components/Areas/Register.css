@@ -3,8 +3,12 @@
   justify-content: center;
   flex-direction: column;
   width: auto;
-  height: 500px;
+  height: 600px;
   font-family: "Play", sans-serif;
+  background-image: url(https://images2.alphacoders.com/762/thumb-1920-762089.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .register-cnt {
@@ -15,24 +19,49 @@
   height: 400px;
 }
 
+.form {
+  background-color: #f85b1a;
+  border: 3px solid #f9ee54;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 12px;
+  opacity: 1;
+  width: 375px;
+  height: 625px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.form-label {
+  text-align: center;
+  color: #072083;
+  font-size: 30px;
+  font-weight: 900;
+  margin-top: 9px;
+}
+
 .form-group {
-  margin: 18px;
+  margin: 12px;
 }
 
 .form-group input {
   width: 250px;
   height: 30px;
+  padding: 3px;
+  border: 3px solid #f9ee54;
 }
 
-.register-container .register-btn {
+.register-container #account__button {
   padding: 8px 20px;
+  margin-top: 10px;
   font-size: 18px;
   border-radius: 2px;
   outline: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #072083;
   color: #fff;
   padding: 8px 20px;
   border: 1px solid var(--primary);
-  transition: all 0.3s ease-out;
 }
