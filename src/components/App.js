@@ -8,9 +8,11 @@ import RegisterPage from "./pages/RegisterPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import MoviePage from "./pages/MoviePage";
 import AdminPage from "./pages/AdminPage";
+import CheckoutSuccess from "./pages/CheckoutSuccess"
 import "./App.css";
 import { useStateValue } from "./StateProvider";
 import { CREATE_CART } from './actions'
+import CheckoutSuccessPage from "./pages/CheckoutSuccess";
 
 function App() {
   const [customer, setCustomer] = useState({});
@@ -90,6 +92,9 @@ function App() {
                 // customer={customer}
                 />
                 <Route path="/" exact component={Home} customer={customer} />
+                <Route path="/CheckoutSuccess" render={() => (
+                  <CheckoutSuccessPage />
+                )} />
               </>
             )}
         </Switch>
