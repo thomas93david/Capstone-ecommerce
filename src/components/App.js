@@ -8,9 +8,10 @@ import RegisterPage from "./pages/RegisterPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import MoviePage from "./pages/MoviePage";
 import AdminPage from "./pages/AdminPage";
+import CheckoutSuccess from "./pages/CheckoutSuccess"
 import "./App.css";
 import { useStateValue } from "./StateProvider";
-import { CREATE_CART } from "./actions";
+import { CREATE_CART } from './actions'
 import CheckoutSuccessPage from "./pages/CheckoutSuccess";
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
 
   useEffect(() => {
     setCustomer(localStorageCustomer());
-    const localCart = JSON.parse(localStorage.getItem("cart"));
+    const localCart = JSON.parse(localStorage.getItem('cart'))
     if (!localCart) {
       localStorage.setItem("cart", JSON.stringify(cart));
     } else {
@@ -39,7 +40,10 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+
+
+  }, [cart])
+
 
   return (
     <Router>
@@ -60,43 +64,44 @@ function App() {
               )}
             />
           ) : (
-            <>
-              <Route
-                path="/register"
-                exact
-                render={() => (
-                  <RegisterPage customer={customer} setCustomer={setCustomer} />
-                )}
-              />
-              <Route
-                path="/login"
-                exact
-                render={() => (
-                  <LoginPage customer={customer} setCustomer={setCustomer} />
-                )}
-              />
-              <Route
-                path="/checkout"
-                exact
-                component={CheckoutPage}
-                customer={customer}
-                setCustomer={setCustomer}
-                cart={cart}
+              <>
+                <Route
+                  path="/register"
+                  exact
+                  render={() => (
+                    <RegisterPage customer={customer} setCustomer={setCustomer} />
+                  )}
+                />
+                <Route
+                  path="/login"
+                  exact
+                  render={() => (
+                    <LoginPage customer={customer} setCustomer={setCustomer} />
+                  )}
+                />
+                <Route
+                  path="/checkout"
+                  exact
+                  component={CheckoutPage}
+                  customer={customer}
+                  setCustomer={setCustomer}
+                  cart={cart}
                 // setCart={setCart}
-              />
-              <Route
-                path="/movies"
-                render={(props) => <MoviePage {...props} customer={customer} />}
+
+                />
+                <Route
+                  path="/movies"
+                  render={(props) => <MoviePage {...props} customer={customer} />}
                 // component={MoviePage}
                 // customer={customer}
-              />
-              <Route path="/" exact component={Home} customer={customer} />
-              <Route
-                path="/CheckoutSuccess"
-                render={() => <CheckoutSuccessPage />}
-              />
-            </>
-          )}
+                />
+                <Route path="/" exact component={Home} customer={customer} />
+                <Route path="/CheckoutSuccess" render={() => (
+                  <CheckoutSuccessPage />
+                )} />
+              </>
+            )}
+
         </Switch>
         <footer>
           <Footer customer={customer} />
