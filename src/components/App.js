@@ -17,10 +17,19 @@ function App() {
   const [customerlist, setCustomerList] = useState({});
   const [{ cart }, dispatch] = useStateValue();
   console.log("this is cart state in app.js", cart);
-  
-  useEffect(()=>{
+  function localStorageCustomer() {
+    if (localStorage.getItem("customer")) {
+      const localStorageUser = localStorage.getItem("customer");
+      return localStorageUser;
+    } else {
+      return {};
+    }
+  }
+
+  useEffect(() => {
+    setCustomer(localStorageCustomer());
     const localCart = JSON.parse(localStorage.getItem('cart'))
-    if (!localCart) { 
+    if (!localCart) {
       localStorage.setItem("cart", JSON.stringify(cart));
     } else {
       dispatch(CREATE_CART({ cart: localCart }))
@@ -30,7 +39,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart])
-  
+
   return (
     <Router>
       <div className="app">
@@ -50,39 +59,39 @@ function App() {
               )}
             />
           ) : (
-            <>
-              <Route
-                path="/register"
-                exact
-                render={() => (
-                  <RegisterPage customer={customer} setCustomer={setCustomer} />
-                )}
-              />
-              <Route
-                path="/login"
-                exact
-                render={() => (
-                  <LoginPage customer={customer} setCustomer={setCustomer} />
-                )}
-              />
-              <Route
-                path="/checkout"
-                exact
-                component={CheckoutPage}
-                customer={customer}
-                setCustomer={setCustomer}
-                cart={cart}
+              <>
+                <Route
+                  path="/register"
+                  exact
+                  render={() => (
+                    <RegisterPage customer={customer} setCustomer={setCustomer} />
+                  )}
+                />
+                <Route
+                  path="/login"
+                  exact
+                  render={() => (
+                    <LoginPage customer={customer} setCustomer={setCustomer} />
+                  )}
+                />
+                <Route
+                  path="/checkout"
+                  exact
+                  component={CheckoutPage}
+                  customer={customer}
+                  setCustomer={setCustomer}
+                  cart={cart}
                 // setCart={setCart}
-              />
-              <Route
-                path="/movies"
-                render={(props) => <MoviePage {...props} customer={customer}/>}
+                />
+                <Route
+                  path="/movies"
+                  render={(props) => <MoviePage {...props} customer={customer} />}
                 // component={MoviePage}
                 // customer={customer}
-              />
-              <Route path="/" exact component={Home} customer={customer} />
-            </>
-          )}
+                />
+                <Route path="/" exact component={Home} customer={customer} />
+              </>
+            )}
         </Switch>
         <footer>
           <Footer customer={customer} />

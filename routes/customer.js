@@ -77,7 +77,7 @@ customersRouter.post("/register", async (req, res, next) => {
             expiresIn: "5w",
           }
         );
-        const cart = await createCart(customer.id);
+        const cart = await createCart(customer);
         // delete customer;
         // delete customer.password;
         customer.token = token;
@@ -119,7 +119,7 @@ customersRouter.post("/login", async (req, res, next) => {
       );
       delete customer.password;
       customer.token = token;
-      // localStorage.setItem("customer", customer);
+
       res.send({ message: "you're logged in!", customer });
     }
     // console.log('my user', user)
