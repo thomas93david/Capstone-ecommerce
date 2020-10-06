@@ -1,0 +1,102 @@
+#image__group__wrap {
+  height: 800px;
+  width: 1440px;
+  margin: 0 auto;
+  background-color: #242424;
+}
+
+.image__bar__one {
+  font-family: "Play", sans-serif;
+  margin: 0 auto;
+  background-image: url("https://wallpapershome.com/images/pages/pic_h/21119.jpg");
+  filter: grayscale(50%);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-size: 50px;
+  transition: background-image 1s ease-in-out;
+  height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image__bar__one:hover {
+  background-image: url("https://wallpapershome.com/images/pages/pic_h/18675.jpg");
+  filter: grayscale(50%);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+.image__bar__two {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 400px;
+}
+
+.image__item1 {
+  background-image: url("https://wallpapershome.com/images/pages/pic_h/21492.jpg");
+  width: 470px;
+  text-align: center;
+  color: white;
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Play", sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: 12px;
+  margin-right: 6px;
+  margin-bottom: 12px;
+  filter: grayscale(25%);
+}
+
+.image__item2 {
+  background-image: url("https://wallpapershome.com/images/pages/pic_h/17882.jpg");
+  width: 470px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-size: 26px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-family: "Play", sans-serif;
+  align-items: center;
+  margin-top: 12px;
+  margin-right: 6px;
+  margin-bottom: 12px;
+  background-position: center;
+  filter: grayscale(25%);
+}
+
+.image__item3 {
+  background-image: url("https://wallpapershome.com/images/pages/pic_h/17934.jpg");
+  width: 470px;
+  background-repeat: no-repeat;
+  text-align: center;
+  display: flex;
+  color: white;
+  font-size: 26px;
+  font-family: "Play", sans-serif;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  margin-top: 12px;
+  background-position: center;
+  margin-bottom: 12px;
+  filter: grayscale(25%);
+}
+
+@media screen and (max-width: 960px) {
+  #image__group__wrap {
+    display: none;
+  }
+}

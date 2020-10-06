@@ -17,6 +17,7 @@ function App() {
   const [customer, setCustomer] = useState({});
   const [customerlist, setCustomerList] = useState({});
   const [{ cart }, dispatch] = useStateValue();
+
   console.log("this is cart state in app.js", cart);
   function localStorageCustomer() {
     if (localStorage.getItem("customer")) {
@@ -93,7 +94,7 @@ function App() {
               <Route path="/" exact component={Home} customer={customer} />
               <Route
                 path="/CheckoutSuccess"
-                render={() => <CheckoutSuccessPage />}
+                render={() => <CheckoutSuccessPage cart={cart} />}
               />
             </>
           )}

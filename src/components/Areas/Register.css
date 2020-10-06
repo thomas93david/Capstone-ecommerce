@@ -3,16 +3,11 @@
   justify-content: center;
   flex-direction: column;
   width: auto;
-
-  height: 600px;
+  height: 100vh;
   font-family: "Play", sans-serif;
-  background-image: url(https://images2.alphacoders.com/762/thumb-1920-762089.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-
+  background-image: url("https://images.unsplash.com/photo-1472982728022-601a8d99e9af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2389&q=80");
   background-size: cover;
 }
-
 .register-cnt {
   display: flex;
   justify-content: center;
@@ -20,83 +15,104 @@
   align-items: center;
   height: 400px;
 }
-
-
-.form {
-  background-color: #f85b1a;
-  border: 3px solid #f9ee54;
+.register-wrap {
+  background-color: #ffffff2e;
+  width: 400px;
+  height: 400px;
+  margin: 7em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  border: 3px solid #8080809e;
+}
+.un {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(235, 231, 231, 0.974);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 50px;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 27px;
+  font-family: "Ubuntu", sans-serif;
+  margin-top: 15px;
+}
+.pass {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(235, 231, 231, 0.974);
+  justify-content: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: "Ubuntu", sans-serif;
+  margin-top: 15px;
+}
+.form-groupR {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 12px;
-  opacity: 1;
-  width: 375px;
-  height: 625px;
-  text-align: center;
-  border-radius: 50%;
+  margin: 18px;
+  font-weight: bold;
 }
-
-.form-label {
-  text-align: center;
-  color: #072083;
-  font-size: 30px;
-  font-weight: 900;
-  margin-top: 9px;
-}
-
-.form-group {
-  margin: 12px;
-
-}
-
-.un:focus, .pass:focus {
+.un:focus,
+.pass:focus {
   border: 2px solid rgba(0, 0, 0, 0.18) !important;
-  
 }
-.create{
+.create {
   text-align: center;
-  padding-top:15px;
+  padding-top: 15px;
   justify-content: center;
-    display: flex;
-    font-size: 25px;
+  display: flex;
+  font-size: 25px;
 }
 .form-group input {
   width: 250px;
   height: 30px;
-  padding: 3px;
-  border: 3px solid #f9ee54;
 }
-
-.register-container #account__button {
+.register-container .register-btn {
   padding: 8px 20px;
-  margin-top: 10px;
   font-size: 18px;
   border-radius: 2px;
   outline: none;
   cursor: pointer;
-  background-color: #072083;
+  background-color: transparent;
   color: #fff;
   padding: 8px 20px;
   border: 1px solid var(--primary);
+  transition: all 0.3s ease-out;
 }
 .rsubmit {
   cursor: pointer;
-    border-radius: 5em;
-    color: #fff;
-    background: linear-gradient(to right, #9C27B0, #E040FB);
-    border: 0;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 13px;
-    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #9c27b0, #e040fb);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
-.btn-fix{
+.btn-fix {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
 }
-
