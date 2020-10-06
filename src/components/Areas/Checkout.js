@@ -9,7 +9,6 @@ import Subtotal from "./Subtotal";
 import axios from "axios";
 // import { createCart } from "../../api";
 
-
 toast.configure();
 
 const Checkout = () => {
@@ -39,73 +38,57 @@ const Checkout = () => {
   }
 
   return (
-
     <div className="checkout__container">
-      <div className="checkout__leftSide">
-        <div className="checkout__imgs">
-          <img
-            className="checkout__adOne"
-            alt="checkout" src="https://cdn.shopify.com/s/files/1/1501/1194/files/Enjoy_the_show_3D.png?13210101147469849548"
-          />
-        </div>
-
+      <div className="checkout__leftside">
         <div className="cart-container">
-          {
 
-            cart?.length === 0 ? (
-              <div>
-                <h2> Your Shopping Cart is empty</h2>
-                <p>
-                  You have no movies in your cart. To buy a movie, click "Add to
-                  cart" next to the movie
-              </p>
-              </div>
-            ) : (
-                <div>
-                  <h2> Your Shopping Cart</h2>
+          {cart?.length === 0 ? (
+            <div className="checkout__header__empty">
+              <h2> Your Shopping Cart is empty</h2>
+              <p>You have no movies in your cart</p>
+              <p> To buy a movie, click "Add to cart" next to the movie</p>
+              <img
+                className="checkout__empty__image"
+                src="https://images5.alphacoders.com/481/thumb-1920-481903.png"
+              ></img>
+            </div>
+          ) : (
+            <div className="checkout__header__movies">
+              <h2> Your Shopping Cart</h2>
 
-                  {
-
-                    cart.map((movie) => {
-                      console.log(movie);
-                      return (
-                        <CheckoutItem
-                          id={movie.id}
-                          movie={movie.id}
-                          title={movie.title}
-                          image={movie.image}
-                          price={movie.price}
-                          rating={movie.rating}
-                        />
-                      );
-                    })
-
-                  }
-                </div>
-              )}
-
+              {cart.map((movie) => {
+                console.log(movie);
+                return (
+                  <CheckoutItem
+                    id={movie.id}
+                    movie={movie.id}
+                    title={movie.title}
+                    image={movie.image}
+                    price={movie.price}
+                    rating={movie.rating}
+                  />
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
 
-      {
-
-        cart.length > 0 && (
-          <div className="checkout__rightSide">
-            <Subtotal />
-            <div className="payment">
-              <StripeCheckout
-                stripeKey="pk_test_51HV1w8L7qGrgZ4TMQtP4pgnfBIfkyECn7WlL9KnKoW7j4C1g566DKyYSk5jLIncZ4BB2y3V12khQxXbvx0s6isQj001TWD97Vq"
-                token={handleToken}
-                billingAddress
-                shippingAddress
-                price={cart.price}
-                name={cart.title}
-              />
-            </div>
-          </div>
-        )
-
-      }
+      {cart.length > 0 && (
+        <div className="checkout__rightside">
+          <Subtotal />
+          {/* <div className="payment">
+            <StripeCheckout
+              stripeKey="pk_test_51HV1w8L7qGrgZ4TMQtP4pgnfBIfkyECn7WlL9KnKoW7j4C1g566DKyYSk5jLIncZ4BB2y3V12khQxXbvx0s6isQj001TWD97Vq"
+              token={handleToken}
+              billingAddress
+              shippingAddress
+              amount={100.0 * 100}
+              name="Movies"
+            />
+          </div> */}
+        </div>
+      )}
 
     </div>
   );
