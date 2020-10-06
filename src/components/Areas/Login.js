@@ -30,28 +30,36 @@ export default function Login({ customer, setCustomer }) {
     <div className="login-container">
       <div className="login-wrap">
         <div className="Login">
+
           <h2 className="login__heading">Login</h2>
+
           <form onSubmit={submitHandler}>
             <FormGroup controlId="username">
               <FormLabel id="username__login">Username</FormLabel>
               <FormControl
+                className="un1"
                 autoFocus
                 type="text"
                 value={username}
                 onChange={usernameHandler}
               />
             </FormGroup>
+
             <FormGroup controlId="password">
               <FormLabel id="password__login">Password</FormLabel>
+
               <FormControl
+                className="pass1"
                 value={password}
                 onChange={passwordHandler}
                 type="password"
               />
             </FormGroup>
+
             <Button id="account__button" to="/" type="submit">
               Submit
             </Button>
+
           </form>
           <div className="setup__account__button">
             <Button to="/register" type="submit">

@@ -12,6 +12,7 @@ import axios from "axios";
 toast.configure();
 
 const Checkout = () => {
+
   const [{ cart }] = useStateValue();
 
   const [product] = useState({
@@ -22,7 +23,7 @@ const Checkout = () => {
   async function handleToken(token, addresses) {
     const response = await axios.post("http://localhost:3000/checkout/cart", {
       token,
-      product,
+      cart,
     });
 
     const { status } = response.data;
@@ -40,6 +41,7 @@ const Checkout = () => {
     <div className="checkout__container">
       <div className="checkout__leftside">
         <div className="cart-container">
+
           {cart?.length === 0 ? (
             <div className="checkout__header__empty">
               <h2> Your Shopping Cart is empty</h2>
@@ -87,6 +89,7 @@ const Checkout = () => {
           </div> */}
         </div>
       )}
+
     </div>
   );
 };

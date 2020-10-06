@@ -42,35 +42,42 @@ const Register = ({ customer, setCustomer }) => {
     <>
       <div className="register-container">
         <div className="register-cnt">
+
           <Form className="form" onSubmit={handleSubmit}>
             <Form.Label className="form-label">Create Account</Form.Label>
             <Form.Group controlId="formUsername">
+
               <Form.Label></Form.Label>
               <Form.Control
+                className="un"
                 type="text"
                 placeholder="Enter username"
                 onChange={handleUser}
               />
             </Form.Group>
-            <Form.Group controlId="formPassword">
+            <Form.Group controlId="formPassword" className="form-groupR">
               <Form.Label></Form.Label>
               <Form.Control
+                className="pass"
                 type="password"
                 placeholder="Enter password"
                 onChange={handlePassword}
               />
             </Form.Group>
-            <Form.Group controlId="formRePassword">
+            <Form.Group controlId="formRePassword" className="form-groupR">
               <Form.Label></Form.Label>
               <Form.Control
+                className="pass"
                 type="password"
                 placeholder="Re-type password"
                 onChange={handlePassword2}
               />
             </Form.Group>
+
             <Button id="account__button" to="/" type="submit">
               Submit
             </Button>
+
           </Form>
           <div className="register-logo">
             <i className="fas fa-theater-masks"></i>
