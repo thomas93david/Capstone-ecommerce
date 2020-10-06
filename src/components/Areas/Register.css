@@ -44,10 +44,11 @@
   font-weight: 900;
   margin-top: 9px;
 }
-
-.form-group {
-  margin: 12px;
-
+.form-groupR{
+  display: flex;
+  justify-content: center;
+  margin: 18px;
+  font-weight: bold;
 }
 
 .un:focus, .pass:focus {
