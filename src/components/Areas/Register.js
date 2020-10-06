@@ -1,25 +1,20 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import Button from "./Button";
-
 import { register } from "../../api";
 // import { Redirect } from "react-router-dom"
 import "./Register.css";
 // const [username, setUsername] = useState("");
 // const [password, setPassword] = useState("");
-
 const Register = ({ customer, setCustomer }) => {
   // TODO Use State
   let username;
   let password1;
   let password2;
-
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("this is the username...", username);
     console.log("this is the password1...", password1);
     console.log("this is the password2...", password2);
-
     if (password1 === password2) {
       register({ username, password: password1 }).then((newCustomer) => {
         console.log("New User", newCustomer);
@@ -27,7 +22,6 @@ const Register = ({ customer, setCustomer }) => {
       });
     }
   };
-
   const handleUser = (event) => {
     username = event.target.value;
   };
@@ -37,16 +31,13 @@ const Register = ({ customer, setCustomer }) => {
   const handlePassword2 = (event) => {
     password2 = event.target.value;
   };
-
   return (
     <>
       <div className="register-container">
         <div className="register-cnt">
-
-          <Form className="form" onSubmit={handleSubmit}>
-            <Form.Label className="form-label">Create Account</Form.Label>
-            <Form.Group controlId="formUsername">
-
+          <Form onSubmit={handleSubmit} className="register-wrap">
+            <Form.Label className="create">Create Account</Form.Label>
+            <Form.Group controlId="formUsername" className="form-groupR">
               <Form.Label></Form.Label>
               <Form.Control
                 className="un"
@@ -73,11 +64,9 @@ const Register = ({ customer, setCustomer }) => {
                 onChange={handlePassword2}
               />
             </Form.Group>
-
-            <Button id="account__button" to="/" type="submit">
-              Submit
-            </Button>
-
+            <div className="btn-fix">
+              <input className="rsubmit" type="submit"></input>
+            </div>
           </Form>
           <div className="register-logo">
             <i className="fas fa-theater-masks"></i>
@@ -87,5 +76,4 @@ const Register = ({ customer, setCustomer }) => {
     </>
   );
 };
-
 export default Register;

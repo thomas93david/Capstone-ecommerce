@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { login } from "../../api";
-import Button from "./Button";
-
 import "./Login.css";
-
 export default function Login({ customer, setCustomer }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -25,17 +22,14 @@ export default function Login({ customer, setCustomer }) {
   const passwordHandler = (event) => {
     setPassword(event.target.value); // updated
   };
-
   return (
     <div className="login-container">
       <div className="login-wrap">
         <div className="Login">
-
-          <h2 className="login__heading">Login</h2>
-
+          <h2 className="h2-create">Login</h2>
           <form onSubmit={submitHandler}>
             <FormGroup controlId="username">
-              <FormLabel id="username__login">Username</FormLabel>
+              <FormLabel>Username</FormLabel>
               <FormControl
                 className="un1"
                 autoFocus
@@ -44,10 +38,8 @@ export default function Login({ customer, setCustomer }) {
                 onChange={usernameHandler}
               />
             </FormGroup>
-
-            <FormGroup controlId="password">
-              <FormLabel id="password__login">Password</FormLabel>
-
+            <FormGroup controlId="password" className="form-group2">
+              <FormLabel>Password</FormLabel>
               <FormControl
                 className="pass1"
                 value={password}
@@ -55,17 +47,8 @@ export default function Login({ customer, setCustomer }) {
                 type="password"
               />
             </FormGroup>
-
-            <Button id="account__button" to="/" type="submit">
-              Submit
-            </Button>
-
+            <input className="submit" type="submit"></input>
           </form>
-          <div className="setup__account__button">
-            <Button to="/register" type="submit">
-              Register for an Account
-            </Button>
-          </div>
         </div>
       </div>
     </div>
