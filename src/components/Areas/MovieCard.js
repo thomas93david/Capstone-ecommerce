@@ -5,6 +5,7 @@ import StarIcon from "@material-ui/icons/Star";
 // import { addMovieToCart } from "../../api";
 // import { getCustomer } from "../../api";
 import { useStateValue } from "../StateProvider";
+import { ADD_TO_CART } from "../actions"
 
 const MovieCard = ({ id, title, rating, price, image, year, loading, setCart }) => {
   const [{ cart }, dispatch] = useStateValue();
@@ -29,19 +30,17 @@ const MovieCard = ({ id, title, rating, price, image, year, loading, setCart }) 
     e.preventDefault();
     console.log("addToCart was hit");
     // console.log(setCart);
-    if (customer) {
-      dispatch({
-        type: "ADD_TO_CART",
-        movie: {
+    //TODO Can Non Logged in Customers use this? 
+    if (customer || true) {
+      dispatch(
+        ADD_TO_CART({
           id: id,
           title: title,
           rating: rating,
           price: price,
           year: year,
           image: image,
-        },
-      });
-      
+      }))
     } 
     // else {
     //   console.log("Or look for me:", cart);

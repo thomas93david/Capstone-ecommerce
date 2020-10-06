@@ -31,6 +31,12 @@ const reducer = (state, action) => {
 
         //return the cart's state and add 1
       };
+    
+    case "CREATE_CART": 
+      return {
+        ...state,
+        cart: [ ...action.cart ]
+      }
 
     case "REMOVE_FROM_CART":
       //Logic for removing item from cart

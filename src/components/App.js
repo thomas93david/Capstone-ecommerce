@@ -10,22 +10,26 @@ import MoviePage from "./pages/MoviePage";
 import AdminPage from "./pages/AdminPage";
 import "./App.css";
 import { useStateValue } from "./StateProvider";
+import { CREATE_CART } from './actions'
 
 function App() {
   const [customer, setCustomer] = useState({});
   const [customerlist, setCustomerList] = useState({});
-  const [cart, setCart] = useState([]);
-  // const [{ cart }] = useStateValue();
+  const [{ cart }, dispatch] = useStateValue();
   console.log("this is cart state in app.js", cart);
   
   useEffect(()=>{
-    const localData = localStorage.getItem("cart");
-    if (localData){
-      setCart(localData)
+    const localCart = JSON.parse(localStorage.getItem('cart'))
+    if (!localCart) { 
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } else {
+      dispatch(CREATE_CART({ cart: localCart }))
     }
-  }, []);
+  }, [])
 
-  
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart])
   
   return (
     <Router>
