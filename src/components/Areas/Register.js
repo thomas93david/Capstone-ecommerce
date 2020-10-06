@@ -43,47 +43,42 @@ const Register = ({ customer, setCustomer }) => {
         <div className="register-cnt">
           <Form
             onSubmit={handleSubmit}
-            style={{
-              backgroundColor: "pink",
-              width: "500px",
-              height: "275px",
-              textAlign: "center",
-            }}
+            className="register-wrap"
           >
-            <Form.Label
-              style={{
-                textAlign: "center",
-                fontSize: "24px",
-                padding: "20px",
-              }}
+            <Form.Label className="create"
             >
               Create Account
             </Form.Label>
-            <Form.Group controlId="formUsername">
+            <Form.Group controlId="formUsername" className="form-groupR">
               <Form.Label></Form.Label>
               <Form.Control
+                className="un"
                 type="text"
                 placeholder="Enter username"
                 onChange={handleUser}
               />
             </Form.Group>
-            <Form.Group controlId="formPassword">
+            <Form.Group controlId="formPassword" className="form-groupR">
               <Form.Label></Form.Label>
               <Form.Control
+                className="pass"
                 type="password"
                 placeholder="Enter password"
                 onChange={handlePassword}
               />
             </Form.Group>
-            <Form.Group controlId="formRePassword">
+            <Form.Group controlId="formRePassword" className="form-groupR">
               <Form.Label></Form.Label>
               <Form.Control
+                className="pass"
                 type="password"
                 placeholder="Re-type password"
                 onChange={handlePassword2}
               />
             </Form.Group>
-            <input className="register-btn" type="submit"></input>
+            <div className="btn-fix">
+              <input className="rsubmit" type="submit"></input>
+            </div>
           </Form>
           <div className="register-logo">
             <i className="fas fa-theater-masks"></i>
