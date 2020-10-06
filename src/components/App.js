@@ -34,13 +34,16 @@ function App() {
     if (!localCart) {
       localStorage.setItem("cart", JSON.stringify(cart));
     } else {
-      dispatch(CREATE_CART({ cart: localCart }))
+      dispatch(CREATE_CART({ cart: localCart }));
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
+
+
   }, [cart])
+
 
   return (
     <Router>
@@ -84,6 +87,7 @@ function App() {
                   setCustomer={setCustomer}
                   cart={cart}
                 // setCart={setCart}
+
                 />
                 <Route
                   path="/movies"
@@ -97,6 +101,7 @@ function App() {
                 )} />
               </>
             )}
+
         </Switch>
         <footer>
           <Footer customer={customer} />
