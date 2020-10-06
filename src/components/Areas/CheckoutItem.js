@@ -1,6 +1,7 @@
 import React from "react";
 import "./CheckoutItem.css";
 import StarIcon from "@material-ui/icons/Star";
+import Button from "./Button";
 
 import { useStateValue } from "../StateProvider";
 
