@@ -64,7 +64,9 @@
   font-family: "Ubuntu", sans-serif;
   margin-top: 15px;
 }
-.form-groupR {
+
+
+.form-groupR{
   display: flex;
   justify-content: center;
   margin: 18px;
