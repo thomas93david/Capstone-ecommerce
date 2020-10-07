@@ -2,7 +2,7 @@ const express = require('express');
 const apiRouter = express.Router()
 const customersRouter = require('./customer');
 const moviesRouter = require('./movieRoute');
-const cartRouter = require('./cartRoute');
+const cartRouter = require('./cart');
 const genreRouter = require('./genres');
 const adminRouter = require("./admin");
 // // authorization

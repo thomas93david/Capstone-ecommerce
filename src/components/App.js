@@ -18,6 +18,7 @@ function App() {
   const [customerlist, setCustomerList] = useState({});
   const [{ cart }, dispatch] = useStateValue();
   console.log("this is cart state in app.js", cart);
+  
   function localStorageCustomer() {
     if (localStorage.getItem("customer")) {
       const localStorageUser = localStorage.getItem("customer");

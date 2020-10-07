@@ -12,6 +12,8 @@ const client = require("./client");
 
 //     }
 // }
+
+//cart table,
 async function createCart(customerId) {
   try {
     const { rows: [cart] } = await client.query(`
@@ -30,6 +32,7 @@ async function createCart(customerId) {
 //add movies to cart (movies_cart table, brett)
 async function addMovieToCart(movieId, cartId, quantity) {
   try {
+    console.log('wtf is this', movieId, quantity, typeof movieId, typeof quantity)
     await client.query(`
         INSERT INTO movies_cart("movieId", "cartId", quantity)
         VALUES ($1, $2, $3);
@@ -50,7 +53,13 @@ async function getCartIdByCustomerId(customerId) {
             SELECT id FROM cart
              WHERE "customerId"=$1;
             `, [customerId]);
-    return cartId;
+
+    if (!cartId) {
+      return (await createCart(customerId)).id
+    } else {
+      return cartId.id;
+    }
+
   } catch (error) {
     throw error
   }
