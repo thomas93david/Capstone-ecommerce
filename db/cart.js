@@ -18,8 +18,7 @@ async function createCart(customerId) {
   try {
     const { rows: [cart] } = await client.query(`
       INSERT INTO cart("customerId")
-      VALUES ($1)
-      RETURNING *;
+      VALUES ($1);
       `, [customerId]);
 
     return cart;

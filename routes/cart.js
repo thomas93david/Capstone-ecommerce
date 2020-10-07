@@ -78,8 +78,8 @@ cartRouter.post('/', requireCustomer, async (req, res, next) => {
 cartRouter.get('/:customerId', async (req, res, next) => {
     try {
         const customerCartId = await getCartIdByCustomerId(req.params.customerId)
-        const cartMovies = 
-        await getMoviesByCart(customerCartId) || localStorage.getItem("cart");
+        const cartMovies =
+            await getMoviesByCart(customerCartId) || localStorage.getItem("cart");
         res.send(cartMovies);
     } catch (error) {
         next(error);
@@ -87,14 +87,14 @@ cartRouter.get('/:customerId', async (req, res, next) => {
 });
 
 //add movie to cart:
-cartRouter.post('/:customerId', async (req, res, next)=>{
+cartRouter.post('/:customerId', async (req, res, next) => {
     try {
         console.log("hey it fuckin made it");
         const { movieId, quantity } = req.body;
         console.log("heeeeeeeey", req.body)
         const cartId = await getCartIdByCustomerId(req.params.customerId);
-        await addMovieToCart(movieId, cartId, quantity);
-        res.send("Successfully Added To Cart");
+        const addedM = await addMovieToCart(movieId, cartId, quantity);
+        res.send({ addedM });
     } catch (error) {
         next(error);
     }
