@@ -89,9 +89,12 @@ cartRouter.get('/:customerId', async (req, res, next) => {
 //add movie to cart:
 cartRouter.post('/:customerId', async (req, res, next)=>{
     try {
+        console.log("hey it fuckin made it");
         const { movieId, quantity } = req.body;
+        console.log("heeeeeeeey", req.body)
         const cartId = await getCartIdByCustomerId(req.params.customerId);
         await addMovieToCart(movieId, cartId, quantity);
+        res.send("Successfully Added To Cart");
     } catch (error) {
         next(error);
     }

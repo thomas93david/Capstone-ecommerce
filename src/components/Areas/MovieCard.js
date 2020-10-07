@@ -1,8 +1,9 @@
-import React from "react";
+ import React from "react";
 import "./MovieCard.css";
 import StarIcon from "@material-ui/icons/Star";
 import { useStateValue } from "../StateProvider";
-import { ADD_TO_CART } from "../actions"
+import { ADD_TO_CART } from "../actions";
+import { addMovieToDBCart } from "../../api";
 
 const MovieCard = ({ id, title, rating, price, image, year, loading, setCart }) => {
   
@@ -18,23 +19,25 @@ const MovieCard = ({ id, title, rating, price, image, year, loading, setCart }) 
 
   const customer = localStorage.getItem("customer");
 
-  const addToCart = (e) => {
+  const addToCart = async (e) => {
     //Add items to cart
     e.preventDefault();
     console.log("addToCart was hit");
     //TODO Can Non Logged in Customers use this? 
-    if (customer || true) {
-      dispatch(
-        ADD_TO_CART({
-          id: id,
-          title: title,
-          rating: rating,
-          price: price,
-          year: year,
-          image: image,
-      }))
-    } 
-  };
+    if (customer) {
+      await addMovieToDBCart(id)
+      .catch(err => console.error("fail movieToDB", err))
+    }
+    dispatch(
+      ADD_TO_CART({
+        id: id,
+        title: title,
+        rating: rating,
+        price: price,
+        year: year,
+        image: image,
+    }))
+};
 
   return (
     <div className="movie-card">
