@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { login } from "../../api";
 import "./Login.css";
+
+import Button from "./Button";
+
+
 export default function Login({ customer, setCustomer }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -49,6 +53,11 @@ export default function Login({ customer, setCustomer }) {
             </FormGroup>
             <input className="submit" type="submit"></input>
           </form>
+
+          <Button buttonStyle="btn--outline" to="/register">
+            Register for an Account
+          </Button>
+
         </div>
       </div>
     </div>

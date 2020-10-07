@@ -13,7 +13,7 @@ const Header = ({ customer, setCustomer }) => {
   const [{ cart }, dispatch] = useStateValue();
 
   console.log(cart);
-  console.log("this should be the customer admin status", customer.isAdmin)
+  console.log("this should be the customer admin status", customer.isAdmin);
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -41,17 +41,14 @@ const Header = ({ customer, setCustomer }) => {
         <NavLink to="/" className="navbar-logo">
           movieReelz <i className="fas fa-theater-masks"></i>
         </NavLink>
-
         <div className="menu-icon" onClick={handleClick}>
           <i className={click ? "fas fa-times" : "fas fa-bars"} />
         </div>
-
-        <div className="header__search">
+        {/* <div className="header__search">
           <input type="text" className="header__searchInput" />
           {/* <GenreDropdown /> */}
-          <SearchIcon className="header__searchIcon" />
-        </div>
-
+        {/* <SearchIcon className="header__searchIcon" /> */}
+        {/* </div> */} }
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="nav-item">
             <NavLink to="/" className="nav-links" onClick={closeMobileMenu}>
@@ -88,7 +85,6 @@ const Header = ({ customer, setCustomer }) => {
             </NavLink>
           </li>
         </ul>
-
         {customer.token ? (
           <>
             <div className="header__option">
@@ -108,19 +104,19 @@ const Header = ({ customer, setCustomer }) => {
             )}
           </>
         ) : (
-            <>
-              {button && (
-                <Button buttonStyle="btn--outline" to="/register">
-                  SIGN UP
-                </Button>
-              )}
-              {button && (
-                <Button buttonStyle="btn--outline" to="/login">
-                  LOGIN
-                </Button>
-              )}
-            </>
-          )}
+          <>
+            {button && (
+              <Button buttonStyle="btn--outline" to="/register">
+                SIGN UP
+              </Button>
+            )}
+            {button && (
+              <Button buttonStyle="btn--outline" to="/login">
+                LOGIN
+              </Button>
+            )}
+          </>
+        )}
       </div>
     </nav>
   );

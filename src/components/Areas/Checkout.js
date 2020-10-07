@@ -12,7 +12,6 @@ import axios from "axios";
 toast.configure();
 
 const Checkout = () => {
-
   const [{ cart }] = useStateValue();
 
   const [product] = useState({
@@ -41,7 +40,6 @@ const Checkout = () => {
     <div className="checkout__container">
       <div className="checkout__leftside">
         <div className="cart-container">
-
           {cart?.length === 0 ? (
             <div className="checkout__header__empty">
               <h2> Your Shopping Cart is empty</h2>
@@ -76,7 +74,7 @@ const Checkout = () => {
 
       {cart.length > 0 && (
         <div className="checkout__rightside">
-          <Subtotal />
+          <Subtotal cart={cart} />
           {/* <div className="payment">
             <StripeCheckout
               stripeKey="pk_test_51HV1w8L7qGrgZ4TMQtP4pgnfBIfkyECn7WlL9KnKoW7j4C1g566DKyYSk5jLIncZ4BB2y3V12khQxXbvx0s6isQj001TWD97Vq"
@@ -89,7 +87,6 @@ const Checkout = () => {
           </div> */}
         </div>
       )}
-
     </div>
   );
 };

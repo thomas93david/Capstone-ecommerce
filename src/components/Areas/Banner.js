@@ -17,10 +17,8 @@ const Banner = () => {
             src="https://images3.alphacoders.com/103/thumb-1920-1039332.jpg"
             alt="Joker"
           />
-          <div className="text">Centered Text</div>
         </figure>
       </div>
-      <div className="intro__text">Movies are so cool...testing</div>
     </>
   );
 };

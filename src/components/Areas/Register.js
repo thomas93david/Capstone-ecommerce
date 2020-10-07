@@ -65,7 +65,9 @@ const Register = ({ customer, setCustomer }) => {
               />
             </Form.Group>
             <div className="btn-fix">
+
               <input className="rsubmit" type="submit"></input>
+
             </div>
           </Form>
           <div className="register-logo">

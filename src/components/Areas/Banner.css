@@ -36,8 +36,9 @@
 
 .slider-frame {
   overflow: hidden;
-  height: 400px;
+  height: 500px;
   width: 100%;
+  background-color: darkgrey;
 }
 
 .slider-frame figure {
@@ -50,7 +51,9 @@
 }
 
 .slider-frame figure img {
-  height: 600px;
+  filter: grayscale(20%);
+
+  height: 700px;
   object-fit: cover;
   position: relative;
 

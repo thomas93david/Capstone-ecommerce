@@ -1,16 +1,47 @@
 export const initialState = {
   cart: [],
+  // total: 0,
+  // subtotal: 0
 };
 
-//example of a SELECTOR
-export const getCartTotal = (cart) =>
-  cart?.reduce((amount, movie) => movie.price + amount, 0);
-console.log("This is subtotal cart");
+// //example of a SELECTOR
+// export const getCartTotal = (cart) =>
+//   cart.reduce((amount, movie) => movie.price + amount, 0);
+// console.log(amount);
 
 // export const getCartTotal = (cart) => {
-//   const total = (amount, movie) => movie.price + amount;
-//   console.log("Subtotal is", cart.reduce(total));
+//   const total = cart.reduce(
+//     (amount, movie) => movie.price + amount,
+//     console.log("Can I hit this")
+//   );
+//   Number(total);
+//   console.log("Subtotal is", total);
 // };
+
+export function total(cart) {
+  const getCartTotal = cart?.reduce((amount, movie) => {
+    //calculate total
+    let total = movie.price.match(/\d./g).join(""); //parse string to integer(cost)
+    return amount + Number(total);
+  }, 0);
+
+  console.log("total:", getCartTotal);
+  return getCartTotal;
+}
+let newTotal = total();
+console.log("newTotal is:", newTotal);
+// const productReducer = (state = initialState, action => {
+//   switch(action.type) {
+//     //update single item price
+//     case Types.UPDATE_ITEM_PRICE:
+//       return {
+//         ...state,
+//         subtotal: action.subtotal,
+//         total:
+//       };
+
+//   }
+// })
 
 const reducer = (state, action) => {
   console.log("action in reducer.js", action);

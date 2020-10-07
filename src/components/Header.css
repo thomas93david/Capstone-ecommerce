@@ -7,7 +7,7 @@
   font-size: 1.2rem;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 999;
 }
 
 .navbar-container {
@@ -41,7 +41,7 @@
   grid-gap: 10px;
   list-style: none;
   text-align: center;
-  width: 30vw;
+  width: 60vw;
   justify-content: end;
   margin-right: 2rem;
 }

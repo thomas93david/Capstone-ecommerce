@@ -17,6 +17,7 @@ function App() {
   const [customer, setCustomer] = useState({});
   const [customerlist, setCustomerList] = useState({});
   const [{ cart }, dispatch] = useStateValue();
+
   console.log("this is cart state in app.js", cart);
 
   function localStorageCustomer() {
@@ -90,14 +91,16 @@ function App() {
                   render={(props) => <MoviePage {...props} customer={customer} />}
                 // component={MoviePage}
                 // customer={customer}
-                />
-                <Route path="/" exact component={Home} customer={customer} />
-                <Route
-                  path="/CheckoutSuccess"
-                  render={() => <CheckoutSuccessPage />}
-                />
-              </>
-            )}
+
+              />
+              <Route path="/" exact component={Home} customer={customer} />
+              <Route
+                path="/CheckoutSuccess"
+                render={() => <CheckoutSuccessPage cart={cart} />}
+              />
+            </>
+          )}
+
         </Switch>
         <footer>
           <Footer customer={customer} />
