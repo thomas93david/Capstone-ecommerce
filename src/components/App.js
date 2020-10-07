@@ -9,22 +9,37 @@ import CheckoutPage from "./pages/CheckoutPage";
 import MoviePage from "./pages/MoviePage";
 import AdminPage from "./pages/AdminPage";
 import "./App.css";
-// import Pagination from "./Areas/Pagination";
 import { useStateValue } from "./StateProvider";
+import { CREATE_CART } from "./actions";
+import CheckoutSuccessPage from "./pages/CheckoutSuccess";
 
 function App() {
   const [customer, setCustomer] = useState({});
   const [customerlist, setCustomerList] = useState({});
-  // const [cart, setCart] = useState({})
-  
-  
-  //pull it in everywhere fuck setCart cant coexist.
-    const [{ cart }] = useStateValue();
+  const [{ cart }, dispatch] = useStateValue();
+  console.log("this is cart state in app.js", cart);
+  function localStorageCustomer() {
+    if (localStorage.getItem("customer")) {
+      const localStorageUser = localStorage.getItem("customer");
+      return localStorageUser;
+    } else {
+      return {};
+    }
+  }
 
-    useEffect(()=>{
+  useEffect(() => {
+    setCustomer(localStorageCustomer());
+    const localCart = JSON.parse(localStorage.getItem("cart"));
+    if (!localCart) {
       localStorage.setItem("cart", JSON.stringify(cart));
-    }, [cart]);
-  //adding items to local storage when we load the whole app not just checkout page.
+    } else {
+      dispatch(CREATE_CART({ cart: localCart }));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <Router>
@@ -33,15 +48,19 @@ function App() {
           <Header customer={customer} setCustomer={setCustomer} />
         </header>
         <Switch>
-          {
-          customer.isAdmin ?
+          {customer.isAdmin ? (
             <Route
               path="/admin"
               exact
               render={() => (
-                <AdminPage customerlist={customerlist} setCustomerList={setCustomerList} />
+                <AdminPage
+                  customerlist={customerlist}
+                  setCustomerList={setCustomerList}
+                />
               )}
-            /> : <>
+            />
+          ) : (
+            <>
               <Route
                  path="/register"
                 exact
@@ -56,31 +75,31 @@ function App() {
                   <LoginPage customer={customer} setCustomer={setCustomer} />
                 )}
               />
-              <Route path="/checkout" exact component={CheckoutPage} cart={cart} customer={customer} setCustomer={setCustomer} />
-              <Route path="/movies" exact component={MoviePage} customer={customer} />
+              <Route
+                path="/checkout"
+                exact
+                component={CheckoutPage}
+                customer={customer}
+                setCustomer={setCustomer}
+                cart={cart}
+                // setCart={setCart}
+              />
+              <Route
+                path="/movies"
+                render={(props) => <MoviePage {...props} customer={customer} />}
+                // component={MoviePage}
+                // customer={customer}
+              />
               <Route path="/" exact component={Home} customer={customer} />
+              <Route
+                path="/CheckoutSuccess"
+                render={() => <CheckoutSuccessPage />}
+              />
             </>
-            }
-          <Route
-            path="/register"
-            exact
-            render={() => (
-              <RegisterPage customer={customer} setCustomer={setCustomer} />
-            )}
-          />
-          <Route
-            path="/login"
-            exact
-            render={() => (
-              <LoginPage customer={customer} setCustomer={setCustomer} />
-            )}
-          />
-          <Route path="/checkout" exact component={CheckoutPage} customer={customer} setCustomer={setCustomer} />
-          <Route path="/movies" exact component={MoviePage} customer={customer}/>
-          <Route path="/" exact component={Home} customer={customer}/>
+          )}
         </Switch>
         <footer>
-          <Footer customer={customer}/>
+          <Footer customer={customer} />
         </footer>
       </div>
     </Router>

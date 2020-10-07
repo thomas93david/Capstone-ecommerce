@@ -5,38 +5,102 @@
   flex-direction: column;
   align-items: center;
   width: auto;
-  height: 500px;
+  height: 100vh;
   margin: 12px;
   font-family: "Play", sans-serif;
+  background-color: #8492a6;
+  background-image: url("/images/bg_home.jpg");
+  background-size: cover;
 }
-
 .login-wrap {
-  display: flex;
-  width: 500px;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background-color: thistle;
+  background-color: #ffffff2e;
+  width: 400px;
+  height: 400px;
+  margin: 7em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  border: 3px solid #8080809e;
 }
-
 .login-container .login-wrap .login button {
   padding: 8px 20px;
   font-size: 18px;
-  border-radius: 2px;
+  border-radius: 30%;
   outline: none;
   cursor: pointer;
-  background-color: transparent;
-  color: #fff;
+  background-color: rgba(128, 128, 128, 0.315);
+  color: grey;
   padding: 8px 20px;
   border: 1px solid var(--primary);
   transition: all 0.3s ease-out;
 }
-
+.un1 {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: "Ubuntu", sans-serif;
+  margin-top: 15px;
+}
+.pass1 {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: "Ubuntu", sans-serif;
+  margin-top: 15px;
+}
+.un:focus,
+.pass:focus {
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
+}
+.submit {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #9c27b0, #e040fb);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+.form-group2 {
+  justify-content: center;
+  margin: 15px;
+}
+.h2-create {
+  margin-bottom: 28px;
+  font-size: 28px;
+}
 @media all and (min-width: 480px) {
   .Login {
     padding: 60px 0;
   }
-
   .Login form {
     margin: 0 auto;
     max-width: 320px;

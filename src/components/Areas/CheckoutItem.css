@@ -1,25 +1,29 @@
 .checkoutItem {
   display: flex;
-  color: white;
+  color: black;
   margin-bottom: 20px;
 }
 
 .checkoutItem__image {
   object-fit: contain;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }
 
 .checkoutItem__info {
   padding-left: 20px;
+  font-family: "Play", sans-serif;
+  font-weight: bold;
+
+  margin: 20px;
 }
 
 .checkoutItem__info > button {
-  border: 1px solid;
+  border: 1px solid grey;
   margin-top: 12px;
   color: black;
-  background-color: lightcoral;
-  padding: 6px;
+  background-color: #ff9900;
+  padding: 9px;
 }
 
 .checkoutItem__title {

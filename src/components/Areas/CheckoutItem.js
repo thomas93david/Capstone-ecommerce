@@ -1,10 +1,11 @@
 import React from "react";
 import "./CheckoutItem.css";
 import StarIcon from "@material-ui/icons/Star";
+import Button from "./Button";
 
 import { useStateValue } from "../StateProvider";
 
-const CheckoutItem = ({ id, title, rating, price, image }) => {
+const CheckoutItem = ({ id, title, rating, price, image, setCart }) => {
   const [{ cart }, dispatch] = useStateValue();
 
   console.log(id, title, rating, price, image);
@@ -16,6 +17,7 @@ const CheckoutItem = ({ id, title, rating, price, image }) => {
       id: id,
     });
   };
+
   return (
     <div className="checkoutItem">
       <img className="checkoutItem__image" src={image} alt="" />

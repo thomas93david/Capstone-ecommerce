@@ -12,9 +12,7 @@ export async function register({ username, password }) {
         });
         let customer = newCustomer;
         console.log("This is the customer:", customer);
-
-        // if (newCustomer) {
-        localStorage.setItem("customer", JSON.stringify(newCustomer));
+        localStorage.setItem("customer", JSON.stringify(customer));
         return customer;
         // } else {
         // alert("you have not created an account. Please login to access features.");
@@ -49,12 +47,13 @@ export async function getAllMovies() {
     }
 }
 export async function getMoviesById(id) {
-
     try {
-        const { data: { movie } } = await axios.get(`api/movies/${id}`)
-        return movie
+        const {
+            data: { movie },
+        } = await axios.get(`api/movies/${id}`);
+        return movie;
     } catch (error) {
-        throw error
+        throw error;
     }
 }
 export async function addMovieToCart(movieId, cartId, quantity) {
@@ -65,34 +64,33 @@ export async function addMovieToCart(movieId, cartId, quantity) {
             body: JSON.stringify({
                 movieId: movieId,
                 cartId: cartId,
-                quantity: quantity
+                quantity: quantity,
             }),
-        })
+        });
         // await response.json();
-        return result
+        return result;
     } catch (error) {
         console.error(error);
     }
 }
 export async function getCustomer(customerId) {
-    console.log("getting the customer")
+    console.log("getting the customer");
     let customer = await axios.get(`api/customer/${customerId}`, {
         // headers: {
         //     "content-type": "application/json",
         //     "Authorization": `Bearer ${JSON.parse(localStorage.getItem("customer")).token}`
         // }
-    })
-    console.log("real token...", JSON.parse(localStorage.getItem("customer")).token);
+    });
+    // console.log("real token...", JSON.parse(localStorage.getItem("customer")).token);
 
     console.log("this is the customer please work...", customer);
     return customer;
-};
-
+}
 
 export async function getGenres() {
     try {
-        const { data: genres } = await axios.get('api/genres');
-        const genreNames = genres.map(genre => {
+        const { data: genres } = await axios.get("api/genres");
+        const genreNames = genres.map((genre) => {
             return genre.name;
         });
         console.log("genres in fetch", genreNames);
@@ -103,9 +101,9 @@ export async function getGenres() {
 }
 
 export async function createCart() {
-    console.log("hello world")
+    console.log("hello world");
     try {
-        console.log("getting the cart")
+        console.log("getting the cart");
         // customerId = await axios.get(`api/customer/getcustomer`, {
         //     headers: {
         //         "content-type": "application/json",
@@ -119,19 +117,18 @@ export async function createCart() {
         console.log("this is the cart with", cart);
         return cart;
     } catch (error) {
-        console.error(error)
+        console.error(error);
     }
-
 }
 
 export async function customerList() {
     try {
-        const { data: customers } = await axios.get('api/admin/customers', {
+        const { data: customers } = await axios.get("api/admin/customers", {
             headers: {
                 "content-type": "application/json",
-                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("customer")).token}`
-            }
-
+                Authorization: `Bearer ${JSON.parse(localStorage.getItem("customer")).token
+                    }`,
+            },
         });
         console.log("customers in fetch", customers);
         return customers;
@@ -142,14 +139,13 @@ export async function customerList() {
 
 export async function adminCustomerDelete(customerId, cartId) {
     try {
-        const { data: customer } = await
-            axios.delete(
-                `api/admin/customers/${customerId}/${cartId}`
-            );
+        const { data: customer } = await axios.delete(
+            `api/admin/customers/${customerId}/${cartId}`
+        );
         console.log("deleted customer", customer);
         return customer;
     } catch (error) {
-        console.error(error)
+        console.error(error);
     }
 }
 
@@ -159,67 +155,59 @@ export async function adminMovieCreate() {
         console.log("this is the created movie", movie);
         return movie;
     } catch (error) {
-        console.error(error)
+        console.error(error);
     }
 }
 
 export async function adminDeleteMovies(movieId) {
     try {
         const { data: movie } = await axios.delete(`api/admin/movies/${movieId}`);
-        return movie
-    } catch (error) {
-        console.error(error)
-    }
-}
-
-
-//hey brett, check this out:
-
-export async function getUserCart(){
-    try {
-
-        const customerId = localStorage.getItem("customer").id;
-        const data = await axios.get(`api/cart/${customerId}`);
-
-        return data;
-
+        return movie;
     } catch (error) {
         console.error(error);
     }
 }
 
 
-export async function addMovieToDBCart(movieId, customerId){
+export async function getUserCart() {
     try {
-        // const customerId = localStorage.getItem("customer").id;
-        // console.log("um hello?", customerId);
-        await axios.post(`api/cartRoute/${customerId}`,
-        {
-            headers: {"content-type": "application/json"},
+        const customerId = localStorage.getItem("customer").id;
+        const data = await axios.get(`api/cart/${customerId}`);
+
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export async function addMovieToDBCart(movieId, customerId) {
+    try {
+        const customerId = localStorage.getItem("customer").id;
+        console.log("um hello?", customerId);
+        await axios.post(`api/cartRoute/${customerId}`, {
+            headers: { "content-type": "application/json" },
             body: {
                 movieId: movieId,
-                quantity: 1
-            }
+                quantity: 1,
+            },
         });
     } catch (error) {
         console.error(error);
     }
 }
 
-export async function deleteMovieFromDB(movieId, quantity){
+export async function deleteMovieFromDB(movieId, quantity) {
     try {
         const customerId = localStorage.getItem("customer").id;
-        await axios.delete(`api/cartRoute/${customerId}`,
-        {
-            headers: {"content-type": "application/json"},
+        await axios.delete(`api/cartRoute/${customerId}`, {
+            headers: { "content-type": "application/json" },
             body: {
                 movieId: movieId,
-                quantity: quantity
-            }
-        })
+                quantity: quantity,
+            },
+        });
     } catch (error) {
         console.error(error);
     }
 }
 
-//since I dont do nothin. xoxo

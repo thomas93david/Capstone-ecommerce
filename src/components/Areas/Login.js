@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { login } from "../../api";
 import "./Login.css";
-
 export default function Login({ customer, setCustomer }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,31 +22,32 @@ export default function Login({ customer, setCustomer }) {
   const passwordHandler = (event) => {
     setPassword(event.target.value); // updated
   };
-
   return (
     <div className="login-container">
       <div className="login-wrap">
         <div className="Login">
-          <h2>Login</h2>
+          <h2 className="h2-create">Login</h2>
           <form onSubmit={submitHandler}>
             <FormGroup controlId="username">
               <FormLabel>Username</FormLabel>
               <FormControl
+                className="un1"
                 autoFocus
                 type="text"
                 value={username}
                 onChange={usernameHandler}
               />
             </FormGroup>
-            <FormGroup controlId="password">
+            <FormGroup controlId="password" className="form-group2">
               <FormLabel>Password</FormLabel>
               <FormControl
+                className="pass1"
                 value={password}
                 onChange={passwordHandler}
                 type="password"
               />
             </FormGroup>
-            <input type="submit"></input>
+            <input className="submit" type="submit"></input>
           </form>
         </div>
       </div>
