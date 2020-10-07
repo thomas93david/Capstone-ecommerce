@@ -168,7 +168,6 @@ export async function adminDeleteMovies(movieId) {
     }
 }
 
-//hey brett, check this out:
 
 export async function getUserCart() {
     try {
@@ -183,8 +182,8 @@ export async function getUserCart() {
 
 export async function addMovieToDBCart(movieId, customerId) {
     try {
-        // const customerId = localStorage.getItem("customer").id;
-        // console.log("um hello?", customerId);
+        const customerId = localStorage.getItem("customer").id;
+        console.log("um hello?", customerId);
         await axios.post(`api/cartRoute/${customerId}`, {
             headers: { "content-type": "application/json" },
             body: {
@@ -212,4 +211,3 @@ export async function deleteMovieFromDB(movieId, quantity) {
     }
 }
 
-//since I dont do nothin. xoxo
