@@ -8,7 +8,7 @@ function Video() {
         <video
           width="1440px"
           height="400px"
-          src="/videos/watchingTV.mp4"
+          src="/videos/movieReelz.mp4"
           autoPlay
           loop
           muted
