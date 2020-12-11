@@ -1,0 +1,50 @@
+.checkout__container {
+  display: flex;
+  background-color: white;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: "Play", sans-serif;
+
+  color: black;
+}
+.checkout__container .checkout__leftside {
+  margin: 20px;
+}
+.checkout__container .cart-container .checkout__header__empty {
+  text-align: center;
+  margin: 9px;
+  height: 600px;
+  width: 100%;
+}
+.checkout__container .cart-container .checkout__header__empty > h2 {
+  padding: 12px;
+  font-size: 36px;
+}
+.checkout__container .cart-container .checkout__header__empty > p {
+  padding: 12px;
+  font-size: 26px;
+}
+.checkout__container .cart-container .checkout__header__empty > img {
+  object-fit: contain;
+  width: 500px;
+  height: 450px;
+}
+.checkout__container .cart-container .checkout__header__movies {
+  text-align: center;
+  margin: 9px;
+}
+.checkout__container .cart-container .checkout__header__movies > h2 {
+  padding: 12px;
+  font-size: 28px;
+  margin: 16px;
+}
+
+.checkout__container .checkout__rightside {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+/* .payment {
+  display: flex;
+  justify-content: flex-end;
+} */

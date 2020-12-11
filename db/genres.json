@@ -1,0 +1,227 @@
+1 [ 'Action', 'Adventure', 'Drama', 'Family' ]
+2 [ 'Adventure', 'Drama', 'Sci-Fi' ]
+3 [ 'Action', 'Sci-Fi' ]
+4 [ 'Drama', 'Thriller' ]
+ 5[ 'Drama' ]
+ 6[ 'Action', 'Adventure', 'Thriller' ]
+ 7[ 'Action', 'Drama', 'Family', 'Sport' ]
+8 [ 'Comedy', 'Horror' ]
+9 [ 'Action', 'Adventure', 'Sci-Fi' ]
+10 [ 'Drama', 'Romance' ]
+11 [ 'Adventure', 'Comedy', 'Music', 'Sci-Fi' ]
+12 [ 'Comedy', 'Romance' ]
+13[ 'Action', 'Horror', 'Sci-Fi' ]
+14 [ 'Animation', 'Adventure', 'Family', 'Fantasy', 'Musical', 'War' ]
+15 [ 'Action', 'Crime', 'Drama' ]
+16 [ 'Action', 'Drama', 'Horror', 'Thriller' ]
+17 [ 'Comedy', 'Horror' ]
+18 [ 'Adventure', 'Crime', 'Drama', 'Mystery' ]
+19 [ 'Action', 'Adventure', 'Sci-Fi' ]
+20 [ 'Comedy', 'Crime', 'Drama', 'Mystery', 'Thriller' ]
+21 [ 'Drama', 'Romance' ]
+22 [ 'Comedy', 'Mystery' ]
+23 [ 'Action', 'Crime', 'Drama', 'Thriller' ]
+24 [ 'Drama', 'Mystery', 'Romance', 'Thriller' ]
+25 [ 'Action', 'Drama', 'Family', 'Sport' ]
+
+
+//25 above
+
+
+
+
+26 [ "Action", "Adventure", "Fantasy", "Mystery", "Sci-Fi" ]
+27 [ "Crime", "Drama", "Thriller" ]
+28 [ "Adventure", "Comedy", "Music", "Romance", "Sci-Fi" ]
+29 [ "Action", "Crime", "Sci-Fi", "Thriller" ]
+30 [ "Comedy", "Horror", "Thriller" ]
+31 [ "Action", "Adventure", "Sci-Fi", "Thriller" ]
+32 [ "Action", "Horror", "Thriller" ]
+33 [ "Adventure", "Drama", "Sci-Fi", "Thriller" ]
+34 [ "Action", "Adventure", "Fantasy" ]
+35 [ "Comedy", "Drama", "Thriller" ]
+36 [ "Action", "Adventure", "Drama", "Sci-Fi" ]
+37 [ "Comedy", "Drama" ]
+38 [ "Biography", "Drama", "History", "Musical" ]
+39 [ "Crime", "Drama", "Mystery", "Thriller" ]
+40 [ "Comedy", "Drama", "War" ]
+41 [ "Documentary", "Drama" ]
+42 [ "Action", "Crime", "Drama", "Thriller" ]
+43 [ "Animation", "Adventure", "Comedy", "Family", "Fantasy", "Musical" ]
+44 [ "Drama", "Fantasy", "Horror", "Thriller" ]
+45 [ "Drama", "Romance" ]
+46 [ "Action", "Adventure", "Crime" ]
+47 [ "Adventure", "Family", "Fantasy" ]
+48 [ "Action", "Adventure", "Fantasy", "Thriller" ]
+49 [ "Crime", "Drama", "Thriller" ]
+50 [ "Action", "Horror", "Thriller" ]
+
+
+
+//50 above
+
+51 [ "Action", "Family", "Romance", "Sport" ]
+52 [ "Action", "Thriller" ]
+53 [ "Comedy", "Drama" ]
+54 [ "Action", "Drama", "Mystery", "Sci-Fi", "Thriller" ]
+55 [ "Action", "Drama", "Fantasy", "Sci-Fi" ]
+56 [ "Drama", "Fantasy", "Horror", "Mystery" ]
+57 [ "Action", "Comedy", "Crime" ]
+59 [ "Action", "Biography", "Drama", "Sport" ]
+60 [ "Action", "Crime", "Drama", "Thriller" ]
+61 [ "Drama", "Family", "Fantasy", "Romance" ]
+62 [ "Biography", "Crime", "Drama" ]
+63 [ "Comedy", "Drama" ]
+64 [ "Action", "Adventure", "Sci-Fi" ]
+65[ "Biography", "Drama" ]
+[ "Crime", "Drama" ]
+[ "Drama" ]
+[ "Adventure", "Family", "Fantasy", "Romance" ]
+[ "Animation", "Adventure", "Comedy", "Drama", "Family", "Fantasy" ]
+[ "Drama", "Romance" ]
+[ "Action", "Adventure", "Thriller" ]
+[ "Musical", "Romance" ]
+[ "Adventure", "Comedy", "Sci-Fi" ]
+[ "Crime", "Drama", "Thriller" ]
+[ "Drama", "War" ]
+[ "Drama", "Horror", "Mystery", "Thriller" ]
+[ "Action", "Drama", "History", "War" ]
+[ "Action" ]
+[ "Biography", "Drama", "Musical" ]
+[ "Drama", "Thriller" ]
+[ "Crime", "Drama", "Thriller" ]
+[ "Action", "Adventure" ]
+[ "Action", "Drama", "History", "Thriller", "War" ]
+[ "Comedy", "Romance" ]
+[ "Adventure", "Comedy", "Fantasy", "Music", "Sci-Fi" ]
+[ "Action", "Adventure", "Biography", "Drama", "Romance", "Thriller" ]
+[ "Drama", "Mystery", "Sci-Fi", "Thriller" ]
+[ "Comedy", "Western" ]
+[ "Comedy", "Music" ]
+[ "Biography", "Drama" ]
+[ "Comedy", "Fantasy", "Mystery", "Romance" ]
+[ "Drama", "Romance" ]
+[ "Drama", "Fantasy", "Romance" ]
+[ "Action", "Adventure", "Sci-Fi" ]
+[ "Action", "Adventure", "Sci-Fi", "Thriller" ]
+[ "Action", "Adventure", "Thriller" ]
+[ "Animation", "Adventure", "Drama", "Family", "Musical" ]
+[ "Drama", "Romance" ]
+[ "Drama", "Romance" ]
+[ "Action", "Adventure", "Comedy", "Family" ]
+[ "Drama" ]
+[
+  [ "Action", "Adventure", "Drama", "Family" ],
+  [ "Adventure", "Drama", "Sci-Fi" ],
+  [ "Action", "Sci-Fi" ],
+  [ "Drama", "Thriller" ],
+  [ "Drama" ],
+  [ "Action", "Adventure", "Thriller" ],
+  [ "Action", "Drama", "Family", "Sport" ],
+  [ "Comedy", "Horror" ],
+  [ "Action", "Adventure", "Sci-Fi" ],
+  [ "Drama", "Romance" ],
+  [ "Adventure", "Comedy", "Music", "Sci-Fi" ],
+  [ "Comedy", "Romance" ],
+  [ "Action", "Horror", "Sci-Fi" ],
+  [ "Animation", "Adventure", "Family", "Fantasy", "Musical", "War" ],
+  [ "Action", "Crime", "Drama" ],
+  [ "Action", "Drama", "Horror", "Thriller" ],
+  [ "Comedy", "Horror" ],
+  [ "Adventure", "Crime", "Drama", "Mystery" ],
+  [ "Action", "Adventure", "Sci-Fi" ],
+  [ "Comedy", "Crime", "Drama", "Mystery", "Thriller" ],
+  [ "Drama", "Romance" ],
+  [ "Comedy", "Mystery" ],
+  [ "Action", "Crime", "Drama", "Thriller" ],
+  [ "Drama", "Mystery", "Romance", "Thriller" ],
+  [ "Action", "Drama", "Family", "Sport" ],
+  [ "Action", "Adventure", "Fantasy", "Mystery", "Sci-Fi" ],
+  [ "Crime", "Drama", "Thriller" ],
+  [ "Adventure", "Comedy", "Music", "Romance", "Sci-Fi" ],
+  [ "Action", "Crime", "Sci-Fi", "Thriller" ],
+  [ "Comedy", "Horror", "Thriller" ],
+  [ "Action", "Adventure", "Sci-Fi", "Thriller" ],
+  [ "Action", "Horror", "Thriller" ],
+  [ "Adventure", "Drama", "Sci-Fi", "Thriller" ],
+  [ "Action", "Adventure", "Fantasy" ],
+  [ "Comedy", "Drama", "Thriller" ],
+  [ "Action", "Adventure", "Drama", "Sci-Fi" ],
+  [ "Comedy", "Drama" ],
+  [ "Biography", "Drama", "History", "Musical" ],
+  [ "Crime", "Drama", "Mystery", "Thriller" ],
+  [ "Comedy", "Drama", "War" ],
+  [ "Documentary", "Drama" ],
+  [ "Action", "Crime", "Drama", "Thriller" ],
+  [
+    "Animation",
+    "Adventure",
+    "Comedy",
+    "Family",
+    "Fantasy",
+    "Musical"
+  ],
+  [ "Drama", "Fantasy", "Horror", "Thriller" ],
+  [ "Drama", "Romance" ],
+  [ "Action", "Adventure", "Crime" ],
+  [ "Adventure", "Family", "Fantasy" ],
+  [ "Action", "Adventure", "Fantasy", "Thriller" ],
+  [ "Crime", "Drama", "Thriller" ],
+  [ "Action", "Horror", "Thriller" ],
+  [ "Action", "Family", "Romance", "Sport" ],
+  [ "Action", "Thriller" ],
+  [ "Comedy", "Drama" ],
+  [ "Action", "Drama", "Mystery", "Sci-Fi", "Thriller" ],
+  [ "Action", "Drama", "Fantasy", "Sci-Fi" ],
+  [ "Drama", "Fantasy", "Horror", "Mystery" ],
+  [ "Action", "Comedy", "Crime" ],
+  [ "Action", "Biography", "Drama", "Sport" ],
+  [ "Action", "Crime", "Drama", "Thriller" ],
+  [ "Drama", "Family", "Fantasy", "Romance" ],
+  [ "Biography", "Crime", "Drama" ],
+  [ "Comedy", "Drama" ],
+  [ "Action", "Adventure", "Sci-Fi" ],
+  [ "Biography", "Drama" ],
+  [ "Crime", "Drama" ],
+  [ "Drama" ],
+  [ "Adventure", "Family", "Fantasy", "Romance" ],
+  [ "Animation", "Adventure", "Comedy", "Drama", "Family", "Fantasy" ],
+  [ "Drama", "Romance" ],
+  [ "Action", "Adventure", "Thriller" ],
+  [ "Musical", "Romance" ],
+  [ "Adventure", "Comedy", "Sci-Fi" ],
+  [ "Crime", "Drama", "Thriller" ],
+  [ "Drama", "War" ],
+  [ "Drama", "Horror", "Mystery", "Thriller" ],
+  [ "Action", "Drama", "History", "War" ],
+  [ "Action" ],
+  [ "Biography", "Drama", "Musical" ],
+  [ "Drama", "Thriller" ],
+  [ "Crime", "Drama", "Thriller" ],
+  [ "Action", "Adventure" ],
+  [ "Action", "Drama", "History", "Thriller", "War" ],
+  [ "Comedy", "Romance" ],
+  [ "Adventure", "Comedy", "Fantasy", "Music", "Sci-Fi" ],
+  [
+    "Action",
+    "Adventure",
+    "Biography",
+    "Drama",
+    "Romance",
+    "Thriller"
+  ],
+  [ "Drama", "Mystery", "Sci-Fi", "Thriller" ],
+  [ "Comedy", "Western" ],
+  [ "Comedy", "Music" ],
+  [ "Biography", "Drama" ],
+  [ "Comedy", "Fantasy", "Mystery", "Romance" ],
+  [ "Drama", "Romance" ],
+  [ "Drama", "Fantasy", "Romance" ],
+  [ "Action", "Adventure", "Sci-Fi" ],
+  [ "Action", "Adventure", "Sci-Fi", "Thriller" ],
+  [ "Action", "Adventure", "Thriller" ],
+  [ "Animation", "Adventure", "Drama", "Family", "Musical" ],
+  [ "Drama", "Romance" ],
+  [ "Drama", "Romance" ],
+  [ "Action", "Adventure", "Comedy", "Family" ],
+  [ "Drama" ]

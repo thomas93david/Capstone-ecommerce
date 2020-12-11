@@ -1,0 +1,29 @@
+.order__container {
+  margin: 0 auto;
+  background-image: url("https://images8.alphacoders.com/815/thumb-1920-815755.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: background-image 1s ease-in-out;
+  height: 700px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order__container:hover {
+  background-image: url("https://images.alphacoders.com/642/thumb-1920-642303.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
+
+.order__complete {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 40px;
+  color: white;
+  padding: 12px;
+}

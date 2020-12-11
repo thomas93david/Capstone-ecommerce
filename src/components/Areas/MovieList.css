@@ -1,0 +1,21 @@
+.movie-container {
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+  margin-top: 9px;
+  margin-bottom: 9px;
+  background-color: white;
+}
+
+.movie-container .movie-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  padding-left: 150px;
+  padding-right: 150px;
+  background-image: url(https://img.freepik.com/free-vector/black-dark-3d-low-poly-geometric-background_79145-393.jpg?size=626&ext=jpg);
+}

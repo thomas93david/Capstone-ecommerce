@@ -1,0 +1,36 @@
+.checkoutItem {
+  display: flex;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.checkoutItem__image {
+  object-fit: contain;
+  width: 200px;
+  height: 200px;
+}
+
+.checkoutItem__info {
+  padding-left: 20px;
+  font-family: "Play", sans-serif;
+  font-weight: bold;
+
+  margin: 20px;
+}
+
+.checkoutItem__info > button {
+  border: 1px solid grey;
+  margin-top: 12px;
+  color: black;
+  background-color: #ff9900;
+  padding: 9px;
+}
+
+.checkoutItem__title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.checkoutItem__rating {
+  display: flex;
+}
